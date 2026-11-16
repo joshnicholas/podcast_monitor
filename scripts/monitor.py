@@ -15,7 +15,6 @@ from config import PODCASTS
 load_dotenv()
 DEEPGRAM_API_KEY = os.environ["DEEPGRAM_API_KEY"]
 ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
-GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
 
 REPO_ROOT = os.path.join(os.path.dirname(__file__), "..")
 DATA_DIR = os.path.join(REPO_ROOT, "data")
@@ -182,8 +181,7 @@ def git_commit_and_push(total_new):
         cwd=REPO_ROOT,
         check=True,
     )
-    push_url = f"https://{GITHUB_TOKEN}@github.com/joshnicholas/podcast_monitor.git"
-    subprocess.run(["git", "push", push_url], cwd=REPO_ROOT, check=True)
+    subprocess.run(["git", "push"], cwd=REPO_ROOT, check=True)
 
 
 def main():

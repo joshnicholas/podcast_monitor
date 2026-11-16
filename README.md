@@ -12,35 +12,22 @@ publishes those feeds via a SvelteKit site on GitHub Pages.
 
 ## Running the pipeline on a Raspberry Pi
 
-### 1. Create a GitHub personal access token
-
-This repo is private, so cloning and pushing from the Pi needs a credential. Go to
-**GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens**,
-create one scoped to just this repo with **Contents: Read and write** permission, and
-copy the token — you'll only see it once.
-
-### 2. Clone the repo and set up a virtualenv
+### 1. Clone the repo and set up a virtualenv
 
 ```bash
-git clone https://YOUR_TOKEN_HERE@github.com/joshnicholas/podcast_monitor.git ~/podcast_monitor
+git clone https://github.com/joshnicholas/podcast_monitor.git ~/podcast_monitor
 cd ~/podcast_monitor
-git remote set-url origin https://github.com/joshnicholas/podcast_monitor.git
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 ```
 
-The `remote set-url` strips the token back out of the clone URL once it's done its job —
-from here on, `monitor.py` reads the token from `.env` (next step) for every push, so it's
-never stored anywhere else on disk.
-
-### 3. Add your API keys and set a commit identity
+### 2. Add your API keys
 
 Create `~/podcast_monitor/.env`:
 
 ```
 DEEPGRAM_API_KEY=your_deepgram_key_here
 ANTHROPIC_API_KEY=your_anthropic_key_here
-GITHUB_TOKEN=your_github_token_here
 ```
 
 Lock down the permissions:
@@ -49,13 +36,29 @@ Lock down the permissions:
 chmod 600 ~/podcast_monitor/.env
 ```
 
-Set a commit identity for the Pi:
+### 3. Give the Pi push access to GitHub
+
+Generate a dedicated SSH key on the Pi:
+
+```bash
+ssh-keygen -t ed25519 -C "podcast-monitor-pi" -f ~/.ssh/id_ed25519 -N ""
+cat ~/.ssh/id_ed25519.pub
+```
+
+Copy that output, then on GitHub go to **Settings → Deploy keys → Add deploy key** on
+this repo, paste the key, and check **"Allow write access"**.
+
+Back on the Pi, point the repo at the SSH remote and set a commit identity:
 
 ```bash
 cd ~/podcast_monitor
+git remote set-url origin git@github.com:joshnicholas/podcast_monitor.git
 git config user.name "podcast-monitor-pi"
 git config user.email "pi@localhost"
+ssh -T git@github.com
 ```
+
+The last command should greet you by the deploy key's name — that confirms push access works.
 
 ### 4. Test a manual run
 
