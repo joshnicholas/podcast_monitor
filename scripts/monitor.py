@@ -40,9 +40,15 @@ WHOLE batch combined, not per episode:
 - Who is being interviewed or on a panel, if anyone? For each one, give their name and
   role, followed by the podcast they were interviewed on in brackets, e.g.
   "Jane Smith, Treasurer (ABC AM)".
-- What are the major stories being discussed?
-- Who are the main actors being discussed?
-Condense each to a short phrase. Only mention an interviewee, actor or theme if it is important.
+- What are the major stories being discussed? If multiple podcasts cover the same
+  story, merge it into ONE theme rather than listing a reworded duplicate for each
+  podcast that covered it.
+- Who are the main actors being discussed? Merge the same person or organisation into
+  ONE entry even if they come up across multiple podcasts.
+Condense each to a short phrase. Only mention an interviewee, actor or theme if it is
+important. Order the "themes" and "actors" lists from most to least mentioned, counting
+a mention once per podcast it appears in (not per sentence), so the most widely-covered
+stories and actors come first.
 
 Respond with ONLY a JSON object of the form:
 {{"interviewees": ["...", "..."], "actors": ["...", "..."], "themes": ["...", "..."]}}
