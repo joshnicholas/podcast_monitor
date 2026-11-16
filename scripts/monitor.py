@@ -25,26 +25,22 @@ MAX_EPISODE_AGE = timedelta(days=2)
 DIGEST_NAME = "digest"
 DIGEST_DISPLAY_NAME = "Run Digest"
 
-ANALYSIS_PROMPT = """You are a media analyst for a large organisation. Your job is to read the news and summarise the important news stories, players and discussions of the day.
-Pay particular attention to politics, disasters, anniversaries, controveries.
-Read the following podcast transcript. Answer two questions - who and what are the main news stories.
-Condense each to a sentence explanation. Only mention an actor or theme if it is important.
+BATCH_ANALYSIS_PROMPT = """You are a media analyst for a large organisation.
+Your job is to read transcripts of morning radio shows and summarise the important news stories,
+players and discussions of the day.
+Pay particular attention to who is being interviewed and the topics they are discussing
+- especially politics, disasters, anniversaries, controversies.
+
+The following podcast episodes were all published since the last check and are being
+processed together as one batch. Read all the transcripts below and answer the following
+questions across the WHOLE batch combined, not per episode:
+- Who is being interviewed or on a panel, if anyone?
+- What are the major stories being discussed?
+- Who are the main actors being discussed?
+Condense each to a short phrase. Only mention an interviewee, actor or theme if it is important.
 
 Respond with ONLY a JSON object of the form:
-{{"actors": ["...", "..."], "themes": ["...", "..."]}}
-
-Transcript:
-{transcript}
-"""
-
-BATCH_ANALYSIS_PROMPT = """You are a media analyst for a large organisation. The following podcast episodes
-were all published since the last check and are being processed together as one batch.
-Read all the transcripts below and identify the main actors and themes across the WHOLE
-batch combined, not per episode. Condense each to a short phrase. Only mention an actor
-or theme if it is important.
-
-Respond with ONLY a JSON object of the form:
-{{"actors": ["...", "..."], "themes": ["...", "..."]}}
+{{"interviewees": ["...", "..."], "actors": ["...", "..."], "themes": ["...", "..."]}}
 
 Transcripts:
 {transcripts}
@@ -108,48 +104,12 @@ def ask_claude(prompt, timeout=120):
     return json.loads(text)
 
 
-def analyse_transcript(transcript):
-    return ask_claude(ANALYSIS_PROMPT.format(transcript=transcript))
-
-
 def analyse_batch(entries):
     transcripts = "\n\n".join(
         f"### {entry['podcast']} — {entry['title']}\n{entry['transcript']}"
         for entry in entries
     )
     return ask_claude(BATCH_ANALYSIS_PROMPT.format(transcripts=transcripts), timeout=180)
-
-
-def build_feed_xml(podcast, archive_dir):
-    records = []
-    for filename in sorted(os.listdir(archive_dir), reverse=True):
-        with open(os.path.join(archive_dir, filename)) as f:
-            records.append(json.load(f))
-
-    rss = ET.Element("rss", version="2.0")
-    channel = ET.SubElement(rss, "channel")
-    ET.SubElement(channel, "title").text = podcast["display_name"]
-    ET.SubElement(channel, "link").text = podcast["rss_url"]
-    ET.SubElement(channel, "description").text = (
-        f"Auto-generated feed for {podcast['display_name']} with AI-extracted "
-        "actors and themes."
-    )
-
-    for record in records:
-        item = ET.SubElement(channel, "item")
-        ET.SubElement(item, "title").text = record["title"]
-        ET.SubElement(item, "link").text = record["link"]
-        ET.SubElement(item, "guid").text = record["guid"]
-        ET.SubElement(item, "pubDate").text = record["published"]
-        ET.SubElement(item, "enclosure", url=record["audio_url"], type="audio/mpeg")
-
-        description = (
-            f"<p><strong>Key Actors:</strong> {', '.join(record['actors'])}</p>"
-            f"<p><strong>Key Themes:</strong> {', '.join(record['themes'])}</p>"
-        )
-        ET.SubElement(item, "description").text = description
-
-    return ET.tostring(rss, encoding="unicode")
 
 
 def build_digest_feed_xml(archive_dir):
@@ -162,7 +122,7 @@ def build_digest_feed_xml(archive_dir):
     channel = ET.SubElement(rss, "channel")
     ET.SubElement(channel, "title").text = DIGEST_DISPLAY_NAME
     ET.SubElement(channel, "description").text = (
-        "Combined actors and themes across every episode processed in each monitor run."
+        "Combined interviewees, actors and themes across every episode processed in each monitor run."
     )
 
     for record in records:
@@ -177,6 +137,7 @@ def build_digest_feed_xml(archive_dir):
         ET.SubElement(item, "pubDate").text = record["run_at"]
 
         description = (
+            f"<p><strong>Interviewees:</strong> {', '.join(record['interviewees'])}</p>"
             f"<p><strong>Key Actors:</strong> {', '.join(record['actors'])}</p>"
             f"<p><strong>Key Themes:</strong> {', '.join(record['themes'])}</p>"
             f"<p><strong>Episodes in this run:</strong></p><ul>{episode_list}</ul>"
@@ -197,6 +158,7 @@ def write_digest(entries):
     record = {
         "run_at": run_at.isoformat(),
         "episodes": [{"podcast": e["podcast"], "title": e["title"]} for e in entries],
+        "interviewees": analysis["interviewees"],
         "actors": analysis["actors"],
         "themes": analysis["themes"],
     }
@@ -241,7 +203,6 @@ def process_podcast(podcast):
         print(f"[{name}] new episode: {entry.title}")
         audio_url = entry.enclosures[0].href
         transcript = fetch_transcript(audio_url)
-        analysis = analyse_transcript(transcript)
 
         record = {
             "title": entry.title,
@@ -250,8 +211,6 @@ def process_podcast(podcast):
             "published": entry.get("published", ""),
             "audio_url": audio_url,
             "transcript": transcript,
-            "actors": analysis["actors"],
-            "themes": analysis["themes"],
             "fetched_at": datetime.now(timezone.utc).isoformat(),
         }
 
@@ -266,11 +225,6 @@ def process_podcast(podcast):
                 "transcript": transcript,
             }
         )
-
-    if new_count:
-        feed_xml = build_feed_xml(podcast, archive_dir)
-        with open(os.path.join(podcast_dir, "feed.xml"), "w") as f:
-            f.write(feed_xml)
 
     return new_count, new_entries
 
