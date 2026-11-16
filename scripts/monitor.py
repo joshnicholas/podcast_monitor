@@ -1,10 +1,11 @@
+import calendar
 import hashlib
 import json
 import os
 import subprocess
 import time
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from urllib.request import Request, urlopen
 
 import feedparser
@@ -18,6 +19,8 @@ ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 
 REPO_ROOT = os.path.join(os.path.dirname(__file__), "..")
 DATA_DIR = os.path.join(REPO_ROOT, "data")
+
+MAX_EPISODE_AGE = timedelta(days=2)
 
 ANALYSIS_PROMPT = """You are a media analyst for a large organisation. Your job is to read the news and summarise the important events and discussions of the day. 
 Pay particular attention to politics, disasters, anniversaries, controveries. 
@@ -143,6 +146,14 @@ def process_podcast(podcast):
         eid = episode_id(entry)
         if eid in existing_ids:
             continue
+
+        published = entry.get("published_parsed")
+        if published:
+            published_dt = datetime.fromtimestamp(
+                calendar.timegm(published), tz=timezone.utc
+            )
+            if datetime.now(timezone.utc) - published_dt > MAX_EPISODE_AGE:
+                continue
 
         print(f"[{name}] new episode: {entry.title}")
         audio_url = entry.enclosures[0].href
