@@ -1,0 +1,80 @@
+{
+  "run_at": "2026-11-16T12:28:04.949254+00:00",
+  "episodes": [
+    {
+      "podcast": "Full Story",
+      "title": "Gideon Haigh on how cricket can get out of this mess"
+    },
+    {
+      "podcast": "7AM podcast",
+      "title": "AI: \u2018The biggest act of copyright theft in history\u2019"
+    },
+    {
+      "podcast": "News24",
+      "title": "Coles investigating cyber breach"
+    },
+    {
+      "podcast": "News24",
+      "title": "Albanese backs trilateral meeting"
+    },
+    {
+      "podcast": "News24",
+      "title": "Albanese apologises for hot mic incident at COP31"
+    },
+    {
+      "podcast": "News24",
+      "title": "Man is struck by lightning on Central Coast"
+    },
+    {
+      "podcast": "News24",
+      "title": "Albanese to sign major defence deal with Philippines"
+    },
+    {
+      "podcast": "Daily Aus",
+      "title": "Headlines: Cyberattack on Coles"
+    }
+  ],
+  "interviewees": [
+    "Gideon Haigh (journalist and author)",
+    "Hannah Marshall (copyright lawyer)"
+  ],
+  "actors": [
+    "Steve Smith",
+    "David Warner",
+    "Cameron Bancroft",
+    "Usman Khawaja",
+    "Pat Cummins",
+    "Cricket Australia",
+    "Scott Farquhar (Atlassian co-founder)",
+    "Anthony Albanese",
+    "Richard Flanagan",
+    "Meta",
+    "Anthropic",
+    "Pauline Hanson",
+    "Ben Carroll (Victorian Premier)",
+    "Jess Wilson (Victorian Opposition Leader)",
+    "Catherine Deves",
+    "Coles",
+    "Sam Wood",
+    "Jensen Huang (NVIDIA)",
+    "Donald Trump",
+    "Chris Bowen"
+  ],
+  "themes": [
+    "Sandpaper Gate scandal reignited by Usman Khawaja's book",
+    "Ball tampering in cricket and institutional accountability",
+    "Cricket team culture and leadership responsibility",
+    "AI companies using creative works without permission or payment",
+    "Copyright law reforms and fair use debate",
+    "Threat to Australian creative industries and news sector",
+    "Australian government balancing AI innovation with creator protection",
+    "Coles cybersecurity breach",
+    "Australian lamb exports and US tariffs",
+    "Victorian state election campaign",
+    "NDIS spending on non-citizens",
+    "Gas reservation scheme legislation",
+    "Australia-Philippines defence deal",
+    "US air traffic control system failures",
+    "Lightning strike casualty on Central Coast"
+  ]
+}
