@@ -137,9 +137,9 @@ def build_digest_feed_xml(archive_dir):
         ET.SubElement(item, "pubDate").text = record["run_at"]
 
         description = (
-            f"<p><strong>Interviewees:</strong> {', '.join(record['interviewees'])}</p>"
-            f"<p><strong>Key Actors:</strong> {', '.join(record['actors'])}</p>"
-            f"<p><strong>Key Themes:</strong> {', '.join(record['themes'])}</p>"
+            f"<p><strong>Interviewees:</strong> {', '.join(record.get('interviewees', []))}</p>"
+            f"<p><strong>Key Actors:</strong> {', '.join(record.get('actors', []))}</p>"
+            f"<p><strong>Key Themes:</strong> {', '.join(record.get('themes', []))}</p>"
             f"<p><strong>Episodes in this run:</strong></p><ul>{episode_list}</ul>"
         )
         ET.SubElement(item, "description").text = description
@@ -207,7 +207,7 @@ def process_podcast(podcast):
         record = {
             "title": entry.title,
             "guid": entry.get("id") or entry.get("link"),
-            "link": entry.link,
+            "link": entry.get("link", ""),
             "published": entry.get("published", ""),
             "audio_url": audio_url,
             "transcript": transcript,
