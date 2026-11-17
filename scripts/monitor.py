@@ -6,7 +6,7 @@ import re
 import subprocess
 import time
 import xml.etree.ElementTree as ET
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
@@ -22,7 +22,7 @@ ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
 REPO_ROOT = os.path.join(os.path.dirname(__file__), "..")
 DATA_DIR = os.path.join(REPO_ROOT, "data")
 
-MAX_EPISODE_AGE = timedelta(days=2)
+LOCAL_TZ = ZoneInfo("Australia/Melbourne")
 
 DIGEST_NAME = "digest"
 DIGEST_DISPLAY_NAME = "Run Digest"
@@ -251,12 +251,12 @@ def process_podcast(podcast):
             continue
 
         published = entry.get("published_parsed")
-        if published:
-            published_dt = datetime.fromtimestamp(
-                calendar.timegm(published), tz=timezone.utc
-            )
-            if datetime.now(timezone.utc) - published_dt > MAX_EPISODE_AGE:
-                continue
+        if not published:
+            continue
+        published_dt = datetime.fromtimestamp(calendar.timegm(published), tz=timezone.utc)
+        today_local = datetime.now(tz=LOCAL_TZ).date()
+        if published_dt.astimezone(LOCAL_TZ).date() != today_local:
+            continue
 
         print(f"[{name}] new episode: {entry.title}")
         audio_url = entry.enclosures[0].href
