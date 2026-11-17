@@ -1,0 +1,58 @@
+{
+  "run_at": "2026-11-17T19:39:02.089933+00:00",
+  "episodes": [
+    {
+      "podcast": "The Front",
+      "title": "Wizard, vampire, Batman, Bond: Rob Pattinson\u2019s insane path to 007"
+    },
+    {
+      "podcast": "Full Story",
+      "title": "Trump, Xi, Putin: Albanese\u2019s blitz of the world\u2019s most powerful"
+    },
+    {
+      "podcast": "7AM podcast",
+      "title": "AI job cuts at Bunnings, Qantas, NAB: \u2018Mass unemployment is the business plan\u2019"
+    },
+    {
+      "podcast": "Daily Aus",
+      "title": "Inside the race to lead Victoria"
+    }
+  ],
+  "interviewees": [
+    "Richard Ferguson, Canberra Bureau Chief (The Australian)",
+    "Tom McElroy, Political Editor (The Guardian)",
+    "Richard Dennis, Economist and Co-CEO of the Australia Institute (7AM)",
+    "Jess Wilson, Opposition Leader, Liberal Party (Daily Aus)"
+  ],
+  "actors": [
+    "Robert Pattinson",
+    "Anthony Albanese",
+    "Donald Trump",
+    "Xi Jinping",
+    "Vladimir Putin",
+    "Ben Carroll",
+    "One Nation",
+    "Denis Villeneuve",
+    "Daniel Craig",
+    "NBL",
+    "Qantas",
+    "Bunnings",
+    "Amazon and MGM",
+    "China",
+    "Russia",
+    "The Philippines"
+  ],
+  "themes": [
+    "Robert Pattinson cast as new James Bond",
+    "Australian diplomatic summits in Asia-Pacific region",
+    "AI-driven job cuts in major Australian companies",
+    "Victorian state election and rise of One Nation",
+    "Australia-Philippines defense pact and China influence",
+    "Cost of living and inflation",
+    "Public service hiring freeze and budget repair",
+    "Youth crime and criminal justice reform",
+    "Housing and rental market issues",
+    "First Nations treaty repeal",
+    "Trump-Xi-Putin trilateral meeting at APEC"
+  ]
+}
