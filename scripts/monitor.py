@@ -3,7 +3,9 @@ import hashlib
 import json
 import os
 import re
+import shutil
 import subprocess
+import tempfile
 import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
@@ -12,20 +14,37 @@ from zoneinfo import ZoneInfo
 
 import feedparser
 from dotenv import load_dotenv
+from google import genai
+from google.genai import types
 
 from config import PODCASTS
 
 load_dotenv()
-DEEPGRAM_API_KEY = os.environ["DEEPGRAM_API_KEY"]
-ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
+GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
+GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
+GITHUB_OWNER = os.environ["GITHUB_OWNER"]
+GITHUB_REPO = os.environ["GITHUB_REPO"]
+GITHUB_BRANCH = os.environ.get("GITHUB_BRANCH", "main")
+GIT_AUTHOR_NAME = os.environ.get("GIT_AUTHOR_NAME", "podcast-monitor-bot")
+GIT_AUTHOR_EMAIL = os.environ.get("GIT_AUTHOR_EMAIL", "podcast-monitor-bot@users.noreply.github.com")
 
-REPO_ROOT = os.path.join(os.path.dirname(__file__), "..")
-DATA_DIR = os.path.join(REPO_ROOT, "data")
+REPO_DIR = os.environ.get("REPO_DIR", "/tmp/podcast_monitor_repo")
+DATA_DIR = os.path.join(REPO_DIR, "data")
 
 LOCAL_TZ = ZoneInfo("Australia/Melbourne")
 
 DIGEST_NAME = "digest"
 DIGEST_DISPLAY_NAME = "Run Digest"
+
+GEMINI_MODEL = "gemini-3.5-flash-lite"
+
+client = genai.Client(api_key=GEMINI_API_KEY)
+
+TRANSCRIPT_PROMPT = """Generate a complete, verbatim transcript of this audio.
+Label distinct speakers, switching the label every time the speaker changes.
+If you can tell a speaker's name or role from how they're introduced or addressed,
+use that as the label (e.g. "Host:" or "Jane Smith:"); otherwise use "Speaker 1:",
+"Speaker 2:", etc. Output only the transcript, one turn per line."""
 
 BATCH_ANALYSIS_PROMPT = """You are a media analyst for a large organisation.
 Your job is to read transcripts of morning radio shows and summarise the important news stories,
@@ -50,12 +69,19 @@ important. Order the "themes" and "actors" lists from most to least mentioned, c
 a mention once per podcast it appears in (not per sentence), so the most widely-covered
 stories and actors come first.
 
-Respond with ONLY a JSON object of the form:
-{{"interviewees": ["...", "..."], "actors": ["...", "..."], "themes": ["...", "..."]}}
-
 Transcripts:
 {transcripts}
 """
+
+ANALYSIS_RESPONSE_SCHEMA = types.Schema(
+    type=types.Type.OBJECT,
+    properties={
+        "interviewees": types.Schema(type=types.Type.ARRAY, items=types.Schema(type=types.Type.STRING)),
+        "actors": types.Schema(type=types.Type.ARRAY, items=types.Schema(type=types.Type.STRING)),
+        "themes": types.Schema(type=types.Type.ARRAY, items=types.Schema(type=types.Type.STRING)),
+    },
+    required=["interviewees", "actors", "themes"],
+)
 
 
 def episode_id(entry):
@@ -66,26 +92,30 @@ def episode_id(entry):
     return f"{date_prefix}_{digest}"
 
 
-def fetch_transcript(audio_url):
-    url = (
-        "https://api.deepgram.com/v1/listen"
-        "?model=nova-3&language=en&punctuate=true&smart_format=true"
-        "&diarize=true&utterances=true"
-    )
-    req = Request(
-        url,
-        data=json.dumps({"url": audio_url}).encode(),
-        headers={
-            "Authorization": f"Token {DEEPGRAM_API_KEY}",
-            "Content-Type": "application/json",
-        },
-        method="POST",
-    )
-    with urlopen(req, timeout=1200) as resp:
-        payload = json.loads(resp.read())
+def transcribe_audio(audio_url):
+    with urlopen(Request(audio_url), timeout=1200) as resp:
+        content_type = resp.headers.get("Content-Type", "audio/mpeg").split(";")[0].strip()
+        audio_bytes = resp.read()
 
-    utterances = payload["results"]["utterances"]
-    return "\n".join(f"Speaker {u['speaker']}: {u['transcript']}" for u in utterances)
+    with tempfile.NamedTemporaryFile(suffix=".mp3") as tmp:
+        tmp.write(audio_bytes)
+        tmp.flush()
+        uploaded = client.files.upload(
+            file=tmp.name,
+            config=types.UploadFileConfig(mime_type=content_type),
+        )
+
+    try:
+        response = client.models.generate_content(
+            model=GEMINI_MODEL,
+            contents=[uploaded, TRANSCRIPT_PROMPT],
+        )
+        return response.text.strip()
+    finally:
+        try:
+            client.files.delete(name=uploaded.name)
+        except Exception:
+            pass
 
 
 def _is_cue_line(line):
@@ -124,39 +154,20 @@ def fetch_published_transcript(transcript_tag):
     return "\n".join(lines) or None
 
 
-def ask_claude(prompt, timeout=120):
-    req = Request(
-        "https://api.anthropic.com/v1/messages",
-        data=json.dumps(
-            {
-                "model": "claude-haiku-4-5-20251001",
-                "max_tokens": 1024,
-                "messages": [{"role": "user", "content": prompt}],
-            }
-        ).encode(),
-        headers={
-            "x-api-key": ANTHROPIC_API_KEY,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json",
-        },
-        method="POST",
-    )
-    with urlopen(req, timeout=timeout) as resp:
-        payload = json.loads(resp.read())
-
-    text = payload["content"][0]["text"].strip()
-    if text.startswith("```"):
-        text = text.strip("`")
-        text = text.removeprefix("json").strip()
-    return json.loads(text)
-
-
 def analyse_batch(entries):
     transcripts = "\n\n".join(
         f"### {entry['podcast']} — {entry['title']}\n{entry['transcript']}"
         for entry in entries
     )
-    return ask_claude(BATCH_ANALYSIS_PROMPT.format(transcripts=transcripts), timeout=180)
+    response = client.models.generate_content(
+        model=GEMINI_MODEL,
+        contents=BATCH_ANALYSIS_PROMPT.format(transcripts=transcripts),
+        config=types.GenerateContentConfig(
+            response_mime_type="application/json",
+            response_schema=ANALYSIS_RESPONSE_SCHEMA,
+        ),
+    )
+    return json.loads(response.text)
 
 
 def _html_list(items):
@@ -270,7 +281,7 @@ def process_podcast(podcast):
                 print(f"[{name}] couldn't use published transcript, transcribing instead: {exc}")
 
         if not transcript:
-            transcript = fetch_transcript(audio_url)
+            transcript = transcribe_audio(audio_url)
 
         record = {
             "title": entry.title,
@@ -297,17 +308,32 @@ def process_podcast(podcast):
     return new_count, new_entries
 
 
-def git_commit_and_push(total_new):
-    subprocess.run(["git", "add", "data"], cwd=REPO_ROOT, check=True)
+def clone_repo():
+    if os.path.exists(REPO_DIR):
+        shutil.rmtree(REPO_DIR)
+
+    remote = f"https://x-access-token:{GITHUB_TOKEN}@github.com/{GITHUB_OWNER}/{GITHUB_REPO}.git"
     subprocess.run(
-        ["git", "commit", "-m", f"Add {total_new} new episode(s)"],
-        cwd=REPO_ROOT,
+        ["git", "clone", "--depth", "1", "--branch", GITHUB_BRANCH, remote, REPO_DIR],
         check=True,
     )
-    subprocess.run(["git", "push"], cwd=REPO_ROOT, check=True)
+    subprocess.run(["git", "-C", REPO_DIR, "config", "user.email", GIT_AUTHOR_EMAIL], check=True)
+    subprocess.run(["git", "-C", REPO_DIR, "config", "user.name", GIT_AUTHOR_NAME], check=True)
+
+
+def git_commit_and_push(total_new):
+    subprocess.run(["git", "add", "data"], cwd=REPO_DIR, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", f"Add {total_new} new episode(s)"],
+        cwd=REPO_DIR,
+        check=True,
+    )
+    subprocess.run(["git", "push"], cwd=REPO_DIR, check=True)
 
 
 def main():
+    clone_repo()
+
     total_new = 0
     batch_entries = []
     for podcast in PODCASTS:
