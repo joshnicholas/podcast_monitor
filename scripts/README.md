@@ -26,7 +26,7 @@ injected into the container at runtime.
 ## One-time setup
 
 ```bash
-gcloud config set project YOUR_PROJECT_ID
+gcloud config set project podcast-monitor-515309
 
 gcloud services enable \
   run.googleapis.com \
@@ -38,31 +38,24 @@ gcloud services enable \
 
 ### Store secrets
 
-```bash
-printf '%s' 'YOUR_GEMINI_KEY' | gcloud secrets create gemini-api-key --data-file=-
-printf '%s' 'YOUR_GITHUB_PAT' | gcloud secrets create github-token   --data-file=-
-```
 
-To rotate a secret later (e.g. the GitHub token expired or the Gemini key leaked),
-add a new version rather than recreating the secret — the job always reads `:latest`:
 
 ```bash
-printf '%s' 'NEW_VALUE' | gcloud secrets versions add gemini-api-key --data-file=-
-```
-
-### Let the job read those secrets
-
-Cloud Run Jobs use the default compute service account unless you specify another one:
-
-```bash
-PROJECT_NUMBER=$(gcloud projects describe YOUR_PROJECT_ID --format='value(projectNumber)')
-SA="${PROJECT_NUMBER}-compute@developer.gserviceaccount.com"
-
-for SECRET in gemini-api-key github-token; do
-  gcloud secrets add-iam-policy-binding "$SECRET" \
-    --member="serviceAccount:${SA}" \
-    --role="roles/secretmanager.secretAccessor"
-done
+(
+set -e
+P=podcast-monitor-515309; R=australia-southeast1; J=podcast-monitor; F=scripts/.env
+getenv() { awk -v k="$1" '{sub(/\r$/,"");sub(/^export[ \t]+/,"")} index($0,k"=")==1{v=substr($0,length(k)+2);gsub(/^["'\'']|["'\'']$/,"",v);printf "%s",v;exit}' "$F"; }
+gem_key=$(getenv GEMINI_API_KEY); gh_tok=$(getenv GITHUB_TOKEN); gh_owner=$(getenv GITHUB_OWNER); gh_repo=$(getenv GITHUB_REPO)
+[ -n "$gem_key" ] && [ -n "$gh_tok" ] && [ -n "$gh_owner" ] && [ -n "$gh_repo" ] || { echo "missing value in $F" >&2; exit 1; }
+put() { if gcloud secrets describe "$1" --project="$P" >/dev/null 2>&1; then printf '%s' "$2" | gcloud secrets versions add "$1" --project="$P" --data-file=-; else printf '%s' "$2" | gcloud secrets create "$1" --project="$P" --data-file=-; fi; }
+put gemini-api-key "$gem_key"
+put github-token "$gh_tok"
+sa=$(gcloud run jobs describe "$J" --project="$P" --region="$R" --format='value(spec.template.spec.template.spec.serviceAccountName)')
+[ -n "$sa" ] || sa="$(gcloud projects describe "$P" --format='value(projectNumber)')-compute@developer.gserviceaccount.com"
+for s in gemini-api-key github-token; do gcloud secrets add-iam-policy-binding "$s" --project="$P" --member="serviceAccount:$sa" --role=roles/secretmanager.secretAccessor >/dev/null; done
+gcloud run jobs update "$J" --project="$P" --region="$R" --update-env-vars="GITHUB_OWNER=$gh_owner,GITHUB_REPO=$gh_repo" --update-secrets="GEMINI_API_KEY=gemini-api-key:latest,GITHUB_TOKEN=github-token:latest"
+echo "Done. Job runs as: $sa"
+)
 ```
 
 ## Deploy the job
@@ -146,9 +139,16 @@ gcloud scheduler jobs update http podcast-monitor-trigger \
 cd scripts
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env   # fill in GEMINI_API_KEY, GITHUB_TOKEN, GITHUB_OWNER, GITHUB_REPO
+cp .env.example .env
 python monitor.py
 ```
+
+Before running `python monitor.py`, edit `.env` and fill in `GEMINI_API_KEY`,
+`GITHUB_TOKEN`, `GITHUB_OWNER`, `GITHUB_REPO` with real values — don't put the `cp`
+command and a trailing `#` comment on the same line if you're on zsh (the default
+macOS shell): zsh doesn't treat `#` as a comment in interactive mode unless
+`setopt interactive_comments` is set, so anything after it gets parsed as extra
+arguments to the command instead of being ignored.
 
 This clones the real repo into `REPO_DIR` (default `/tmp/podcast_monitor_repo`) and will
 push to it if it finds new episodes — point `GITHUB_REPO`/`GITHUB_BRANCH` at a fork or

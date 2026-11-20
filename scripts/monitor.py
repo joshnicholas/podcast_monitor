@@ -2,6 +2,7 @@ import calendar
 import hashlib
 import json
 import os
+import random
 import re
 import shutil
 import subprocess
@@ -15,6 +16,7 @@ from zoneinfo import ZoneInfo
 import feedparser
 from dotenv import load_dotenv
 from google import genai
+from google.genai import errors as genai_errors
 from google.genai import types
 
 from config import PODCASTS
@@ -84,6 +86,19 @@ ANALYSIS_RESPONSE_SCHEMA = types.Schema(
 )
 
 
+def generate_with_retry(**kwargs):
+    attempts = 5
+    for attempt in range(1, attempts + 1):
+        try:
+            return client.models.generate_content(**kwargs)
+        except genai_errors.ServerError as exc:
+            if attempt == attempts:
+                raise
+            delay = min(60, 5 * 2 ** (attempt - 1)) + random.uniform(0, 3)
+            print(f"Gemini request failed ({exc}), retrying in {delay:.0f}s (attempt {attempt}/{attempts})")
+            time.sleep(delay)
+
+
 def episode_id(entry):
     guid = entry.get("id") or entry.get("link")
     digest = hashlib.sha1(guid.encode()).hexdigest()[:12]
@@ -106,7 +121,7 @@ def transcribe_audio(audio_url):
         )
 
     try:
-        response = client.models.generate_content(
+        response = generate_with_retry(
             model=GEMINI_MODEL,
             contents=[uploaded, TRANSCRIPT_PROMPT],
         )
@@ -159,7 +174,7 @@ def analyse_batch(entries):
         f"### {entry['podcast']} — {entry['title']}\n{entry['transcript']}"
         for entry in entries
     )
-    response = client.models.generate_content(
+    response = generate_with_retry(
         model=GEMINI_MODEL,
         contents=BATCH_ANALYSIS_PROMPT.format(transcripts=transcripts),
         config=types.GenerateContentConfig(
@@ -272,16 +287,20 @@ def process_podcast(podcast):
         print(f"[{name}] new episode: {entry.title}")
         audio_url = entry.enclosures[0].href
 
-        transcript = None
-        published_transcript = entry.get("podcast_transcript")
-        if published_transcript:
-            try:
-                transcript = fetch_published_transcript(published_transcript)
-            except Exception as exc:
-                print(f"[{name}] couldn't use published transcript, transcribing instead: {exc}")
+        try:
+            transcript = None
+            published_transcript = entry.get("podcast_transcript")
+            if published_transcript:
+                try:
+                    transcript = fetch_published_transcript(published_transcript)
+                except Exception as exc:
+                    print(f"[{name}] couldn't use published transcript, transcribing instead: {exc}")
 
-        if not transcript:
-            transcript = transcribe_audio(audio_url)
+            if not transcript:
+                transcript = transcribe_audio(audio_url)
+        except Exception as exc:
+            print(f"[{name}] failed to transcribe '{entry.title}', skipping: {exc}")
+            continue
 
         record = {
             "title": entry.title,
@@ -345,7 +364,10 @@ def main():
             print(f"[{podcast['name']}] failed: {exc}")
 
     if batch_entries:
-        write_digest(batch_entries)
+        try:
+            write_digest(batch_entries)
+        except Exception as exc:
+            print(f"digest analysis failed, publishing episodes without a digest update: {exc}")
 
     if total_new:
         print(f"{total_new} new episode(s) processed, pushing to git...")
