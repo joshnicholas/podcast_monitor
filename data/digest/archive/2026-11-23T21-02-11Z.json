@@ -1,0 +1,334 @@
+{
+  "run_at": "2026-11-23T21:02:11.668691+00:00",
+  "episodes": [
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "SA demands action from federal government on aged care",
+      "stories": [
+        {
+          "story": "South Australia demands federal action on aged care bed blockages",
+          "start_time": "00:01",
+          "duration": "05:43",
+          "angle": "Aged care crisis in South Australia putting immense pressure on the broader health system and requiring immediate federal intervention.",
+          "voices": "Presenter (live), Blair Boyer, SA Minister for Health (live)",
+          "tone": "Urgent and explanatory. The presenter questioned the minister on systemic failures, while the minister framed the issue as a long-term demographic challenge requiring federal funding.",
+          "emphasis": "Systemic strain, hospital bed blockages, and the human cost of elderly people waiting in emergency departments for residential aged care beds.",
+          "placement": "Lead item, covering the top of the program.",
+          "evidence": "We have known what the aging profile of Australia is going to be for a long, long time."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Does the new UK-EU deal signal the end of Brexit?",
+      "stories": [
+        {
+          "story": "UK Prime Minister Rishi Sunak hails new UK-EU deal",
+          "start_time": "00:01",
+          "duration": "03:19",
+          "angle": "Whether the new reset deal signals a significant shift in post-Brexit UK-EU relations or is merely a modest adjustment with limited economic impact.",
+          "voices": "Presenter (live), Rob Watson, BBC World Service political correspondent (live)",
+          "tone": "Analytical and skeptical. The presenter pressed on the practical limitations of the agreement, while the correspondent highlighted the political and trade hurdles.",
+          "emphasis": "Trade impacts, political motivations, and the reality of post-Brexit economic friction.",
+          "placement": "First main segment after headlines.",
+          "evidence": "It's pretty modest in and every other way, and it's not going to change the world."
+        },
+        {
+          "story": "Debate over UK-EU deal and future economic impacts",
+          "start_time": "03:20",
+          "duration": "03:10",
+          "angle": "Assessing the political fallout and whether the deal marks a turning point or a permanent stagnation in UK-EU relations.",
+          "voices": "Presenter (live), Rob Watson, BBC World Service political correspondent (live)",
+          "tone": "Conversational and speculative, examining the political rhetoric versus economic reality.",
+          "emphasis": "Political legacy, sovereignty concerns, and the difficulty of reversing Brexit-related friction.",
+          "placement": "Second segment continuing the Brexit discussion.",
+          "evidence": "The Brexit debate is back in a more general sense rather than just to do with this particular deal."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Jensen Huang reinstated as chief executive of Nvidia",
+      "stories": [
+        {
+          "story": "Jensen Huang reinstated as chief executive of Nvidia",
+          "start_time": "00:01",
+          "duration": "04:36",
+          "angle": "The stunning reinstatement of Jensen Huang as Nvidia CEO following revelations of extra-marital affairs, highlighting the growing influence of AI and tech giants on global markets.",
+          "voices": "Presenter (live), Isaac, technology reporter, Silicon Valley (live)",
+          "tone": "Fascinated and bewildered. The presenter questioned the board's decision-making, while the reporter analyzed the broader implications for the tech industry.",
+          "emphasis": "Corporate governance, executive power, and the dominance of artificial intelligence.",
+          "placement": "Second main segment of the program.",
+          "evidence": "It's a real fascinating move and basically stunned certainly stunned all of the business reporters out in Silicon Valley."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Treasurer flags 'substantial savings' in mid year budget update",
+      "stories": [
+        {
+          "story": "Treasurer Jim Chalmers flags substantial savings in mid-year budget update",
+          "start_time": "00:01",
+          "duration": "06:55",
+          "angle": "Treasurer Jim Chalmers forecasting softer economic growth, higher inflation, and higher unemployment while committing to savings and addressing structural budget challenges.",
+          "voices": "Presenter (live), Jim Chalmers, Federal Treasurer (live)",
+          "tone": "Direct and adversarial. The presenter challenged the Treasurer on the adequacy of savings and the economic outlook, while the Treasurer defended the government's fiscal strategy.",
+          "emphasis": "Economic forecasts, cost-of-living pressures, inflation, and government spending restraint.",
+          "placement": "Lead item on economic policy.",
+          "evidence": "We've got to deal with some of the structural pressures on the budget."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Pacific was heard in COP-31 climate talks, Prime Minister Albanese says",
+      "stories": [
+        {
+          "story": "Pacific nations make their voices heard at COP-31 climate talks",
+          "start_time": "00:02",
+          "duration": "06:30",
+          "angle": "Assessment of the COP-31 climate talks outcome, focusing on the friction between Pacific nations demanding accelerated fossil fuel phase-outs and major economies pushing back.",
+          "voices": "Presenter (live), Anthony Albanese, Prime Minister (clip), Dr George Carter, Director of theANU Pacific Institute (live)",
+          "tone": "Serious and diplomatic. The presenter explored the geopolitical tensions, while the guest expert analyzed the Pacific's bargaining power.",
+          "emphasis": "Climate diplomacy, fossil fuel phase-out commitments, and the strategic positioning of Pacific island states.",
+          "placement": "Lead international and environmental segment.",
+          "evidence": "Climate change is the first, second and third priority of Pacific leaders."
+        }
+      ]
+    },
+    {
+      "podcast": "The Front",
+      "title": "\u2018Fake Blak\u2019: The Greens\u2019 bitter civil war over Aboriginal identity",
+      "stories": [
+        {
+          "story": "The Greens' bitter internal conflict over Aboriginal identity and 'Fake Blak' allegations",
+          "start_time": "00:00",
+          "duration": "20:00",
+          "angle": "An in-depth investigative look into the internal turmoil within the Australian Greens party over allegations of cultural appropriation and Indigenous identity fraud.",
+          "voices": "Presenter (live), Paige Taylor, political reporter (live)",
+          "tone": "Investigative and somber. The presenter navigated a sensitive cultural issue with serious journalistic rigor.",
+          "emphasis": "Party politics, Indigenous representation, authenticity standards, and internal party conflict.",
+          "placement": "Standalone feature documentary episode.",
+          "evidence": "Growing numbers of Greens members are identifying as Aboriginal, and they're getting a discount on their membership fees for ticking the box."
+        }
+      ]
+    },
+    {
+      "podcast": "Daily Aus",
+      "title": "Has climate action stalled?",
+      "stories": [
+        {
+          "story": "Analysis of COP-31 climate summit outcomes and international friction over fossil fuels",
+          "start_time": "00:03",
+          "duration": "15:00",
+          "angle": "Evaluating whether global climate action has stalled following COP-31, examining the fierce debate between developed nations and oil producers over fossil fuel phase-out language.",
+          "voices": "Presenter (live), Sam Koslosky, co-host (live), Emma Gillespie, co-host (live), Nicolette Bulla, Federal MP (clip)",
+          "tone": "Analytical, accessible, and conversational. The hosts broke down complex international climate negotiations into relatable insights.",
+          "emphasis": "International climate targets, diplomatic gridlock, fossil fuel lobbying, and the domestic political challenges of emissions reduction.",
+          "placement": "Lead segment focusing on global environmental politics.",
+          "evidence": "Almost 200 countries ran two days into overtime and still couldn't agree on whether those words belonged on the page."
+        }
+      ]
+    }
+  ],
+  "interviewees": [
+    {
+      "name": "Blair Boyer, SA Minister for Health",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "SA demands action from federal government on aged care"
+        }
+      ]
+    },
+    {
+      "name": "Rob Watson, BBC World Service political correspondent",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Does the new UK-EU deal signal the end of Brexit?"
+        }
+      ]
+    },
+    {
+      "name": "Isaac, technology reporter, Silicon Valley",
+      "role": "Technology Reporter",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Jensen Huang reinstated as chief executive of Nvidia"
+        }
+      ]
+    },
+    {
+      "name": "Jim Chalmers, Federal Treasurer",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Treasurer flags 'substantial savings' in mid year budget update"
+        }
+      ]
+    },
+    {
+      "name": "Dr George Carter, Director of theANU Pacific Institute",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Pacific was heard in COP-31 climate talks, Prime Minister Albanese says"
+        }
+      ]
+    },
+    {
+      "name": "Paige Taylor, political reporter",
+      "role": "Political Reporter",
+      "episodes": [
+        {
+          "podcast": "The Front",
+          "title": "\u2018Fake Blak\u2019: The Greens\u2019 bitter civil war over Aboriginal identity"
+        }
+      ]
+    },
+    {
+      "name": "Sam Koslosky, co-host",
+      "role": "Co-host",
+      "episodes": [
+        {
+          "podcast": "Daily Aus",
+          "title": "Has climate action stalled?"
+        }
+      ]
+    },
+    {
+      "name": "Emma Gillespie, co-host",
+      "role": "Co-host",
+      "episodes": [
+        {
+          "podcast": "Daily Aus",
+          "title": "Has climate action stalled?"
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "actor": "Anthony Albanese, Prime Minister",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Pacific was heard in COP-31 climate talks, Prime Minister Albanese says"
+        },
+        {
+          "podcast": "Daily Aus",
+          "title": "Has climate action stalled?"
+        }
+      ]
+    },
+    {
+      "actor": "Rishi Sunak, UK Prime Minister",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Does the new UK-EU deal signal the end of Brexit?"
+        }
+      ]
+    },
+    {
+      "actor": "Jensen Huang, Chief Executive of Nvidia",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Jensen Huang reinstated as chief executive of Nvidia"
+        }
+      ]
+    },
+    {
+      "actor": "Jim Chalmers, Federal Treasurer",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Treasurer flags 'substantial savings' in mid year budget update"
+        }
+      ]
+    },
+    {
+      "actor": "Blair Boyer, SA Minister for Health",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "SA demands action from federal government on aged care"
+        }
+      ]
+    },
+    {
+      "actor": "Nicolette Bulla, Federal MP",
+      "episodes": [
+        {
+          "podcast": "Daily Aus",
+          "title": "Has climate action stalled?"
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "Climate action and international climate talks (COP-31)",
+      "contrast": "RN Breakfast focused on the Pacific nations' demands and strategic leverage, while Daily Aus explored broader international gridlock and fossil fuel lobbying.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Pacific was heard in COP-31 climate talks, Prime Minister Albanese says"
+        },
+        {
+          "podcast": "Daily Aus",
+          "title": "Has climate action stalled?"
+        }
+      ]
+    },
+    {
+      "theme": "Aged care crisis and hospital bed blockages",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "SA demands action from federal government on aged care"
+        }
+      ]
+    },
+    {
+      "theme": "Post-Brexit UK-EU relations and trade deals",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Does the new UK-EU deal signal the end of Brexit?"
+        }
+      ]
+    },
+    {
+      "theme": "Corporate governance and technology leadership at Nvidia",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Jensen Huang reinstated as chief executive of Nvidia"
+        }
+      ]
+    },
+    {
+      "theme": "Federal budget update and economic forecasts",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Treasurer flags 'substantial savings' in mid year budget update"
+        }
+      ]
+    },
+    {
+      "theme": "Internal political conflict and identity politics within the Greens party",
+      "episodes": [
+        {
+          "podcast": "The Front",
+          "title": "\u2018Fake Blak\u2019: The Greens\u2019 bitter civil war over Aboriginal identity"
+        }
+      ]
+    }
+  ]
+}
