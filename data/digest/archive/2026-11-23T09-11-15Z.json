@@ -1,0 +1,224 @@
+{
+  "run_at": "2026-11-23T09:11:15.890987+00:00",
+  "episodes": [
+    {
+      "podcast": "ABC AM",
+      "title": "COP31 ends in failure",
+      "stories": [
+        {
+          "story": "COP31 Climate Conference Collapse",
+          "start_time": "00:07",
+          "duration": "03:30",
+          "angle": "Global climate talks collapse without a deal over the future of fossil fuels.",
+          "voices": "Isabella Higgins, Presenter (live); Dara O'Brien, Irish Minister for Climate (clip); Chris Bowen, Minister for Climate Change and Energy (live); Romy Stevens, Environment Reporter (live)",
+          "tone": "Critical and disappointed, focusing on the failure to reach a consensus.",
+          "emphasis": "Blame placed on oil-producing nations and geopolitical divisions.",
+          "placement": "Lead item",
+          "evidence": "00:15 - Major global climate talks have collapsed without a deal after a fierce debate about the future of fossil fuels."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Why did Cop31's climate talks collapse?",
+      "stories": [
+        {
+          "story": "COP31 Climate Talks Breakdown",
+          "start_time": "01:51",
+          "duration": "02:35",
+          "angle": "Explaining the deadlock and failure of the COP31 climate negotiations in T\u00fcrkiye.",
+          "voices": "David Speers, Presenter (live); Dara O'Brien, Irish Minister for Climate (clip); Chris Bowen, Minister for Climate Change and Energy (clip)",
+          "tone": "Analytical and explanatory regarding the negotiations.",
+          "emphasis": "Focus on the geopolitical divide between fossil fuel producers and the EU.",
+          "placement": "Lead item",
+          "evidence": "02:03 - The negotiations were the longest in cop history and several countries... declared that they couldn't accept a draft."
+        },
+        {
+          "story": "Interview with Dr Bill Hare on COP31 Failure",
+          "start_time": "04:18",
+          "duration": "01:10",
+          "angle": "Assessing the reasons behind the breakdown of the COP31 climate talks.",
+          "voices": "David Speers, Presenter (live); Dr Bill Hare, Physicist and climate scientist, CEO of Climate Analytics (live)",
+          "tone": "Adversarial and urgent, questioning Australia's role and the global failure.",
+          "emphasis": "Focus on fossil fuel interests blocking progress.",
+          "placement": "Second item",
+          "evidence": "04:27 - The main thing for me is that the cover decision, the main decision has been blocked by a whole bunch of countries."
+        }
+      ]
+    },
+    {
+      "podcast": "The Front",
+      "title": "Australia\u2019s $150 million embarrassment at climate talks",
+      "stories": [
+        {
+          "story": "Australia's Role and COP31 Failure",
+          "start_time": "00:01",
+          "duration": "03:45",
+          "angle": "Australia faces criticism and financial embarrassment following the collapse of COP31.",
+          "voices": "Claire Harvey, Presenter (live); Graham Readfearn, Climate and Environment Correspondent, Guardian Australia (live)",
+          "tone": "Critical and reflective on Australia's diplomatic standing.",
+          "emphasis": "Financial costs and diplomatic fallout.",
+          "placement": "Lead item",
+          "evidence": "00:07 - A global climate summit that's cost billions of dollars has collapsed in embarrassing failure, and Australia's getting the blame."
+        }
+      ]
+    },
+    {
+      "podcast": "Full Story",
+      "title": "Cop31\u2019s big fossil fuel failure",
+      "stories": [
+        {
+          "story": "Deep Dive into COP31 Fossil Fuel Impasse",
+          "start_time": "00:06",
+          "duration": "10:15",
+          "angle": "Examining why the fossil fuel phase-out language was stripped from the COP31 agreement.",
+          "voices": "Nour Haydar, Presenter (live); Chris Bowen, Minister for Climate Change and Energy (clip); Graham Readfearn, Climate and Environment Correspondent, Guardian Australia (live)",
+          "tone": "Analytical and investigative.",
+          "emphasis": "The role of petrostates and international lobbying.",
+          "placement": "Lead item",
+          "evidence": "00:14 - Global climate talks in T\u00fcrkiye have ended without a deal after a standoff between oil producing states and countries demanding a more ambitious response."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Politics Now",
+      "title": "Good COP, bad COP",
+      "stories": [
+        {
+          "story": "Political Fallout of COP31 for Australia",
+          "start_time": "00:38",
+          "duration": "08:15",
+          "angle": "Analyzing the domestic political consequences of the COP31 failure for the Australian government.",
+          "voices": "Patricia Karvelas, Presenter (live); Jacob Greber, Journalist (live)",
+          "tone": "Political analysis and commentary.",
+          "emphasis": " Domestic political pressure and international reputation.",
+          "placement": "Lead item",
+          "evidence": "00:39 - It was the longest cop on record and it ended with no deal."
+        }
+      ]
+    },
+    {
+      "podcast": "Daily Aus",
+      "title": "Headlines: Jetstar class action update",
+      "stories": [
+        {
+          "story": "Jetstar Class Action Lawsuit",
+          "start_time": "00:18",
+          "duration": "00:50",
+          "angle": "Over a million Jetstar customers contacted over a class action lawsuit regarding COVID-19 flight cancellations.",
+          "voices": "Presenter (unconfirmed)",
+          "tone": "Informative and news-focused.",
+          "emphasis": "Consumer rights and legal action.",
+          "placement": "Lead item",
+          "evidence": "00:18 - More than a million Jetstar customers are being contacted about a class action lawsuit against the airline."
+        }
+      ]
+    }
+  ],
+  "interviewees": [
+    {
+      "name": "Dr Bill Hare, Physicist and climate scientist, CEO of Climate Analytics",
+      "role": "CEO of Climate Analytics",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Why did Cop31's climate talks collapse?"
+        }
+      ]
+    },
+    {
+      "name": "Graham Readfearn, Climate and Environment Correspondent, Guardian Australia",
+      "role": "Climate and Environment Correspondent",
+      "episodes": [
+        {
+          "podcast": "The Front",
+          "title": "Australia\u2019s $150 million embarrassment at climate talks"
+        },
+        {
+          "podcast": "Full Story",
+          "title": "Cop31\u2019s big fossil fuel failure"
+        }
+      ]
+    },
+    {
+      "name": "Jacob Greber, Journalist",
+      "role": "Journalist",
+      "episodes": [
+        {
+          "podcast": "ABC Politics Now",
+          "title": "Good COP, bad COP"
+        }
+      ]
+    },
+    {
+      "name": "Romy Stevens, Environment Reporter",
+      "role": "Environment Reporter",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "COP31 ends in failure"
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "actor": "Chris Bowen, Minister for Climate Change and Energy",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "COP31 ends in failure"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Why did Cop31's climate talks collapse?"
+        },
+        {
+          "podcast": "Full Story",
+          "title": "Cop31\u2019s big fossil fuel failure"
+        }
+      ]
+    },
+    {
+      "actor": "Dara O'Brien, Irish Minister for Climate",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "COP31 ends in failure"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Why did Cop31's climate talks collapse?"
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "COP31 Climate Conference Collapse",
+      "contrast": "AM focused on the immediate diplomatic breakdown; RN Breakfast and Full Story analyzed the geopolitical and fossil fuel lobbying dynamics; The Front emphasized the financial cost and national embarrassment; Politics Now examined the domestic political fallout.",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "COP31 ends in failure"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Why did Cop31's climate talks collapse?"
+        },
+        {
+          "podcast": "The Front",
+          "title": "Australia\u2019s $150 million embarrassment at climate talks"
+        },
+        {
+          "podcast": "Full Story",
+          "title": "Cop31\u2019s big fossil fuel failure"
+        },
+        {
+          "podcast": "ABC Politics Now",
+          "title": "Good COP, bad COP"
+        }
+      ]
+    }
+  ]
+}
