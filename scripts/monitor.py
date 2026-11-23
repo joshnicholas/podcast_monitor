@@ -8,7 +8,7 @@ import subprocess
 import tempfile
 import time
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
@@ -263,6 +263,12 @@ def episode_id(audio_url):
 
 SEEN_PATH = os.path.join(DATA_DIR, "seen.json")
 
+# Dedup only ever matters for episodes published "today" — anything older is
+# already excluded by the same-day filter in collect_new_episodes() regardless
+# of whether it's in seen.json. This retention window is just a safety buffer
+# (clock skew, a run straddling midnight), so seen.json doesn't grow forever.
+SEEN_RETENTION_DAYS = 7
+
 
 def _load_all_seen():
     if not os.path.exists(SEEN_PATH):
@@ -271,15 +277,30 @@ def _load_all_seen():
         return json.load(f)
 
 
+def _prune_seen(all_seen, today_local):
+    cutoff = (today_local - timedelta(days=SEEN_RETENTION_DAYS)).isoformat()
+    pruned = {}
+    for podcast_name, entries in all_seen.items():
+        kept = {eid: date_str for eid, date_str in entries.items() if date_str >= cutoff}
+        if kept:
+            pruned[podcast_name] = kept
+    return pruned
+
+
 def _load_seen(podcast_name):
-    return set(_load_all_seen().get(podcast_name, []))
+    return set(_load_all_seen().get(podcast_name, {}).keys())
 
 
-def _save_seen(podcast_name, seen_ids):
+def _save_seen(podcast_name, new_ids_with_dates):
     # Re-reads so sequential saves for different podcasts within one run don't
     # clobber each other's entries in the shared file.
     all_seen = _load_all_seen()
-    all_seen[podcast_name] = sorted(seen_ids)
+    existing = all_seen.get(podcast_name, {})
+    existing.update(new_ids_with_dates)
+    all_seen[podcast_name] = existing
+
+    all_seen = _prune_seen(all_seen, datetime.now(tz=LOCAL_TZ).date())
+
     os.makedirs(DATA_DIR, exist_ok=True)
     with open(SEEN_PATH, "w") as f:
         json.dump(all_seen, f, indent=2)
@@ -315,6 +336,9 @@ def collect_new_episodes(podcast):
         new_entries.append(
             {
                 "id": eid,
+                # Every entry reaching here passed the same-day check above, so
+                # today_local IS this entry's local published date.
+                "published_date_local": today_local.isoformat(),
                 "podcast_key": name,
                 "podcast": podcast["display_name"],
                 "title": entry.title,
@@ -655,10 +679,9 @@ def main():
 
     by_podcast = {}
     for entry in processed:
-        by_podcast.setdefault(entry["podcast_key"], []).append(entry["id"])
-    for podcast_key, new_ids in by_podcast.items():
-        seen = _load_seen(podcast_key) | set(new_ids)
-        _save_seen(podcast_key, seen)
+        by_podcast.setdefault(entry["podcast_key"], {})[entry["id"]] = entry["published_date_local"]
+    for podcast_key, new_ids_with_dates in by_podcast.items():
+        _save_seen(podcast_key, new_ids_with_dates)
 
     print(f"{len(processed)} episode(s) processed, pushing to git...")
     git_commit_and_push(len(processed))
