@@ -1,0 +1,139 @@
+{
+  "run_at": "2026-11-23T07:59:38.991308+00:00",
+  "episodes": [
+    {
+      "podcast": "ABC AM",
+      "title": "COP31 ends in failure"
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Why did Cop31's climate talks collapse?"
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Changing Australia: Michelle Blewitt and the war on microplastics"
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Bowen 'failed Australians' at COP31, Deputy Opposition Leader says"
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Lack of COP31 agreement 'deeply disappointing' Environment Minister says"
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Submarine production rate 'flat', US Congressional report author says"
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "ARIA head says 'very little' is known about proposed AI carveout"
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "How do you teach good public policy-making?"
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "European leaders warn Russia's war on Ukraine spilling over their borders"
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "COP31 ends without a deal"
+    },
+    {
+      "podcast": "Full Story",
+      "title": "Cop31\u2019s big fossil fuel failure"
+    },
+    {
+      "podcast": "Full Story",
+      "title": "GLP-1 weight loss pills arrive in Australia: what you should know"
+    },
+    {
+      "podcast": "ABC Politics Now",
+      "title": "Good COP, bad COP"
+    },
+    {
+      "podcast": "7AM podcast",
+      "title": "How Molly Meldrum changed Australian Music"
+    },
+    {
+      "podcast": "Daily Aus",
+      "title": "Headlines: Jetstar class action update"
+    },
+    {
+      "podcast": "Daily Aus",
+      "title": "The debate over a four day work week"
+    }
+  ],
+  "interviewees": [
+    "Romy Stevens, Environment reporter (ABC AM)",
+    "Alison Reeve, Energy and Climate Change program director at the Graton Institute (ABC AM)",
+    "Sarah Hansen Young, Green Senator (ABC AM)",
+    "Anika Wells, Communications Minister (ABC AM)",
+    "Mike Burgess, ASIO CEO (ABC AM)",
+    "Elizabeth Devaney, CEO of Consumer Health Forum (ABC AM)",
+    "Dennis Petri, Health economist at Monash University (ABC AM)",
+    "Derek Dean, British choreographer (ABC AM)",
+    "Ivan Hillo Teega, Artistic director at Queensland Ballet (ABC AM)",
+    "Lauren Jackson, Head of costume at Queensland Ballet (ABC AM)",
+    "Dr. Peter Hotez, Professor at the Baylor College of Medicine (ABC AM)",
+    "Dara O'Brien, Ireland's climate minister (ABC Radio National Breakfast)",
+    "Dr. Zenator Agyeman Rawlings, Guanian Environment Minister (ABC Radio National Breakfast)",
+    "Chris Bowen, Australian Climate Change and Energy Minister (ABC Radio National Breakfast)",
+    "Bill Hair, Physicist and climate scientist (ABC Radio National Breakfast)",
+    "Murray Watt, Minister for the Environment and Water (ABC Radio National Breakfast)",
+    "Michelle Bl\u00fcth, Marine scientist (ABC Radio National Breakfast)",
+    "Jane Hume, Deputy opposition leader and Shadow Minister for employment and industrial relations (ABC Radio National Breakfast)",
+    "Dr. Eric Gbs, Senior analyst for Naval Forces and weapons at the US Congressional Budget Office (ABC Radio National Breakfast)",
+    "Annabelle Hurd, Chief executive of the Australian Recording Industry Association (ABC Radio National Breakfast)",
+    "Rob Stokes, Former New South Wales State Government Minister and advisory board chair for the new school at the University of New South Wales (ABC Radio National Breakfast)",
+    "Scott Lucas, Professor of International Politics at University College, Dublin (ABC Radio National Breakfast)",
+    "Jane Gazzo, Music journalist and friend of Molly Meldrum (7AM podcast)"
+  ],
+  "actors": [
+    "Chris Bowen",
+    "Donald Trump",
+    "Anthony Albanese",
+    "Michelle Bl\u00fcth",
+    "Molly Meldrum",
+    "Richard Marles",
+    "Jane Hume",
+    "Murray Watt",
+    "Sarah Hansen Young",
+    "Anika Wells",
+    "Mike Burgess",
+    "Elizabeth Devaney",
+    "Dennis Petri",
+    "Derek Dean",
+    "Lez Brotherston",
+    "Ivan Hillo Teega",
+    "Lauren Jackson",
+    "Dr. Peter Hotez",
+    "Dara O'Brien",
+    "Dr. Zenator Agyeman Rawlings",
+    "Bill Hair",
+    "Dr. Eric Gbs",
+    "Annabelle Hurd",
+    "Rob Stokes",
+    "Scott Lucas",
+    "Jane Gazzo",
+    "Elton John",
+    "Peter Andre",
+    "Alice Huang",
+    "Jensen Huang"
+  ],
+  "themes": [
+    "COP31 climate talks collapse in Turkey without a deal over fossil fuel disagreements",
+    "Federal Parliament final sitting week dominated by digital duty of care, AI regulations, and cost of living pressures",
+    "Australia's healthcare and cost of living crisis leading to skipped medications and medical care",
+    "AI and national security concerns, foreign interference risks in data centers, and copyright protections for artists",
+    "AUKUS pact and US submarine industrial base capacity debate",
+    "Molly Meldrum's legacy and impact on the Australian music industry following his passing",
+    "Jetstar class action regarding COVID-19 flight cancellations and voucher refunds",
+    "Global geopolitical tensions and security risks, including Russian drone and missile incidents impacting NATO and Europe",
+    "Microplastics pollution and citizen science tracking via OzMaP",
+    "The ongoing debate and trials surrounding the implementation of a four-day work week in Australia",
+    "Approval of new oral GLP-1 weight-loss pills in Australia and associated accessibility concerns"
+  ]
+}
