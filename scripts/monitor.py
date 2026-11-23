@@ -3,7 +3,6 @@ import hashlib
 import json
 import os
 import random
-import re
 import shutil
 import subprocess
 import tempfile
@@ -14,6 +13,7 @@ from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
 import feedparser
+import pandas as pd
 from dotenv import load_dotenv
 from google import genai
 from google.genai import errors as genai_errors
@@ -38,84 +38,120 @@ LOCAL_TZ = ZoneInfo("Australia/Melbourne")
 DIGEST_NAME = "digest"
 DIGEST_DISPLAY_NAME = "Run Digest"
 
+INTERVIEWEES_FOLDER = "interviewees"
+THEMES_FOLDER = "themes"
+ACTORS_FOLDER = "actors"
+
 GEMINI_MODEL = "gemini-3.5-flash-lite"
 
 client = genai.Client(api_key=GEMINI_API_KEY)
-
-TRANSCRIPTION_PROMPT = """Transcribe this audio completely and verbatim.
-
-Speakers
-- Start a new line every time the speaker changes, prefixed with a speaker label.
-- Use a name or role when the audio makes it clear (e.g. "Host:", "Sabra Lane:",
-  "Treasurer Jim Chalmers:"). Use the most specific label you can, and keep it the
-  same for that speaker throughout.
-- Otherwise use "Speaker 1:", "Speaker 2:", etc., and keep each number tied to the
-  same voice for the whole recording.
-- Callers, vox pops and audio clips from other sources (press conferences,
-  archival audio) get their own labels, e.g. "Caller (Mark, Penrith):" or
-  "Clip – Prime Minister:".
-
-Content
-- Transcribe what is said, not a summary. Keep hedges, interruptions and
-  corrections, because they matter for analysis. You can drop pure filler
-  ("um", "uh").
-- Mark segments that aren't editorial content in square brackets instead of
-  transcribing them in full: [ADVERTISEMENT], [STATION ID], [MUSIC], [NEWS BULLETIN
-  BEGINS], [NEWS BULLETIN ENDS]. Do transcribe news bulletins.
-- If a word or name is unclear, write your best guess followed by [?]. Write
-  [inaudible] if you can't make it out at all. Never invent words.
-- Spell names of people, places and organisations as they would normally be
-  written, using context to resolve them.
-
-Output only the transcript, one speaker turn per line, with no preamble or
-commentary."""
 
 BATCH_ANALYSIS_PROMPT = """You are a media analyst for a large organisation. You monitor
 morning radio and podcast news programs and brief senior staff on what is being
 covered, who is being given airtime, and how stories are being framed.
 
-Below are transcripts of podcast episodes published since the last check. They are
-processed together as one batch. Each transcript is wrapped in an <episode> tag
-labelled with the podcast it came from.
+You have been given the audio of several podcast episodes published since the last
+check. They are processed together as one batch. Each audio file comes right after
+a label giving its podcast name and episode title or date. Listen to every
+episode in full before answering.
 
-<transcripts>
-{transcripts}
-</transcripts>
+Referring to episodes
+- Whenever you reference an episode anywhere in your output (interviewees, themes,
+  actors or the episode breakdown), copy its podcast name and title exactly as
+  given in its label, so it can be matched back to that episode. Don't shorten,
+  reword or abbreviate it.
 
-Analyse the transcripts in two parts.
+Identifying people
+- Give every person a full name and role: first name, surname and current title
+  or affiliation (e.g. "Jim Chalmers, Treasurer"; "Sussan Ley, Opposition Leader";
+  "Dr Jane Smith, epidemiologist, University of Sydney").
+- Work out names and roles from how people are introduced, addressed, referred to
+  or signed off. These clues are often spread across an episode: a guest may be
+  introduced as "the Treasurer" and only named later, or the reverse. Combine them.
+- If the audio gives only part of an identity (a surname, a first name, or a
+  role with no name), you may complete it from general knowledge only when the
+  match is unambiguous for the time and context. Mark it "(inferred)". If it is
+  not unambiguous, keep only what was said and mark it "(unconfirmed)", e.g.
+  "Mark, caller from Penrith (unconfirmed)" or "unnamed CFA spokesperson".
+- Identify the hosts and presenters of each program by name.
 
-PART 1 – PER EPISODE
+Deduplicating people
+- Treat every way of referring to the same person as one person: full name,
+  surname only, first name only, title only ("the PM", "the Minister"), or a
+  nickname. Merge them into a single entry under one canonical form:
+  "Full Name, Role".
+- Merge across episodes as well as within them. Someone interviewed on two
+  podcasts is one entry that lists both podcasts.
+- Don't merge different people who share a surname or a similar title (e.g. a
+  minister and their shadow minister, or two state premiers). If you're unsure
+  whether two references are the same person, keep them separate and flag it:
+  "possibly the same as …".
+- If someone's role is given differently in different places, use the one that
+  is current at the time of broadcast and the most specific (e.g. "Minister for
+  Climate Change and Energy" over "the Minister").
+- Use exactly the same canonical name everywhere in your output: interviewees,
+  actors, and the voices in each episode's framing.
+
+Types of airtime
+- Tell apart live interviews, panels, pre-recorded packages, callers and clips
+  from other sources (press conferences, archival audio, parliament). A clip of
+  a minister played on air is not an interview with that minister. That
+  minister is an actor, not an interviewee, unless they were also interviewed.
+
+What to skip
+- Ignore ads, station IDs, sponsor reads, music beds, weather and traffic. Count
+  news bulletins only for stories that get real discussion.
+
+Your output has two parts: a batch summary first, then a breakdown of each
+episode. Work through every episode in detail before writing the summary, so the
+summary reflects all of them, but put the summary first in your output.
+
+PART 1 – BATCH SUMMARY
+Combine all episodes:
+- Interviewees and panellists: people actually interviewed or on a panel (not
+  clips or callers), in canonical form, followed by every episode they appeared
+  on, e.g. "Jim Chalmers, Treasurer (ABC AM – 23 Nov 2026; RN Breakfast – 23 Nov
+  2026)". List each person once. Order the list so interviewees who appeared on multiple
+  podcast episodes appear first. 
+- Themes: the major stories across the batch. If several podcasts covered the same
+  story, merge it into ONE theme and list the episodes that covered it. Where those
+  episodes framed it differently, add one sentence on the contrast (e.g. "AM led on
+  the economic cost; RN Breakfast on the political fallout"). Order the themes
+  so themes repeated on multiple episodes appear first.
+- Actors: the main people and organisations being discussed (not only those
+  interviewed), in canonical form, each merged into a single entry and listing
+  the episodes they came up in. Order the list so actors who appeared across 
+  multiple episodes appear first.
+
+PART 2 – EPISODE BREAKDOWN
 For each episode, in the order given:
-- Podcast name and episode title or date (as labelled).
-- Main stories: the 3–6 most significant stories in the episode, in the order they
-  appeared. Skip ads, weather, traffic and brief bulletin items unless they get
-  real discussion.
+- Podcast name and episode title or date, exactly as labelled.
+- Hosts and presenters.
+- Main stories: the 3–6 most significant stories in the episode, in running order (the most
+important stories are first). Some episodes may only have one story.
+  For each one, give its approximate start time (mm:ss) and roughly how long it ran.
 - For each story, describe its framing:
   - Angle: the central question or storyline the program built the item around
     (e.g. "a cost-of-living failure by the government" vs "a necessary budget
     repair measure").
-  - Voices: who was given airtime on the story and who was absent or only
-    referred to. Note whether the host challenged a guest or let them speak
+  - Voices: who was given airtime, in canonical form, and who was absent or only
+    referred to. Say whether each voice was live, pre-recorded or a clip. Note
+    whether the host challenged a guest, interrupted them, or let them speak
     unchallenged.
-  - Tone: critical, sympathetic, adversarial, neutral/explanatory, alarmed, etc.,
-    and towards whom.
+  - Tone: the editorial stance (critical, sympathetic, adversarial, explanatory,
+    alarmed, etc.) and towards whom. Include the host's delivery where it adds
+    to that (scepticism, urgency, warmth, sarcasm), and any sound design
+    that shapes the item (dramatic music, emotional vox pops, sirens).
   - Emphasis: what was foregrounded (human impact, cost, blame, process, conflict,
     numbers) and any notable context that was left out or treated as a side issue.
-  - Evidence: one short direct quote (under 25 words) from the transcript that best
-    shows the framing.
-  Describe the framing from what was actually said. Don't speculate about
-  editorial motives or allege bias the transcript doesn't show.
-
-PART 2 – ACROSS THE WHOLE BATCH
-Combine all episodes:
-- Interviewees and panellists: name and role, followed by the podcast(s) in brackets,
-  e.g. "Jane Smith, Treasurer (ABC AM; RN Breakfast)". List each person once.
-- Themes: the major stories across the batch. If several podcasts covered the same
-  story, merge it into ONE theme. Where those podcasts framed it differently, add one
-  sentence on the contrast (e.g. "AM led on the economic cost; RN Breakfast on the
-  political fallout").
-- Actors: the main people and organisations being discussed (not only those
-  interviewed), with each one merged into a single entry.
+  - Placement: whether it was the lead item, and how much time it got compared
+    with other stories in the episode.
+  - Evidence: one short quote (under 25 words) that best shows the framing,
+    with its timestamp and the speaker. Quote as exactly as you can hear it.
+    If you are not confident of the exact wording, paraphrase and label it
+    "(paraphrase)".
+  Describe the framing from what was actually broadcast. Don't speculate about
+  editorial motives or allege bias the audio doesn't show.
 
 Rules
 - Include only items that matter to a senior briefing reader. Pay particular
@@ -123,22 +159,36 @@ Rules
 - Keep list entries to a short phrase. Framing descriptions can run to 1–2 sentences
   per element.
 - Order themes and actors from most to least covered, counting a mention once per
-  podcast it appears in (not per sentence). Break ties by how much airtime the item got.
-- Use only information in the transcripts. If a name or role is uncertain (e.g.
-  marked [?]), say so instead of guessing.
+  episode it appears in (not per sentence). Break ties by total airtime.
+- Base every claim about what was said, who said it and how it was framed on the
+  audio. General knowledge may be used only to complete a partial name or role,
+  and must be marked "(inferred)" as described above. Anything you can't make out
+  is marked "(unconfirmed)" or "(paraphrase)". Never guess silently.
 - Use Australian English spelling."""
+
+_EPISODE_REF_SCHEMA = types.Schema(
+    type=types.Type.OBJECT,
+    properties={
+        "podcast": types.Schema(type=types.Type.STRING),
+        "title": types.Schema(type=types.Type.STRING),
+    },
+    required=["podcast", "title"],
+)
 
 _STORY_SCHEMA = types.Schema(
     type=types.Type.OBJECT,
     properties={
         "story": types.Schema(type=types.Type.STRING),
+        "start_time": types.Schema(type=types.Type.STRING),
+        "duration": types.Schema(type=types.Type.STRING),
         "angle": types.Schema(type=types.Type.STRING),
         "voices": types.Schema(type=types.Type.STRING),
         "tone": types.Schema(type=types.Type.STRING),
         "emphasis": types.Schema(type=types.Type.STRING),
+        "placement": types.Schema(type=types.Type.STRING),
         "evidence": types.Schema(type=types.Type.STRING),
     },
-    required=["story", "angle", "voices", "tone", "emphasis", "evidence"],
+    required=["story", "start_time", "angle", "voices", "tone", "emphasis", "placement", "evidence"],
 )
 
 _EPISODE_ANALYSIS_SCHEMA = types.Schema(
@@ -151,24 +201,44 @@ _EPISODE_ANALYSIS_SCHEMA = types.Schema(
     required=["podcast", "title", "stories"],
 )
 
+_INTERVIEWEE_SCHEMA = types.Schema(
+    type=types.Type.OBJECT,
+    properties={
+        "name": types.Schema(type=types.Type.STRING),
+        "role": types.Schema(type=types.Type.STRING),
+        "episodes": types.Schema(type=types.Type.ARRAY, items=_EPISODE_REF_SCHEMA),
+    },
+    required=["name", "episodes"],
+)
+
 _THEME_SCHEMA = types.Schema(
     type=types.Type.OBJECT,
     properties={
         "theme": types.Schema(type=types.Type.STRING),
         "contrast": types.Schema(type=types.Type.STRING),
+        "episodes": types.Schema(type=types.Type.ARRAY, items=_EPISODE_REF_SCHEMA),
     },
-    required=["theme"],
+    required=["theme", "episodes"],
+)
+
+_ACTOR_SCHEMA = types.Schema(
+    type=types.Type.OBJECT,
+    properties={
+        "actor": types.Schema(type=types.Type.STRING),
+        "episodes": types.Schema(type=types.Type.ARRAY, items=_EPISODE_REF_SCHEMA),
+    },
+    required=["actor", "episodes"],
 )
 
 ANALYSIS_RESPONSE_SCHEMA = types.Schema(
     type=types.Type.OBJECT,
     properties={
         "episodes": types.Schema(type=types.Type.ARRAY, items=_EPISODE_ANALYSIS_SCHEMA),
-        "interviewees": types.Schema(type=types.Type.ARRAY, items=types.Schema(type=types.Type.STRING)),
-        "actors": types.Schema(type=types.Type.ARRAY, items=types.Schema(type=types.Type.STRING)),
+        "interviewees": types.Schema(type=types.Type.ARRAY, items=_INTERVIEWEE_SCHEMA),
         "themes": types.Schema(type=types.Type.ARRAY, items=_THEME_SCHEMA),
+        "actors": types.Schema(type=types.Type.ARRAY, items=_ACTOR_SCHEMA),
     },
-    required=["episodes", "interviewees", "actors", "themes"],
+    required=["episodes", "interviewees", "themes", "actors"],
 )
 
 
@@ -185,95 +255,143 @@ def generate_with_retry(**kwargs):
             time.sleep(delay)
 
 
-def episode_id(entry):
-    guid = entry.get("id") or entry.get("link")
-    digest = hashlib.sha1(guid.encode()).hexdigest()[:12]
-    published = entry.get("published_parsed")
-    date_prefix = time.strftime("%Y-%m-%d", published) if published else "0000-00-00"
-    return f"{date_prefix}_{digest}"
+def episode_id(audio_url):
+    """The audio enclosure URL is the stable unique key for an episode — titles get
+    tweaked and some feeds reuse/rewrite guids, but the audio file URL doesn't change."""
+    return hashlib.sha1(audio_url.encode()).hexdigest()[:16]
 
 
-def transcribe_audio(audio_url):
+def _seen_path(podcast_name):
+    return os.path.join(DATA_DIR, podcast_name, "seen.json")
+
+
+def _load_seen(podcast_name):
+    path = _seen_path(podcast_name)
+    if not os.path.exists(path):
+        return set()
+    with open(path) as f:
+        return set(json.load(f))
+
+
+def _save_seen(podcast_name, seen_ids):
+    path = _seen_path(podcast_name)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as f:
+        json.dump(sorted(seen_ids), f, indent=2)
+
+
+def collect_new_episodes(podcast):
+    name = podcast["name"]
+    feed = feedparser.parse(podcast["rss_url"])
+    seen_ids = _load_seen(name)
+
+    is_first_run = len(seen_ids) == 0
+    entries = feed.entries[:1] if is_first_run else feed.entries
+
+    today_local = datetime.now(tz=LOCAL_TZ).date()
+    new_entries = []
+    for entry in entries:
+        if not entry.get("enclosures"):
+            continue
+        audio_url = entry.enclosures[0].href
+
+        eid = episode_id(audio_url)
+        if eid in seen_ids:
+            continue
+
+        published = entry.get("published_parsed")
+        if not published:
+            continue
+        published_dt = datetime.fromtimestamp(calendar.timegm(published), tz=timezone.utc)
+        if published_dt.astimezone(LOCAL_TZ).date() != today_local:
+            continue
+
+        print(f"[{name}] new episode: {entry.title}")
+        new_entries.append(
+            {
+                "id": eid,
+                "podcast_key": name,
+                "podcast": podcast["display_name"],
+                "title": entry.title,
+                "guid": entry.get("id") or entry.get("link"),
+                "link": entry.get("link", ""),
+                "published": entry.get("published", ""),
+                "audio_url": audio_url,
+            }
+        )
+
+    return new_entries
+
+
+def download_audio(audio_url):
     with urlopen(Request(audio_url), timeout=1200) as resp:
         content_type = resp.headers.get("Content-Type", "audio/mpeg").split(";")[0].strip()
-        audio_bytes = resp.read()
+        return resp.read(), content_type
 
+
+def upload_audio(audio_bytes, content_type):
     with tempfile.NamedTemporaryFile(suffix=".mp3") as tmp:
         tmp.write(audio_bytes)
         tmp.flush()
-        uploaded = client.files.upload(
-            file=tmp.name,
-            config=types.UploadFileConfig(mime_type=content_type),
-        )
+        return client.files.upload(file=tmp.name, config=types.UploadFileConfig(mime_type=content_type))
+
+
+def analyse_batch_audio(entries):
+    """Downloads and uploads every entry's audio, sends it all to Gemini in one
+    request alongside BATCH_ANALYSIS_PROMPT, and returns (analysis, processed_entries)
+    — processed_entries excludes any entry whose audio failed to download/upload."""
+    uploaded_files = []
+    contents = []
+    processed = []
+
+    for entry in entries:
+        try:
+            audio_bytes, content_type = download_audio(entry["audio_url"])
+            uploaded = upload_audio(audio_bytes, content_type)
+        except Exception as exc:
+            print(f"[{entry['podcast_key']}] failed to fetch audio for '{entry['title']}', skipping: {exc}")
+            continue
+        uploaded_files.append(uploaded)
+        contents.append(f'Podcast: "{entry["podcast"]}" — Episode: "{entry["title"]}"')
+        contents.append(uploaded)
+        processed.append(entry)
+
+    if not processed:
+        return None, []
+
+    contents.append(BATCH_ANALYSIS_PROMPT)
 
     try:
         response = generate_with_retry(
             model=GEMINI_MODEL,
-            contents=[uploaded, TRANSCRIPTION_PROMPT],
+            contents=contents,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+                response_schema=ANALYSIS_RESPONSE_SCHEMA,
+            ),
         )
-        return response.text.strip()
+        analysis = json.loads(response.text)
     finally:
-        try:
-            client.files.delete(name=uploaded.name)
-        except Exception:
-            pass
+        for uploaded in uploaded_files:
+            try:
+                client.files.delete(name=uploaded.name)
+            except Exception:
+                pass
 
-
-def _is_cue_line(line):
-    line = line.strip()
-    if not line or line == "WEBVTT" or "-->" in line:
-        return True
-    # bare cue numbers (SRT) or bare timestamps (e.g. some "plain text with
-    # timestamps" transcript formats interleave these between speaker turns)
-    return bool(re.fullmatch(r"\d+", line) or re.fullmatch(r"\d{1,2}:\d{2}(:\d{2})?(\.\d+)?", line))
-
-
-def fetch_published_transcript(transcript_tag):
-    url = transcript_tag.get("url")
-    if not url:
-        return None
-
-    content_type = (transcript_tag.get("type") or "").lower()
-    with urlopen(Request(url), timeout=60) as resp:
-        raw = resp.read().decode("utf-8", errors="replace")
-
-    if "json" in content_type:
-        segments = json.loads(raw).get("segments", [])
-        lines = [
-            f"Speaker {seg['speaker']}: {seg['body']}" if seg.get("speaker") else seg["body"]
-            for seg in segments
-            if seg.get("body")
-        ]
-        return "\n".join(lines) or None
-
-    if "html" in content_type:
-        text = re.sub(r"<[^>]+>", " ", raw)
-        return re.sub(r"\s+", " ", text).strip() or None
-
-    # covers plain text, SRT and VTT, all of which may mix in cue/timestamp lines
-    lines = [line.strip() for line in raw.splitlines() if not _is_cue_line(line)]
-    return "\n".join(lines) or None
-
-
-def analyse_batch(entries):
-    transcripts = "\n\n".join(
-        f'<episode podcast="{entry["podcast"]}" title="{entry["title"]}">\n'
-        f'{entry["transcript"]}\n</episode>'
-        for entry in entries
-    )
-    response = generate_with_retry(
-        model=GEMINI_MODEL,
-        contents=BATCH_ANALYSIS_PROMPT.format(transcripts=transcripts),
-        config=types.GenerateContentConfig(
-            response_mime_type="application/json",
-            response_schema=ANALYSIS_RESPONSE_SCHEMA,
-        ),
-    )
-    return json.loads(response.text)
+    return analysis, processed
 
 
 def _html_list(items):
     return "<ul>" + "".join(f"<li>{item}</li>" for item in items) + "</ul>"
+
+
+def _html_interviewees_list(interviewees):
+    items = []
+    for person in interviewees:
+        podcasts = "; ".join(dict.fromkeys(ref["podcast"] for ref in person.get("episodes", [])))
+        label = f"{person['name']}, {person['role']}" if person.get("role") else person["name"]
+        items.append(f"{label} ({podcasts})" if podcasts else label)
+    return _html_list(items)
 
 
 def _html_themes_list(themes):
@@ -284,14 +402,21 @@ def _html_themes_list(themes):
     return _html_list(items)
 
 
+def _html_actors_list(actors):
+    return _html_list(a["actor"] for a in actors)
+
+
 def _html_episode_breakdown(episodes):
     sections = []
     for episode in episodes:
         stories = "".join(
-            f"<li><strong>{s['story']}</strong> — {s['angle']}<br>"
+            f"<li><strong>{s['story']}</strong> ({s['start_time']}"
+            + (f", {s['duration']}" if s.get("duration") else "")
+            + f") — {s['angle']}<br>"
             f"Voices: {s['voices']}<br>"
             f"Tone: {s['tone']}<br>"
             f"Emphasis: {s['emphasis']}<br>"
+            f"Placement: {s['placement']}<br>"
             f"&ldquo;{s['evidence']}&rdquo;</li>"
             for s in episode["stories"]
         )
@@ -330,9 +455,9 @@ def build_digest_feed_xml(archive_dir):
         ET.SubElement(item, "pubDate").text = record["run_at"]
 
         description = (
-            f"<p><strong>Interviewees:</strong></p>{_html_list(record.get('interviewees', []))}"
+            f"<p><strong>Interviewees:</strong></p>{_html_interviewees_list(record.get('interviewees', []))}"
             f"<p><strong>Key Themes:</strong></p>{_html_themes_list(record.get('themes', []))}"
-            f"<p><strong>Key Actors:</strong></p>{_html_list(record.get('actors', []))}"
+            f"<p><strong>Key Actors:</strong></p>{_html_actors_list(record.get('actors', []))}"
             f"<p><strong>Episodes in this run:</strong></p>{_html_episode_breakdown(record.get('episodes', []))}"
         )
         ET.SubElement(item, "description").text = description
@@ -340,13 +465,10 @@ def build_digest_feed_xml(archive_dir):
     return ET.tostring(rss, encoding="unicode")
 
 
-def write_digest(entries):
+def write_digest(analysis, run_at):
     digest_dir = os.path.join(DATA_DIR, DIGEST_NAME)
     archive_dir = os.path.join(digest_dir, "archive")
     os.makedirs(archive_dir, exist_ok=True)
-
-    analysis = analyse_batch(entries)
-    run_at = datetime.now(timezone.utc)
 
     record = {
         "run_at": run_at.isoformat(),
@@ -366,74 +488,88 @@ def write_digest(entries):
         f.write(feed_xml)
 
 
-def process_podcast(podcast):
-    name = podcast["name"]
-    podcast_dir = os.path.join(DATA_DIR, name)
-    archive_dir = os.path.join(podcast_dir, "archive")
-    os.makedirs(archive_dir, exist_ok=True)
-
-    feed = feedparser.parse(podcast["rss_url"])
-    existing_ids = {os.path.splitext(f)[0] for f in os.listdir(archive_dir)}
-
-    is_first_run = len(existing_ids) == 0
-    entries = feed.entries[:1] if is_first_run else feed.entries
-
-    new_count = 0
-    new_entries = []
-    for entry in entries:
-        eid = episode_id(entry)
-        if eid in existing_ids:
+def _resolve_episode_refs(episode_refs, lookup):
+    resolved = []
+    for ref in episode_refs:
+        entry = lookup.get((ref["podcast"], ref["title"]))
+        if entry is None:
+            print(f"warning: couldn't match episode reference back to a processed episode: {ref}")
             continue
+        resolved.append(entry)
+    return resolved
 
-        published = entry.get("published_parsed")
-        if not published:
-            continue
-        published_dt = datetime.fromtimestamp(calendar.timegm(published), tz=timezone.utc)
-        today_local = datetime.now(tz=LOCAL_TZ).date()
-        if published_dt.astimezone(LOCAL_TZ).date() != today_local:
-            continue
 
-        print(f"[{name}] new episode: {entry.title}")
-        audio_url = entry.enclosures[0].href
+def _quarter_parquet_path(folder_name, run_at_local):
+    quarter = (run_at_local.month - 1) // 3 + 1
+    out_dir = os.path.join(DATA_DIR, folder_name)
+    os.makedirs(out_dir, exist_ok=True)
+    return os.path.join(out_dir, f"{run_at_local.year}Q{quarter}.parquet")
 
-        try:
-            transcript = None
-            published_transcript = entry.get("podcast_transcript")
-            if published_transcript:
-                try:
-                    transcript = fetch_published_transcript(published_transcript)
-                except Exception as exc:
-                    print(f"[{name}] couldn't use published transcript, transcribing instead: {exc}")
 
-            if not transcript:
-                transcript = transcribe_audio(audio_url)
-        except Exception as exc:
-            print(f"[{name}] failed to transcribe '{entry.title}', skipping: {exc}")
-            continue
+def _append_parquet_rows(folder_name, rows, run_at_local):
+    if not rows:
+        return
 
-        record = {
-            "title": entry.title,
-            "guid": entry.get("id") or entry.get("link"),
-            "link": entry.get("link", ""),
-            "published": entry.get("published", ""),
-            "audio_url": audio_url,
-            "transcript": transcript,
-            "fetched_at": datetime.now(timezone.utc).isoformat(),
-        }
+    path = _quarter_parquet_path(folder_name, run_at_local)
+    new_df = pd.DataFrame(rows)
+    if os.path.exists(path):
+        existing_df = pd.read_parquet(path)
+        combined = pd.concat([existing_df, new_df], ignore_index=True)
+    else:
+        combined = new_df
+    combined.to_parquet(path, index=False)
 
-        with open(os.path.join(archive_dir, f"{eid}.json"), "w") as f:
-            json.dump(record, f, indent=2)
 
-        new_count += 1
-        new_entries.append(
-            {
-                "podcast": podcast["display_name"],
-                "title": entry.title,
-                "transcript": transcript,
-            }
-        )
+def write_parquet_outputs(analysis, processed_entries, run_at):
+    run_at_local = run_at.astimezone(LOCAL_TZ)
+    lookup = {(e["podcast"], e["title"]): e for e in processed_entries}
 
-    return new_count, new_entries
+    interviewee_rows = []
+    for person in analysis["interviewees"]:
+        for entry in _resolve_episode_refs(person.get("episodes", []), lookup):
+            interviewee_rows.append(
+                {
+                    "run_at": run_at.isoformat(),
+                    "name": person["name"],
+                    "role": person.get("role", ""),
+                    "podcast": entry["podcast"],
+                    "episode_title": entry["title"],
+                    "episode_link": entry.get("link", ""),
+                    "audio_url": entry["audio_url"],
+                }
+            )
+    _append_parquet_rows(INTERVIEWEES_FOLDER, interviewee_rows, run_at_local)
+
+    theme_rows = []
+    for theme in analysis["themes"]:
+        for entry in _resolve_episode_refs(theme.get("episodes", []), lookup):
+            theme_rows.append(
+                {
+                    "run_at": run_at.isoformat(),
+                    "theme": theme["theme"],
+                    "contrast": theme.get("contrast", ""),
+                    "podcast": entry["podcast"],
+                    "episode_title": entry["title"],
+                    "episode_link": entry.get("link", ""),
+                    "audio_url": entry["audio_url"],
+                }
+            )
+    _append_parquet_rows(THEMES_FOLDER, theme_rows, run_at_local)
+
+    actor_rows = []
+    for actor in analysis["actors"]:
+        for entry in _resolve_episode_refs(actor.get("episodes", []), lookup):
+            actor_rows.append(
+                {
+                    "run_at": run_at.isoformat(),
+                    "actor": actor["actor"],
+                    "podcast": entry["podcast"],
+                    "episode_title": entry["title"],
+                    "episode_link": entry.get("link", ""),
+                    "audio_url": entry["audio_url"],
+                }
+            )
+    _append_parquet_rows(ACTORS_FOLDER, actor_rows, run_at_local)
 
 
 def clone_repo():
@@ -452,7 +588,7 @@ def clone_repo():
 def git_commit_and_push(total_new):
     subprocess.run(["git", "add", "data"], cwd=REPO_DIR, check=True)
     subprocess.run(
-        ["git", "commit", "-m", f"Add {total_new} new episode(s)"],
+        ["git", "commit", "-m", f"Process {total_new} new episode(s)"],
         cwd=REPO_DIR,
         check=True,
     )
@@ -462,27 +598,42 @@ def git_commit_and_push(total_new):
 def main():
     clone_repo()
 
-    total_new = 0
-    batch_entries = []
+    all_new = []
     for podcast in PODCASTS:
         try:
-            new_count, new_entries = process_podcast(podcast)
-            total_new += new_count
-            batch_entries.extend(new_entries)
+            all_new.extend(collect_new_episodes(podcast))
         except Exception as exc:
-            print(f"[{podcast['name']}] failed: {exc}")
+            print(f"[{podcast['name']}] failed to check feed: {exc}")
 
-    if batch_entries:
-        try:
-            write_digest(batch_entries)
-        except Exception as exc:
-            print(f"digest analysis failed, publishing episodes without a digest update: {exc}")
-
-    if total_new:
-        print(f"{total_new} new episode(s) processed, pushing to git...")
-        git_commit_and_push(total_new)
-    else:
+    if not all_new:
         print("No new episodes.")
+        return
+
+    print(f"{len(all_new)} new episode(s) found, sending audio to Gemini in one batch...")
+
+    try:
+        analysis, processed = analyse_batch_audio(all_new)
+    except Exception as exc:
+        print(f"batch analysis failed, nothing processed this run: {exc}")
+        return
+
+    if not processed:
+        print("All episodes failed to download, nothing to analyse.")
+        return
+
+    run_at = datetime.now(timezone.utc)
+    write_digest(analysis, run_at)
+    write_parquet_outputs(analysis, processed, run_at)
+
+    by_podcast = {}
+    for entry in processed:
+        by_podcast.setdefault(entry["podcast_key"], []).append(entry["id"])
+    for podcast_key, new_ids in by_podcast.items():
+        seen = _load_seen(podcast_key) | set(new_ids)
+        _save_seen(podcast_key, seen)
+
+    print(f"{len(processed)} episode(s) processed, pushing to git...")
+    git_commit_and_push(len(processed))
 
 
 if __name__ == "__main__":
