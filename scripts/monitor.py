@@ -324,7 +324,9 @@ def collect_new_episodes(podcast):
 
 
 def download_audio(audio_url):
-    with urlopen(Request(audio_url), timeout=1200) as resp:
+    # Some CDNs (e.g. Omny) reject Python's default urllib user agent with a 403.
+    request = Request(audio_url, headers={"User-Agent": "Mozilla/5.0 (compatible; podcast-monitor-bot)"})
+    with urlopen(request, timeout=1200) as resp:
         content_type = resp.headers.get("Content-Type", "audio/mpeg").split(";")[0].strip()
         return resp.read(), content_type
 
