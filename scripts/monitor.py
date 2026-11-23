@@ -386,42 +386,63 @@ def _html_list(items):
 
 
 def _html_interviewees_list(interviewees):
+    # Renders both the current {name, role, episodes} shape and plain strings
+    # from digest archive files written before this schema existed.
     items = []
     for person in interviewees:
-        podcasts = "; ".join(dict.fromkeys(ref["podcast"] for ref in person.get("episodes", [])))
-        label = f"{person['name']}, {person['role']}" if person.get("role") else person["name"]
+        if isinstance(person, str):
+            items.append(person)
+            continue
+        podcasts = "; ".join(
+            dict.fromkeys(
+                ref.get("podcast", "") for ref in person.get("episodes", []) if isinstance(ref, dict)
+            )
+        )
+        name = person.get("name", "")
+        label = f"{name}, {person['role']}" if person.get("role") else name
         items.append(f"{label} ({podcasts})" if podcasts else label)
     return _html_list(items)
 
 
 def _html_themes_list(themes):
-    items = [
-        f"{t['theme']} — {t['contrast']}" if t.get("contrast") else t["theme"]
-        for t in themes
-    ]
+    # Same backward-compatibility concern as _html_interviewees_list above.
+    items = []
+    for t in themes:
+        if isinstance(t, str):
+            items.append(t)
+            continue
+        items.append(f"{t['theme']} — {t['contrast']}" if t.get("contrast") else t.get("theme", ""))
     return _html_list(items)
 
 
 def _html_actors_list(actors):
-    return _html_list(a["actor"] for a in actors)
+    # Same backward-compatibility concern as _html_interviewees_list above.
+    return _html_list(a if isinstance(a, str) else a.get("actor", "") for a in actors)
 
 
 def _html_episode_breakdown(episodes):
+    # Older digest archive files have episodes with no "stories" key at all, or
+    # stories missing fields (start_time, duration, placement) added later —
+    # every field here is read defensively so old records still render.
     sections = []
     for episode in episodes:
         stories = "".join(
-            f"<li><strong>{s['story']}</strong> ({s['start_time']}"
-            + (f", {s['duration']}" if s.get("duration") else "")
-            + f") — {s['angle']}<br>"
-            f"Voices: {s['voices']}<br>"
-            f"Tone: {s['tone']}<br>"
-            f"Emphasis: {s['emphasis']}<br>"
-            f"Placement: {s['placement']}<br>"
-            f"&ldquo;{s['evidence']}&rdquo;</li>"
-            for s in episode["stories"]
+            f"<li><strong>{s.get('story', '')}</strong>"
+            + (
+                f" ({s['start_time']}" + (f", {s['duration']}" if s.get("duration") else "") + ")"
+                if s.get("start_time")
+                else ""
+            )
+            + f" — {s.get('angle', '')}<br>"
+            f"Voices: {s.get('voices', '')}<br>"
+            f"Tone: {s.get('tone', '')}<br>"
+            f"Emphasis: {s.get('emphasis', '')}<br>"
+            + (f"Placement: {s['placement']}<br>" if s.get("placement") else "")
+            + f"&ldquo;{s.get('evidence', '')}&rdquo;</li>"
+            for s in episode.get("stories", [])
         )
         sections.append(
-            f"<p><strong>{episode['podcast']}: {episode['title']}</strong></p><ul>{stories}</ul>"
+            f"<p><strong>{episode.get('podcast', '')}: {episode.get('title', '')}</strong></p><ul>{stories}</ul>"
         )
     return "".join(sections)
 
