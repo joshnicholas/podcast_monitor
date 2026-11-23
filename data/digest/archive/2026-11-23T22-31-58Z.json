@@ -1,0 +1,245 @@
+{
+  "run_at": "2026-11-23T22:31:58.841736+00:00",
+  "episodes": [
+    {
+      "podcast": "ABC AM",
+      "title": "Jensen Huang reinstated as NVIDIA chief",
+      "stories": [
+        {
+          "story": "Jensen Huang reinstated as NVIDIA chief",
+          "start_time": "00:07",
+          "duration": "03:33",
+          "angle": "NVIDIA reinstates Jensen Huang as chief following a scandal",
+          "voices": "Isabella Higgins (host), Lauren Day (North America correspondent)",
+          "tone": "objective and informative",
+          "emphasis": "corporate governance and scandal",
+          "placement": "lead item",
+          "evidence": "\"AI powerhouse Nvidia has made the shock move to reinstate scandal-plagued Jensen Huang as its president and CEO.\""
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Changing Australia: Shaun Christie David and using food to drive social change",
+      "stories": [
+        {
+          "story": "Using food to drive social change",
+          "start_time": "00:07",
+          "duration": "06:21",
+          "angle": "How food is used to drive social change and support marginalized communities",
+          "voices": "Sally Sara (host), Shaun Christie David (founder of Plate It Forward)",
+          "tone": "conversational and inspiring",
+          "emphasis": "social enterprise and community impact",
+          "placement": "lead item",
+          "evidence": "\"Food can be much more than than the nourishment. What did your mom teach you, Shawn, about what else food could be?\""
+        }
+      ]
+    },
+    {
+      "podcast": "News24",
+      "title": "Chalmers warns bigger budget deficits are ahead",
+      "stories": [
+        {
+          "story": "Higher inflation and bond yields mean bigger budget deficits",
+          "start_time": "00:19",
+          "duration": "02:32",
+          "angle": "Treasurer Jim Chalmers warns of bigger budget deficits due to higher inflation and bond yields",
+          "voices": "Jim Chalmers (Treasurer), Jim Chalmers (Treasurer, clip)",
+          "tone": "cautionary and serious",
+          "emphasis": "economic challenges and fiscal policy",
+          "placement": "lead item",
+          "evidence": "\"Treasurer Jim Chalmers says higher inflation and bond yields mean bigger deficits are yet to come.\""
+        },
+        {
+          "story": "Anthony Albanese stands by Australia's decision to co-host COP31",
+          "start_time": "01:18",
+          "duration": "01:00",
+          "angle": "Anthony Albanese defends Australia's decision to co-host COP31",
+          "voices": "Anthony Albanese (Prime Minister)",
+          "tone": "defensive and resolute",
+          "emphasis": "international diplomacy and climate policy",
+          "placement": "second",
+          "evidence": "\"Anthony Albanese is standing by Australia's decision to co-host COP31 held in Turkey despite no clear result.\""
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Postnatal depression rates rise to 1 in 5, new report says",
+      "stories": [
+        {
+          "story": "Postnatal depression rates rise to 1 in 5",
+          "start_time": "00:01",
+          "duration": "07:05",
+          "angle": "A new report shows that postnatal depression rates have risen to 1 in 5",
+          "voices": "Sally Sara (host), Jane (new mother, unconfirmed), Ariane Beeston (registered psychologist and director of clinical content at the Centre of Perinatal Excellence)",
+          "tone": "concerned and empathetic",
+          "emphasis": "mental health and maternal wellbeing",
+          "placement": "lead item",
+          "evidence": "\"Rates of postnatal depression continue to rise in Australia, with 1 in 5 new mothers experiencing the condition.\""
+        },
+        {
+          "story": "Victorian Greens look to capitalise on Labor woes at state election",
+          "start_time": "07:05",
+          "duration": "06:14",
+          "angle": "The Victorian Greens are aiming to capitalise on Labor's woes at the upcoming state election",
+          "voices": "Sally Sara (host), Ellen Sandell (MP for Melbourne and Greens state leader)",
+          "tone": "analytical and political",
+          "emphasis": "political strategy and polling",
+          "placement": "second",
+          "evidence": "\"Well to the Victorian election now, where the Greens are confident of capitalising on Labor's poor standing ahead of Saturday's poll.\""
+        }
+      ]
+    }
+  ],
+  "interviewees": [
+    {
+      "name": "Jim Chalmers, Treasurer",
+      "role": "Treasurer",
+      "episodes": [
+        {
+          "podcast": "News24",
+          "title": "Chalmers warns bigger budget deficits are ahead"
+        }
+      ]
+    },
+    {
+      "name": "Shaun Christie David, founder of Plate It Forward",
+      "role": "Founder of Plate It Forward",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Changing Australia: Shaun Christie David and using food to drive social change"
+        }
+      ]
+    },
+    {
+      "name": "Ariane Beeston, registered psychologist and director of clinical content at the Centre of Perinatal Excellence",
+      "role": "Registered psychologist and director of clinical content at the Centre of Perinatal Excellence",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Postnatal depression rates rise to 1 in 5, new report says"
+        }
+      ]
+    },
+    {
+      "name": "Ellen Sandell, MP for Melbourne and Greens state leader",
+      "role": "MP for Melbourne and Greens state leader",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Postnatal depression rates rise to 1 in 5, new report says"
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "actor": "Jim Chalmers, Treasurer",
+      "episodes": [
+        {
+          "podcast": "News24",
+          "title": "Chalmers warns bigger budget deficits are ahead"
+        }
+      ]
+    },
+    {
+      "actor": "Anthony Albanese, Prime Minister",
+      "episodes": [
+        {
+          "podcast": "News24",
+          "title": "Chalmers warns bigger budget deficits are ahead"
+        }
+      ]
+    },
+    {
+      "actor": "Jensen Huang, NVIDIA president and CEO",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Jensen Huang reinstated as NVIDIA chief"
+        }
+      ]
+    },
+    {
+      "actor": "Shaun Christie David, founder of Plate It Forward",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Changing Australia: Shaun Christie David and using food to drive social change"
+        }
+      ]
+    },
+    {
+      "actor": "Ariane Beeston, registered psychologist and director of clinical content at the Centre of Perinatal Excellence",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Postnatal depression rates rise to 1 in 5, new report says"
+        }
+      ]
+    },
+    {
+      "actor": "Ellen Sandell, MP for Melbourne and Greens state leader",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Postnatal depression rates rise to 1 in 5, new report says"
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "Economic challenges and fiscal policy",
+      "contrast": "News24 focused on the Treasurer's warnings of bigger budget deficits due to inflation, while other programs focused on social and health issues.",
+      "episodes": [
+        {
+          "podcast": "News24",
+          "title": "Chalmers warns bigger budget deficits are ahead"
+        }
+      ]
+    },
+    {
+      "theme": "Mental health and maternal wellbeing",
+      "contrast": "RN Breakfast explored the rise in postnatal depression rates and the need for better support and screening.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Postnatal depression rates rise to 1 in 5, new report says"
+        }
+      ]
+    },
+    {
+      "theme": "Political strategy and state elections",
+      "contrast": "RN Breakfast examined the Victorian Greens' strategy to capitalise on Labor's poor standing ahead of the state election.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Postnatal depression rates rise to 1 in 5, new report says"
+        }
+      ]
+    },
+    {
+      "theme": "Social enterprise and community support",
+      "contrast": "RN Breakfast highlighted how food can be used to drive social change and support marginalized communities.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Changing Australia: Shaun Christie David and using food to drive social change"
+        }
+      ]
+    },
+    {
+      "theme": "Corporate governance and scandals",
+      "contrast": "ABC AM focused on the reinstatement of Jensen Huang as NVIDIA chief following a scandal.",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Jensen Huang reinstated as NVIDIA chief"
+        }
+      ]
+    }
+  ]
+}
