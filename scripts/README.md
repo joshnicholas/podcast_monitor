@@ -110,27 +110,33 @@ commit landed in GitHub under `data/`, and that the "Deploy site" Actions workfl
 ## Schedule it
 
 ```bash
-# Let Cloud Scheduler invoke the job
+gcloud iam service-accounts create podcast-scheduler \
+  --display-name="Podcast monitor scheduler"
+
+SA="podcast-scheduler@podcast-monitor-515309.iam.gserviceaccount.com"
+
 gcloud run jobs add-iam-policy-binding podcast-monitor \
   --region=australia-southeast1 \
   --member="serviceAccount:${SA}" \
   --role="roles/run.invoker"
 
-gcloud scheduler jobs create http podcast-monitor-trigger \
+JOB_URI="https://run.googleapis.com/v2/projects/podcast-monitor-515309/locations/australia-southeast1/jobs/podcast-monitor:run"
+
+gcloud scheduler jobs create http podcast-monitor-0800 \
   --location=australia-southeast1 \
-  --schedule="*/30 * * * *" \
-  --uri="https://run.googleapis.com/v2/projects/YOUR_PROJECT_ID/locations/australia-southeast1/jobs/podcast-monitor:run" \
+  --schedule="0 8 * * 1-5" \
+  --time-zone="Australia/Melbourne" \
+  --uri="${JOB_URI}" \
   --http-method=POST \
   --oauth-service-account-email="${SA}"
-```
 
-Adjust `--schedule` (standard unix-cron) to whatever cadence you want — the example
-above runs every 30 minutes. To change the schedule later:
-
-```bash
-gcloud scheduler jobs update http podcast-monitor-trigger \
+gcloud scheduler jobs create http podcast-monitor-0930-1730 \
   --location=australia-southeast1 \
-  --schedule="NEW_CRON_STRING"
+  --schedule="30 9,17 * * 1-5" \
+  --time-zone="Australia/Melbourne" \
+  --uri="${JOB_URI}" \
+  --http-method=POST \
+  --oauth-service-account-email="${SA}"
 ```
 
 ## Local testing (optional)

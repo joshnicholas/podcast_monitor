@@ -42,47 +42,133 @@ GEMINI_MODEL = "gemini-3.5-flash-lite"
 
 client = genai.Client(api_key=GEMINI_API_KEY)
 
-TRANSCRIPT_PROMPT = """Generate a complete, verbatim transcript of this audio.
-Label distinct speakers, switching the label every time the speaker changes.
-If you can tell a speaker's name or role from how they're introduced or addressed,
-use that as the label (e.g. "Host:" or "Jane Smith:"); otherwise use "Speaker 1:",
-"Speaker 2:", etc. Output only the transcript, one turn per line."""
+TRANSCRIPTION_PROMPT = """Transcribe this audio completely and verbatim.
 
-BATCH_ANALYSIS_PROMPT = """You are a media analyst for a large organisation.
-Your job is to read transcripts of morning radio shows and summarise the important news stories,
-players and discussions of the day.
-Pay particular attention to who is being interviewed and the topics they are discussing
-- especially politics, disasters, anniversaries, controversies.
+Speakers
+- Start a new line every time the speaker changes, prefixed with a speaker label.
+- Use a name or role when the audio makes it clear (e.g. "Host:", "Sabra Lane:",
+  "Treasurer Jim Chalmers:"). Use the most specific label you can, and keep it the
+  same for that speaker throughout.
+- Otherwise use "Speaker 1:", "Speaker 2:", etc., and keep each number tied to the
+  same voice for the whole recording.
+- Callers, vox pops and audio clips from other sources (press conferences,
+  archival audio) get their own labels, e.g. "Caller (Mark, Penrith):" or
+  "Clip – Prime Minister:".
 
-The following podcast episodes were all published since the last check and are being
-processed together as one batch. Each transcript is labelled with the podcast it came
-from. Read all the transcripts below and answer the following questions across the
-WHOLE batch combined, not per episode:
-- Who is being interviewed or on a panel, if anyone? For each one, give their name and
-  role, followed by the podcast they were interviewed on in brackets, e.g.
-  "Jane Smith, Treasurer (ABC AM)".
-- What are the major stories being discussed? If multiple podcasts cover the same
-  story, merge it into ONE theme rather than listing a reworded duplicate for each
-  podcast that covered it.
-- Who are the main actors being discussed? Merge the same person or organisation into
-  ONE entry even if they come up across multiple podcasts.
-Condense each to a short phrase. Only mention an interviewee, actor or theme if it is
-important. Order the "themes" and "actors" lists from most to least mentioned, counting
-a mention once per podcast it appears in (not per sentence), so the most widely-covered
-stories and actors come first.
+Content
+- Transcribe what is said, not a summary. Keep hedges, interruptions and
+  corrections, because they matter for analysis. You can drop pure filler
+  ("um", "uh").
+- Mark segments that aren't editorial content in square brackets instead of
+  transcribing them in full: [ADVERTISEMENT], [STATION ID], [MUSIC], [NEWS BULLETIN
+  BEGINS], [NEWS BULLETIN ENDS]. Do transcribe news bulletins.
+- If a word or name is unclear, write your best guess followed by [?]. Write
+  [inaudible] if you can't make it out at all. Never invent words.
+- Spell names of people, places and organisations as they would normally be
+  written, using context to resolve them.
 
-Transcripts:
+Output only the transcript, one speaker turn per line, with no preamble or
+commentary."""
+
+BATCH_ANALYSIS_PROMPT = """You are a media analyst for a large organisation. You monitor
+morning radio and podcast news programs and brief senior staff on what is being
+covered, who is being given airtime, and how stories are being framed.
+
+Below are transcripts of podcast episodes published since the last check. They are
+processed together as one batch. Each transcript is wrapped in an <episode> tag
+labelled with the podcast it came from.
+
+<transcripts>
 {transcripts}
-"""
+</transcripts>
+
+Analyse the transcripts in two parts.
+
+PART 1 – PER EPISODE
+For each episode, in the order given:
+- Podcast name and episode title or date (as labelled).
+- Main stories: the 3–6 most significant stories in the episode, in the order they
+  appeared. Skip ads, weather, traffic and brief bulletin items unless they get
+  real discussion.
+- For each story, describe its framing:
+  - Angle: the central question or storyline the program built the item around
+    (e.g. "a cost-of-living failure by the government" vs "a necessary budget
+    repair measure").
+  - Voices: who was given airtime on the story and who was absent or only
+    referred to. Note whether the host challenged a guest or let them speak
+    unchallenged.
+  - Tone: critical, sympathetic, adversarial, neutral/explanatory, alarmed, etc.,
+    and towards whom.
+  - Emphasis: what was foregrounded (human impact, cost, blame, process, conflict,
+    numbers) and any notable context that was left out or treated as a side issue.
+  - Evidence: one short direct quote (under 25 words) from the transcript that best
+    shows the framing.
+  Describe the framing from what was actually said. Don't speculate about
+  editorial motives or allege bias the transcript doesn't show.
+
+PART 2 – ACROSS THE WHOLE BATCH
+Combine all episodes:
+- Interviewees and panellists: name and role, followed by the podcast(s) in brackets,
+  e.g. "Jane Smith, Treasurer (ABC AM; RN Breakfast)". List each person once.
+- Themes: the major stories across the batch. If several podcasts covered the same
+  story, merge it into ONE theme. Where those podcasts framed it differently, add one
+  sentence on the contrast (e.g. "AM led on the economic cost; RN Breakfast on the
+  political fallout").
+- Actors: the main people and organisations being discussed (not only those
+  interviewed), with each one merged into a single entry.
+
+Rules
+- Include only items that matter to a senior briefing reader. Pay particular
+  attention to politics, disasters, anniversaries and controversies.
+- Keep list entries to a short phrase. Framing descriptions can run to 1–2 sentences
+  per element.
+- Order themes and actors from most to least covered, counting a mention once per
+  podcast it appears in (not per sentence). Break ties by how much airtime the item got.
+- Use only information in the transcripts. If a name or role is uncertain (e.g.
+  marked [?]), say so instead of guessing.
+- Use Australian English spelling."""
+
+_STORY_SCHEMA = types.Schema(
+    type=types.Type.OBJECT,
+    properties={
+        "story": types.Schema(type=types.Type.STRING),
+        "angle": types.Schema(type=types.Type.STRING),
+        "voices": types.Schema(type=types.Type.STRING),
+        "tone": types.Schema(type=types.Type.STRING),
+        "emphasis": types.Schema(type=types.Type.STRING),
+        "evidence": types.Schema(type=types.Type.STRING),
+    },
+    required=["story", "angle", "voices", "tone", "emphasis", "evidence"],
+)
+
+_EPISODE_ANALYSIS_SCHEMA = types.Schema(
+    type=types.Type.OBJECT,
+    properties={
+        "podcast": types.Schema(type=types.Type.STRING),
+        "title": types.Schema(type=types.Type.STRING),
+        "stories": types.Schema(type=types.Type.ARRAY, items=_STORY_SCHEMA),
+    },
+    required=["podcast", "title", "stories"],
+)
+
+_THEME_SCHEMA = types.Schema(
+    type=types.Type.OBJECT,
+    properties={
+        "theme": types.Schema(type=types.Type.STRING),
+        "contrast": types.Schema(type=types.Type.STRING),
+    },
+    required=["theme"],
+)
 
 ANALYSIS_RESPONSE_SCHEMA = types.Schema(
     type=types.Type.OBJECT,
     properties={
+        "episodes": types.Schema(type=types.Type.ARRAY, items=_EPISODE_ANALYSIS_SCHEMA),
         "interviewees": types.Schema(type=types.Type.ARRAY, items=types.Schema(type=types.Type.STRING)),
         "actors": types.Schema(type=types.Type.ARRAY, items=types.Schema(type=types.Type.STRING)),
-        "themes": types.Schema(type=types.Type.ARRAY, items=types.Schema(type=types.Type.STRING)),
+        "themes": types.Schema(type=types.Type.ARRAY, items=_THEME_SCHEMA),
     },
-    required=["interviewees", "actors", "themes"],
+    required=["episodes", "interviewees", "actors", "themes"],
 )
 
 
@@ -123,7 +209,7 @@ def transcribe_audio(audio_url):
     try:
         response = generate_with_retry(
             model=GEMINI_MODEL,
-            contents=[uploaded, TRANSCRIPT_PROMPT],
+            contents=[uploaded, TRANSCRIPTION_PROMPT],
         )
         return response.text.strip()
     finally:
@@ -171,7 +257,8 @@ def fetch_published_transcript(transcript_tag):
 
 def analyse_batch(entries):
     transcripts = "\n\n".join(
-        f"### {entry['podcast']} — {entry['title']}\n{entry['transcript']}"
+        f'<episode podcast="{entry["podcast"]}" title="{entry["title"]}">\n'
+        f'{entry["transcript"]}\n</episode>'
         for entry in entries
     )
     response = generate_with_retry(
@@ -187,6 +274,31 @@ def analyse_batch(entries):
 
 def _html_list(items):
     return "<ul>" + "".join(f"<li>{item}</li>" for item in items) + "</ul>"
+
+
+def _html_themes_list(themes):
+    items = [
+        f"{t['theme']} — {t['contrast']}" if t.get("contrast") else t["theme"]
+        for t in themes
+    ]
+    return _html_list(items)
+
+
+def _html_episode_breakdown(episodes):
+    sections = []
+    for episode in episodes:
+        stories = "".join(
+            f"<li><strong>{s['story']}</strong> — {s['angle']}<br>"
+            f"Voices: {s['voices']}<br>"
+            f"Tone: {s['tone']}<br>"
+            f"Emphasis: {s['emphasis']}<br>"
+            f"&ldquo;{s['evidence']}&rdquo;</li>"
+            for s in episode["stories"]
+        )
+        sections.append(
+            f"<p><strong>{episode['podcast']}: {episode['title']}</strong></p><ul>{stories}</ul>"
+        )
+    return "".join(sections)
 
 
 def _format_run_title(run_at_iso, episode_count):
@@ -211,9 +323,6 @@ def build_digest_feed_xml(archive_dir):
 
     for record in records:
         item = ET.SubElement(channel, "item")
-        episode_list = _html_list(
-            f"{e['podcast']}: {e['title']}" for e in record["episodes"]
-        )
         ET.SubElement(item, "title").text = _format_run_title(
             record["run_at"], len(record["episodes"])
         )
@@ -222,9 +331,9 @@ def build_digest_feed_xml(archive_dir):
 
         description = (
             f"<p><strong>Interviewees:</strong></p>{_html_list(record.get('interviewees', []))}"
-            f"<p><strong>Key Themes:</strong></p>{_html_list(record.get('themes', []))}"
+            f"<p><strong>Key Themes:</strong></p>{_html_themes_list(record.get('themes', []))}"
             f"<p><strong>Key Actors:</strong></p>{_html_list(record.get('actors', []))}"
-            f"<p><strong>Episodes in this run:</strong></p>{episode_list}"
+            f"<p><strong>Episodes in this run:</strong></p>{_html_episode_breakdown(record.get('episodes', []))}"
         )
         ET.SubElement(item, "description").text = description
 
@@ -241,7 +350,7 @@ def write_digest(entries):
 
     record = {
         "run_at": run_at.isoformat(),
-        "episodes": [{"podcast": e["podcast"], "title": e["title"]} for e in entries],
+        "episodes": analysis["episodes"],
         "interviewees": analysis["interviewees"],
         "actors": analysis["actors"],
         "themes": analysis["themes"],
