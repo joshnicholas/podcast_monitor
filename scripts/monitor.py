@@ -261,23 +261,28 @@ def episode_id(audio_url):
     return hashlib.sha1(audio_url.encode()).hexdigest()[:16]
 
 
-def _seen_path(podcast_name):
-    return os.path.join(DATA_DIR, podcast_name, "seen.json")
+SEEN_PATH = os.path.join(DATA_DIR, "seen.json")
+
+
+def _load_all_seen():
+    if not os.path.exists(SEEN_PATH):
+        return {}
+    with open(SEEN_PATH) as f:
+        return json.load(f)
 
 
 def _load_seen(podcast_name):
-    path = _seen_path(podcast_name)
-    if not os.path.exists(path):
-        return set()
-    with open(path) as f:
-        return set(json.load(f))
+    return set(_load_all_seen().get(podcast_name, []))
 
 
 def _save_seen(podcast_name, seen_ids):
-    path = _seen_path(podcast_name)
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as f:
-        json.dump(sorted(seen_ids), f, indent=2)
+    # Re-reads so sequential saves for different podcasts within one run don't
+    # clobber each other's entries in the shared file.
+    all_seen = _load_all_seen()
+    all_seen[podcast_name] = sorted(seen_ids)
+    os.makedirs(DATA_DIR, exist_ok=True)
+    with open(SEEN_PATH, "w") as f:
+        json.dump(all_seen, f, indent=2)
 
 
 def collect_new_episodes(podcast):
