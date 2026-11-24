@@ -1,0 +1,218 @@
+{
+  "run_at": "2026-11-24T22:31:54.494606+00:00",
+  "episodes": [
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Meet the Adelaide Professor who put Australian physics on the map",
+      "stories": [
+        {
+          "story": "Adelaide Professor Anthony Thomas wins Prime Minister's Prize for Science",
+          "start_time": "00:02",
+          "duration": "05:08",
+          "angle": "Celebrating the life and achievements of physicist Anthony Thomas and exploring the relationship between physics and artificial intelligence.",
+          "voices": "Sally Sara (host), Anthony Thomas (elder chair of physics at Adelaide University, pre-recorded interview). Anthony Thomas was given ample time to speak unchallenged.",
+          "tone": "Explanatory and congratulatory tone celebrating scientific achievement.",
+          "emphasis": "Foregrounded scientific contribution, basic science, and the evolving role of AI in physics research.",
+          "placement": "Lead item, prominent duration.",
+          "evidence": "mathematics is struggling at the moment because so many new results have come out of AI."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Changing Australia: Carly McKinnis and bringing and keeping more psychologists in regional Victoria",
+      "stories": [
+        {
+          "story": "Tackling the shortage of psychologists in regional and rural Australia",
+          "start_time": "00:02",
+          "duration": "12:00",
+          "angle": "Addressing systemic shortages of mental health professionals in regional Victoria and innovative pathways to train and retain local psychologists.",
+          "voices": "Sally Sara (host), Carly McKinnis (clinical psychologist and co-founder and CEO of One Red Tree Resource Centre in Ararat, pre-recorded interview). Carly McKinnis was allowed to speak at length unchallenged.",
+          "tone": "Sympathetic, urgent, and focused on regional disadvantage.",
+          "emphasis": "Human impact of limited regional services, community-driven solutions, and the need for systemic support.",
+          "placement": "Lead item, substantial duration.",
+          "evidence": "we've been doing it in a little rural town in a way that's working without having to change pathways"
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "'Very rushed and an overreach' - Independent MP criticises new defence legislation",
+      "stories": [
+        {
+          "story": "Criticism of new federal defence security zone legislation",
+          "start_time": "00:01",
+          "duration": "06:17",
+          "angle": "Independent and legal criticism of the federal government's rushed defence legislation granting sweeping powers to designate security zones.",
+          "voices": "Sally Sara (host), Andrew Wilkie (independent federal member for Clark in Tasmania, pre-recorded interview). Andrew Wilkie was given space to detail criticisms without interruption.",
+          "tone": "Critical and adversarial regarding government overreach.",
+          "emphasis": "Democratic accountability, potential misuse of extraordinary powers, and lack of adequate parliamentary scrutiny.",
+          "placement": "Lead item.",
+          "evidence": "it is an unreasonable extension of the power of the state."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Wells secures parliamentary support for digital safety laws",
+      "stories": [
+        {
+          "story": "Federal government secures Green support for digital safety duty of care laws",
+          "start_time": "00:01",
+          "duration": "12:20",
+          "angle": "Balancing the regulation of tech platforms and legal remedies for online harm with free speech and censorship concerns.",
+          "voices": "Sally Sara (host), Anika Wells (Minister for Communications and Minister for Sport, pre-recorded interview), Andrew Hastie (Shadow Minister for Industry and Sovereign Capability, pre-recorded interview). Hosts challenged both guests on the implications of censorship and industry pushback.",
+          "tone": "Explanatory, questioning, and politically tense.",
+          "emphasis": "Corporate accountability, international precedents, and potential impacts on free expression.",
+          "placement": "Lead item.",
+          "evidence": "this government is at the moment looking at redesigning psychology pathways in order to address this problem."
+        }
+      ]
+    }
+  ],
+  "interviewees": [
+    {
+      "name": "Anthony Thomas, elder chair of physics at Adelaide University",
+      "role": "physicist",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Meet the Adelaide Professor who put Australian physics on the map"
+        }
+      ]
+    },
+    {
+      "name": "Carly McKinnis, clinical psychologist and co-founder and CEO of One Red Tree Resource Centre in Ararat",
+      "role": "clinical psychologist and CEO",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Changing Australia: Carly McKinnis and bringing and keeping more psychologists in regional Victoria"
+        }
+      ]
+    },
+    {
+      "name": "Andrew Wilkie, independent federal member for Clark in Tasmania",
+      "role": "independent federal member of parliament",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "'Very rushed and an overreach' - Independent MP criticises new defence legislation"
+        }
+      ]
+    },
+    {
+      "name": "Anika Wells, Minister for Communications and Minister for Sport",
+      "role": "federal government minister",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Wells secures parliamentary support for digital safety laws"
+        }
+      ]
+    },
+    {
+      "name": "Andrew Hastie, Shadow Minister for Industry and Sovereign Capability",
+      "role": "shadow minister",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Wells secures parliamentary support for digital safety laws"
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "actor": "Federal Government",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Wells secures parliamentary support for digital safety laws"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "'Very rushed and an overreach' - Independent MP criticises new defence legislation"
+        }
+      ]
+    },
+    {
+      "actor": "The Greens",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Wells secures parliamentary support for digital safety laws"
+        }
+      ]
+    },
+    {
+      "actor": "Tech Giants (Meta, Google, etc.)",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Wells secures parliamentary support for digital safety laws"
+        }
+      ]
+    },
+    {
+      "actor": "Australian Defence Force",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "'Very rushed and an overreach' - Independent MP criticises new defence legislation"
+        }
+      ]
+    },
+    {
+      "actor": "Adelaide University",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Meet the Adelaide Professor who put Australian physics on the map"
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "Digital safety regulation and tech platform accountability",
+      "contrast": "RN Breakfast focused on the legislative mechanics and free speech concerns surrounding new duty of care laws.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Wells secures parliamentary support for digital safety laws"
+        }
+      ]
+    },
+    {
+      "theme": "National security and legislative overreach",
+      "contrast": "RN Breakfast examined the balance between national security requirements and civil liberties under new defence powers.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "'Very rushed and an overreach' - Independent MP criticises new defence legislation"
+        }
+      ]
+    },
+    {
+      "theme": "Regional healthcare and workforce shortages",
+      "contrast": "RN Breakfast highlighted grassroots community solutions and training pathways for mental health professionals in rural areas.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Changing Australia: Carly McKinnis and bringing and keeping more psychologists in regional Victoria"
+        }
+      ]
+    },
+    {
+      "theme": "Excellence in Australian scientific research",
+      "contrast": "RN Breakfast celebrated academic achievement and the intersection of traditional physics with artificial intelligence.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Meet the Adelaide Professor who put Australian physics on the map"
+        }
+      ]
+    }
+  ]
+}
