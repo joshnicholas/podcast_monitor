@@ -1,0 +1,274 @@
+{
+  "run_at": "2026-11-24T06:32:29.372883+00:00",
+  "episodes": [
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Breakfast Wrap: Guess who's back? Jensen's back",
+      "stories": [
+        {
+          "story": "Jensen Huang's return as CEO of Nvidia",
+          "start_time": "00:40",
+          "duration": "03:20",
+          "angle": "Corporate governance and political pressure leading to Jensen Huang's reinstatement",
+          "voices": "Luke Sidum-Dunstan (host, live); Donald Trump (former US President, clip); Mike Isaac (tech reporter, New York Times / Atlantic, pre-recorded interview); Jensen Huang (CEO, Nvidia, clip)",
+          "tone": "Fascinated and explanatory, highlighting the rapid corporate and political turnaround",
+          "emphasis": "Corporate strategy, political pressure from Trump, and the impact of artificial intelligence on the global economy",
+          "placement": "Lead story, taking up the bulk of the segment",
+          "evidence": "\"It's a really fascinating move and basically stunned uh certainly stunned all of the business reporters out in Silicon Valley\""
+        },
+        {
+          "story": "Victorian State Election Preview",
+          "start_time": "01:26",
+          "duration": "01:50",
+          "angle": "Can minor parties genuinely challenge Labor and the Liberals ahead of the Victorian election?",
+          "voices": "Luke Sidum-Dunstan (host, live); Ellen Sandell (Greens leader, pre-recorded interview)",
+          "tone": "Inquisitive and analytical, focusing on political competition and minor party viability",
+          "emphasis": "Political strategy, minor party challenges, and electoral prospects in Victoria",
+          "placement": "Second story in the breakfast wrap",
+          "evidence": "\"So can the minor parties genuinely challenge Labor and the Liberals?\""
+        }
+      ]
+    },
+    {
+      "podcast": "The Front",
+      "title": "Nvidia soaring: How Trump and Vance forced Nvidia to bring back Jensen Huang",
+      "stories": [
+        {
+          "story": "Donald Trump's pressure on Nvidia regarding Jensen Huang",
+          "start_time": "00:00",
+          "duration": "07:51",
+          "angle": "Political interference and corporate response in the US tech sector",
+          "voices": "Claire Harvey (host, live); Jared Lynch (tech editor, live)",
+          "tone": "Analytical, speculative, and conversational, exploring the chaotic nature of US politics and corporate governance",
+          "emphasis": "Geopolitics, US political pressure on tech boards, and the risks of doing business in China",
+          "placement": "Lead and sole deep-dive story of the episode",
+          "evidence": "\"Donald Trump seems to have ensured that the Nvidia board kind of got what they needed to reinstate Jensen Huang\""
+        }
+      ]
+    },
+    {
+      "podcast": "Full Story",
+      "title": "Myanmar has been found guilty of genocide. Should Israel be worried?",
+      "stories": [
+        {
+          "story": "International Court of Justice ruling on Myanmar genocide against the Rohingya",
+          "start_time": "00:00",
+          "duration": "27:27",
+          "angle": "Historic accountability for genocide and implications for international law and Israel",
+          "voices": "Anushka Kelly (host, live); Rejaul Ahmed (journalist, live - inferred); Yasmin Satta (founder, Rohingya Myeik-Foyna Collaborative Network, pre-recorded interview); Camille Ahmed (journalist, Guardian, pre-recorded interview - inferred)",
+          "tone": "Solemn, empathetic, and serious, focusing on justice for victims and the gravity of international legal rulings",
+          "emphasis": "Human impact, refugee suffering, legal precedent, and global political consequences",
+          "placement": "Full-length feature episode",
+          "evidence": "\"The UN's highest court is hearing a genocide case against Myanmar, the military's...\""
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Politics Now",
+      "title": "It's operation 'smash inflation'",
+      "stories": [
+        {
+          "story": "Jim Chalmers' mid-year budget update and economic strategy",
+          "start_time": "00:00",
+          "duration": "23:00",
+          "angle": "Government economic policy aimed at smashing inflation through net savings",
+          "voices": "Patricia Karvelas (host, live); Melissa Clark (journalist, live); Jim Chalmers (Treasurer, clip and archival); Peter Dutton (Opposition Leader, clip)",
+          "tone": "Analytical, critical, and explanatory regarding fiscal policy and political positioning",
+          "emphasis": "Cost of living, budget updates, inflation pressures, and political conflict between major parties",
+          "placement": "Lead and primary story of the episode",
+          "evidence": "\"That was the grim warning offered by the Treasurer Jim Chalmers as he delivered his ministerial statement on the economy\""
+        },
+        {
+          "story": "Victorian Green Party poll results and electoral outlook",
+          "start_time": "16:26",
+          "duration": "06:01",
+          "angle": "Green party prospects and minor party positioning ahead of the state election",
+          "voices": "Patricia Karvelas (host, live); Ellen Sandell (Greens leader, pre-recorded interview)",
+          "tone": "Inquisitive and politically focused",
+          "emphasis": "Polling data, coalition dynamics, and voter sentiment in Victoria",
+          "placement": "Second segment of the political roundup",
+          "evidence": "\"The Greens are confident of capitalizing on Labor's poor polling ahead of the vote on Saturday\""
+        }
+      ]
+    }
+  ],
+  "interviewees": [
+    {
+      "name": "Ellen Sandell",
+      "role": "Greens leader",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Guess who's back? Jensen's back"
+        },
+        {
+          "podcast": "ABC Politics Now",
+          "title": "It's operation 'smash inflation'"
+        }
+      ]
+    },
+    {
+      "name": "Mike Isaac",
+      "role": "tech reporter, New York Times / Atlantic",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Guess who's back? Jensen's back"
+        }
+      ]
+    },
+    {
+      "name": "Jared Lynch",
+      "role": "tech editor",
+      "episodes": [
+        {
+          "podcast": "The Front",
+          "title": "Nvidia soaring: How Trump and Vance forced Nvidia to bring back Jensen Huang"
+        }
+      ]
+    },
+    {
+      "name": "Yasmin Satta",
+      "role": "founder, Rohingya Myeik-Foyna Collaborative Network",
+      "episodes": [
+        {
+          "podcast": "Full Story",
+          "title": "Myanmar has been found guilty of genocide. Should Israel be worried?"
+        }
+      ]
+    },
+    {
+      "name": "Camille Ahmed",
+      "role": "journalist, Guardian (inferred)",
+      "episodes": [
+        {
+          "podcast": "Full Story",
+          "title": "Myanmar has been found guilty of genocide. Should Israel be worried?"
+        }
+      ]
+    },
+    {
+      "name": "Melissa Clark",
+      "role": "journalist",
+      "episodes": [
+        {
+          "podcast": "ABC Politics Now",
+          "title": "It's operation 'smash inflation'"
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "actor": "Jensen Huang",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Guess who's back? Jensen's back"
+        },
+        {
+          "podcast": "The Front",
+          "title": "Nvidia soaring: How Trump and Vance forced Nvidia to bring back Jensen Huang"
+        }
+      ]
+    },
+    {
+      "actor": "Donald Trump",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Guess who's back? Jensen's back"
+        },
+        {
+          "podcast": "The Front",
+          "title": "Nvidia soaring: How Trump and Vance forced Nvidia to bring back Jensen Huang"
+        },
+        {
+          "podcast": "ABC Politics Now",
+          "title": "It's operation 'smash inflation'"
+        }
+      ]
+    },
+    {
+      "actor": "Jim Chalmers, Treasurer",
+      "episodes": [
+        {
+          "podcast": "ABC Politics Now",
+          "title": "It's operation 'smash inflation'"
+        }
+      ]
+    },
+    {
+      "actor": "Peter Dutton, Opposition Leader",
+      "episodes": [
+        {
+          "podcast": "ABC Politics Now",
+          "title": "It's operation 'smash inflation'"
+        }
+      ]
+    },
+    {
+      "actor": "Nvidia",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Guess who's back? Jensen's back"
+        },
+        {
+          "podcast": "The Front",
+          "title": "Nvidia soaring: How Trump and Vance forced Nvidia to bring back Jensen Huang"
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "Economic policy, inflation, and budget management",
+      "contrast": "ABC Politics Now focused deeply on the political and fiscal details of the mid-year budget update and net savings, while other episodes touched on broader macroeconomic trends.",
+      "episodes": [
+        {
+          "podcast": "ABC Politics Now",
+          "title": "It's operation 'smash inflation'"
+        }
+      ]
+    },
+    {
+      "theme": "Corporate governance and geopolitical pressure in the tech sector",
+      "contrast": "RN Breakfast provided a concise news wrap of Jensen Huang's return to Nvidia, whereas The Front offered a deep-dive analysis into the chaotic political influence exerted by Donald Trump and JD Vance.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Guess who's back? Jensen's back"
+        },
+        {
+          "podcast": "The Front",
+          "title": "Nvidia soaring: How Trump and Vance forced Nvidia to bring back Jensen Huang"
+        }
+      ]
+    },
+    {
+      "theme": "Victorian politics and minor party electoral prospects",
+      "contrast": "RN Breakfast briefly examined minor party viability in a morning news format, whereas ABC Politics Now conducted a more extended assessment of Green Party polling and strategic positioning.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Guess who's back? Jensen's back"
+        },
+        {
+          "podcast": "ABC Politics Now",
+          "title": "It's operation 'smash inflation'"
+        }
+      ]
+    },
+    {
+      "theme": "International justice, genocide rulings, and human rights",
+      "contrast": "Full Story delivered an in-depth standalone feature examining the ICJ ruling on Myanmar and its broader geopolitical implications.",
+      "episodes": [
+        {
+          "podcast": "Full Story",
+          "title": "Myanmar has been found guilty of genocide. Should Israel be worried?"
+        }
+      ]
+    }
+  ]
+}
