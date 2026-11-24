@@ -1,0 +1,236 @@
+{
+  "run_at": "2026-11-24T21:03:18.837217+00:00",
+  "episodes": [
+    {
+      "podcast": "ABC AM",
+      "title": "Small businesses feel 'recession like' conditions",
+      "stories": [
+        {
+          "story": "Economic conditions and interest rate rise warnings",
+          "start_time": "00:07",
+          "duration": "00:38",
+          "angle": "Economic hardship and looming interest rate hikes",
+          "voices": "Isabella Higgins, ABC AM presenter (live); unnamed economists (referred); Reserve Bank of Australia (referred); unnamed business owners (referred)",
+          "tone": "Alarmed and serious, highlighting severe economic pressure on households and businesses.",
+          "emphasis": "Consumer and small business struggle, high inflation, and impending interest rate decisions.",
+          "placement": "Lead story, taking up the first 38 seconds of the bulletin.",
+          "evidence": "\"Economists are predicting the figures will be much higher than the Reserve Bank's 2 to 3% target.\""
+        },
+        {
+          "story": "Impact of economic conditions on small beauty businesses",
+          "start_time": "00:45",
+          "duration": "00:58",
+          "angle": "A drastic reduction in customer spending causing recession-like conditions for small operators",
+          "voices": "Isabella Higgins, ABC AM presenter (live); Amy Wright, owner of Adelaide Melbourne Beauty Business (pre-recorded interviewee)",
+          "tone": "Sympathetic and explanatory regarding small business hardship.",
+          "emphasis": "Human and financial impact on business owners who must pay staff while experiencing falling demand.",
+          "placement": "Second story following the economic lead.",
+          "evidence": "\"It has every hallmark of a recession and as a business owner on the receiving end and someone who's responsible for paying people, there's no other word for it.\""
+        },
+        {
+          "story": "Retail sector struggles and Black Friday sales reflections",
+          "start_time": "01:38",
+          "duration": "00:22",
+          "angle": "Mixed reflections on retail sales and consumer spending habits",
+          "voices": "Isabella Higgins, ABC AM presenter (live); Chris Rodwell, CEO of Australian Retail Council (pre-recorded interviewee)",
+          "tone": "Cautious and concerned about consumer spending slowdown.",
+          "emphasis": "Financial struggle and stalled stock movement among retailers.",
+          "placement": "Third story in the bulletin.",
+          "evidence": "\"Some are doing very well, but there's others that are really really struggling to move stock.\""
+        },
+        {
+          "story": "Treasury budget update and warnings from Jim Chalmers",
+          "start_time": "02:00",
+          "duration": "00:30",
+          "angle": "Political warning of continued economic pressure and high inflation",
+          "voices": "Isabella Higgins, ABC AM presenter (live); Jim Chalmers, Treasurer (clip); unnamed Treasury officials (referred)",
+          "tone": "Sober and foreboding.",
+          "emphasis": "Macroeconomic forecasts, persistent inflation, and downward revisions to growth.",
+          "placement": "Fourth story.",
+          "evidence": "\"Mean our economy and our people will be under more pressure for longer than we would like.\""
+        },
+        {
+          "story": "Macquarie Bank joins HSBC in forecasting recession odds",
+          "start_time": "02:30",
+          "duration": "00:36",
+          "angle": "Financial institution forecasting 50-50 odds of a recession",
+          "voices": "Isabella Higgins, ABC AM presenter (live); News Limited (referred); Macquarie Bank (referred); HSBC (referred); Dr John Hawkins, former Treasury and RBA economist, lecturer at the University of Canberra (pre-recorded interviewee)",
+          "tone": "Analytical and cautionary.",
+          "emphasis": "Risk of recession and economic slowing.",
+          "placement": "Fifth story.",
+          "evidence": "\"I agree with the Treasury and Reserve Bank that the economy will slow, but it won't actually contract.\""
+        },
+        {
+          "story": "Skills shortages and crisis in the electrical trade pipeline",
+          "start_time": "03:34",
+          "duration": "04:30",
+          "angle": "Critical skills shortages and the vulnerability of the pipeline for new electricians",
+          "voices": "Isabella Higgins, ABC AM presenter (live); Bronwyn Herbert, National Work Reporter (pre-recorded reporter); Ross Dale, Victorian regional electrical contractor (pre-recorded interviewee); Gideon Haert, Chief Executive of NECA Education (pre-recorded interviewee); unnamed government officials (referred)",
+          "tone": "Urgent and investigative.",
+          "emphasis": "Workforce pressures, apprenticeship pipelines, and the impact of data center construction booms.",
+          "placement": "Long-form report following the economic updates.",
+          "evidence": "\"Well, the construction boom of new data centers has been one of the few factors driving the economy, but some within the industry say it's also exposing weaknesses in the country's pipeline of new electricians.\""
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Report warns significant gaps in understanding of Australia's critical infrastructure",
+      "stories": [
+        {
+          "story": "AI reshaping foreign interference and critical infrastructure vulnerabilities",
+          "start_time": "00:00",
+          "duration": "03:40",
+          "angle": "Artificial intelligence increasing the sophistication of foreign interference and threats to national infrastructure",
+          "voices": "Ruby Jones, RN Breakfast presenter (live); Senator Penny Wong, Foreign Affairs Minister (referred); Dr Su K, Director of the Australian Academy of Technological Sciences and Engineering AI Institute (live interviewee)",
+          "tone": "Analytical and cautionary regarding emerging digital threats.",
+          "emphasis": "Cyber attacks, supply chain vulnerabilities, foreign interference, and critical infrastructure protection.",
+          "placement": "Lead story of the program.",
+          "evidence": "\"Artificial intelligence is reshaping the foundations of our societies. Cyber attacks are more frequent and dangerous and trade settings, investment flows, shipping lanes, food security, undersea cables, and critical minerals are all being weaponised in this new era.\""
+        },
+        {
+          "story": "Critical infrastructure dependence and the risk of traditional service disruption",
+          "start_time": "03:40",
+          "duration": "02:50",
+          "angle": "Risks posed by reliance on overseas technology and interdependent digital systems",
+          "voices": "Ruby Jones, RN Breakfast presenter (live); Dr Su K, Director of the Australian Academy of Technological Sciences and Engineering AI Institute (live interviewee)",
+          "tone": "Concerned and questioning.",
+          "emphasis": "Systemic interconnectedness, outsourcing, and traditional infrastructure vulnerabilities.",
+          "placement": "Second story.",
+          "evidence": "\"It was once possible if you had a piece of equipment from overseas that you could operate it, but it doesn't necessarily have to connect in with the rest of your network.\""
+        }
+      ]
+    }
+  ],
+  "interviewees": [
+    {
+      "name": "Dr Su K, Director of the Australian Academy of Technological Sciences and Engineering AI Institute",
+      "role": "Director of the Australian Academy of Technological Sciences and Engineering AI Institute",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Report warns significant gaps in understanding of Australia's critical infrastructure"
+        }
+      ]
+    },
+    {
+      "name": "Amy Wright, owner of Adelaide Melbourne Beauty Business",
+      "role": "Owner of Adelaide Melbourne Beauty Business",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Small businesses feel 'recession like' conditions"
+        }
+      ]
+    },
+    {
+      "name": "Chris Rodwell, CEO of Australian Retail Council",
+      "role": "CEO of Australian Retail Council",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Small businesses feel 'recession like' conditions"
+        }
+      ]
+    },
+    {
+      "name": "Dr John Hawkins, former Treasury and RBA economist, lecturer at the University of Canberra",
+      "role": "Former Treasury and RBA economist, lecturer at the University of Canberra",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Small businesses feel 'recession like' conditions"
+        }
+      ]
+    },
+    {
+      "name": "Ross Dale, Victorian regional electrical contractor",
+      "role": "Victorian regional electrical contractor",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Small businesses feel 'recession like' conditions"
+        }
+      ]
+    },
+    {
+      "name": "Gideon Haert, Chief Executive of NECA Education",
+      "role": "Chief Executive of NECA Education",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Small businesses feel 'recession like' conditions"
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "actor": "Jim Chalmers, Treasurer",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Small businesses feel 'recession like' conditions"
+        }
+      ]
+    },
+    {
+      "actor": "Reserve Bank of Australia",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Small businesses feel 'recession like' conditions"
+        }
+      ]
+    },
+    {
+      "actor": "Senator Penny Wong, Foreign Affairs Minister",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Report warns significant gaps in understanding of Australia's critical infrastructure"
+        }
+      ]
+    },
+    {
+      "actor": "Macquarie Bank",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Small businesses feel 'recession like' conditions"
+        }
+      ]
+    },
+    {
+      "actor": "HSBC",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Small businesses feel 'recession like' conditions"
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "Economic hardship, inflation, and recession risks",
+      "contrast": "AM focused extensively on retail struggles, small business pain, and recession forecasts, while RN Breakfast concentrated on strategic and technological infrastructure risks.",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Small businesses feel 'recession like' conditions"
+        }
+      ]
+    },
+    {
+      "theme": "Cyber security, AI threats, and infrastructure protection",
+      "contrast": "RN Breakfast led on the intersection of AI and foreign interference in critical infrastructure.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Report warns significant gaps in understanding of Australia's critical infrastructure"
+        }
+      ]
+    }
+  ]
+}
