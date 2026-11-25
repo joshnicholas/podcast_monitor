@@ -204,8 +204,16 @@ _EPISODE_ANALYSIS_SCHEMA = types.Schema(
 _INTERVIEWEE_SCHEMA = types.Schema(
     type=types.Type.OBJECT,
     properties={
-        "name": types.Schema(type=types.Type.STRING),
-        "role": types.Schema(type=types.Type.STRING),
+        "name": types.Schema(
+            type=types.Type.STRING,
+            description="The person's full name only, e.g. 'Jim Chalmers'. Never include "
+            "their role/title here — that belongs in the separate 'role' field below.",
+        ),
+        "role": types.Schema(
+            type=types.Type.STRING,
+            description="The person's role or title only, e.g. 'Treasurer'. Never repeat "
+            "their name here.",
+        ),
         "episodes": types.Schema(type=types.Type.ARRAY, items=_EPISODE_REF_SCHEMA),
     },
     required=["name", "episodes"],
@@ -430,7 +438,10 @@ def _html_interviewees_list(interviewees):
             )
         )
         name = person.get("name", "")
-        label = f"{name}, {person['role']}" if person.get("role") else name
+        role = person.get("role", "")
+        # The model occasionally folds the role into "name" as well as filling
+        # the separate "role" field, which would otherwise print it twice.
+        label = f"{name}, {role}" if role and role.lower() not in name.lower() else name
         items.append(f"{label} ({podcasts})" if podcasts else label)
     return _html_list(items)
 
