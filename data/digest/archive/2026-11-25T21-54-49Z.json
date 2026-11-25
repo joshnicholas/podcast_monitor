@@ -1,0 +1,418 @@
+{
+  "run_at": "2026-11-25T21:54:49.825273+00:00",
+  "episodes": [
+    {
+      "podcast": "ABC AM",
+      "title": "Inflation biting hard ahead of Christmas",
+      "stories": [
+        {
+          "story": "Christmas inflation squeeze",
+          "start_time": "00:07",
+          "duration": "01:21",
+          "angle": "Struggling households facing a challenging Christmas period due to soaring inflation and economic pressures.",
+          "voices": "Isabella Higgins, host (live); Margaret, self-funded retiree (pre-recorded); Simon Peng, retailer (pre-recorded); Paul Bloxham, Chief Economist Australia, HSBC (clip)",
+          "tone": "Alarmed and sympathetic towards households facing cost-of-living stress, mixed with objective economic analysis.",
+          "emphasis": "Human impact of inflation, cost of basic goods, and broader economic headwinds.",
+          "placement": "Lead item, occupying the entirety of the broadcast segment.",
+          "evidence": "Many Australians could be facing a challenging Christmas period ahead as new fears of stagflation grip the nation."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Economists react to inflation hitting 4.9 per cent",
+      "stories": [
+        {
+          "story": "Inflation spike and economic outlook",
+          "start_time": "00:02",
+          "duration": "03:42",
+          "angle": "Soaring inflation figures putting pressure on the Reserve Bank and households, requiring productivity boosts.",
+          "voices": "Patricia Karvelas, host (live); Andrew McKellar, Chief Executive, Australian Chamber of Commerce and Industry (live); Bessa Deda, Chief Economist, Westpac (live)",
+          "tone": "Inquisitive and urgent, pressing economic experts on what solutions exist to fix supply constraints and tame inflation.",
+          "emphasis": "Macroeconomic data, interest rates, supply and demand imbalances, and productivity.",
+          "placement": "Lead item.",
+          "evidence": "There's still significant inflation pressure in the economy, and I think it should ring alarm bells."
+        },
+        {
+          "story": "Housing costs and inflation",
+          "start_time": "02:27",
+          "duration": "01:53",
+          "angle": "Housing costs and construction issues as major contributors to inflationary pressures.",
+          "voices": "Patricia Karvelas, host (live); Tom Devitt, Senior Economist, Housing Industry Association (clip); Bessa Deda, Chief Economist, Westpac (live)",
+          "tone": "Analytical and probing.",
+          "emphasis": "Construction costs, supply chain bottlenecks, and the need for housing investment.",
+          "placement": "Second item.",
+          "evidence": "Housing industry association's senior economist Tom Devitt says a lot of that comes from high construction costs."
+        },
+        {
+          "story": "Liberal Senator Leah Blyth defects to One Nation",
+          "start_time": "03:34",
+          "duration": "03:35",
+          "angle": "Political defection creating fresh friction within the opposition and raising questions about political loyalty.",
+          "voices": "Patricia Karvelas, host (live); Lexi J\u4e00\u822c\u7684\u306a, political reporter (live); Pauline Hanson, Leader, One Nation (clip); Simon Birmingham, Shadow Minister (clip)",
+          "tone": "Analytical and political reporting, exploring the motivations behind the defection.",
+          "emphasis": "Political strategy, party dynamics, and coalition stability.",
+          "placement": "Third item.",
+          "evidence": "South Australian Liberal Senator Leah Blyth has defected to Pauline Hanson's One Nation in a fresh blow to the opposition."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "David Shoebridge on Greens parliamentary negotiations",
+      "stories": [
+        {
+          "story": "Greens parliamentary negotiations",
+          "start_time": "00:01",
+          "duration": "03:19",
+          "angle": "The Greens playing a crucial role in passing various bills in the Senate while maintaining pressure on the government.",
+          "voices": "Patricia Karvelas, host (live); David Shoebridge, Greens Senator (live); Leah Blyth, Senator (clip)",
+          "tone": "Direct and probing political interview, with the host challenging the guest on party positioning.",
+          "emphasis": "Legislative process, political leverage, and policy priorities.",
+          "placement": "Lead item.",
+          "evidence": "The Greens have played a crucial part in the passage of various bills this week in the Senate."
+        },
+        {
+          "story": "Cost of living pressures and business impact",
+          "start_time": "07:28",
+          "duration": "03:22",
+          "angle": "Small businesses and holidaymakers feeling the severe pinch of cost-of-living pressures.",
+          "voices": "Patricia Karvelas, host (live); Jeremy Story Carter, reporter (pre-recorded); Samantha Rickerson, caravan park owner (pre-recorded)",
+          "tone": "Sympathetic to struggling business owners and consumers facing cost-of-living constraints.",
+          "emphasis": "Regional economic impacts, tourism, and small business struggles.",
+          "placement": "Second item.",
+          "evidence": "Her family-owned business is feeling the impact of cost-of-living pressures on holidaymakers."
+        },
+        {
+          "story": "Economic pessimism and trust in politicians",
+          "start_time": "08:15",
+          "duration": "03:00",
+          "angle": "Public pessimism rising as trust in politicians sags to new lows amid economic uncertainty.",
+          "voices": "Patricia Karvelas, host (live); Jeremy Story Carter, reporter (pre-recorded)",
+          "tone": "Reflective and concerned about falling public trust in democratic institutions.",
+          "emphasis": "Social cohesion, polling data, and political disenchantment.",
+          "placement": "Third item.",
+          "evidence": "Australians are becoming more pessimistic and our trust in politicians is sagging to new lows."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Pat Conroy says inflation spike 'hitting everyone around the world'",
+      "stories": [
+        {
+          "story": "Defence security pact with Solomon Islands",
+          "start_time": "00:01",
+          "duration": "03:32",
+          "angle": "Government praising a new security pack signed with Solomon Islands while addressing regional stability.",
+          "voices": "Patricia Karvelas, host (live); Pat Conroy, Minister for Defence Industry and International Development (live); Anthony Albanese, Prime Minister (clip); Oliver Nobetau, Pacific Islands program director, Lowy Institute (live)",
+          "tone": "Formal and diplomatic, focusing on strategic partnerships in the Pacific.",
+          "emphasis": "Geopolitics, regional security, and bilateral agreements.",
+          "placement": "Lead item.",
+          "evidence": "The federal government has come under more pressure from the opposition to do more on the cost of living."
+        },
+        {
+          "story": "Liberal Senator Leah Blyth defection",
+          "start_time": "03:33",
+          "duration": "03:00",
+          "angle": "Political fallout from Senator Leah Blyth's defection to One Nation.",
+          "voices": "Patricia Karvelas, host (live); Matt Canavan, Nationals Senator (live); Leah Blyth, Senator (clip)",
+          "tone": "Investigative and critical of political defections.",
+          "emphasis": "Political ramifications, party stability, and shifting allegiances.",
+          "placement": "Second item.",
+          "evidence": "South Australian Liberal Senator Leah Blyth has defected to Pauline Hanson's One Nation."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "China welcomes first foreign national to Tiangong space station",
+      "stories": [
+        {
+          "story": "China's Tiangong space station welcomes foreign national",
+          "start_time": "00:01",
+          "duration": "03:40",
+          "angle": "China's ambitious space program marking a milestone by welcoming its first foreign national aboard the space station.",
+          "voices": "Patricia Karvelas, host (live); Muhammad Zishan Ali, Pakistani astronaut (clip); Marco Alberti, Associate Director of International Engagement and Education, European Space Policy Institute (live)",
+          "tone": "Informative and international affairs-focused.",
+          "emphasis": "Space exploration, international cooperation, and geopolitical milestones.",
+          "placement": "Lead item.",
+          "evidence": "China has successfully launched a new space mission this time with a Pakistani astronaut along for the ride."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "One Nation not focused on recruiting MPs, Barnaby Joyce says",
+      "stories": [
+        {
+          "story": "One Nation defection fallout and Barnaby Joyce's response",
+          "start_time": "00:01",
+          "duration": "03:30",
+          "angle": "Fallout from Senator Leah Blyth's defection and political reactions from across the aisle.",
+          "voices": "Patricia Karvelas, host (live); Matt Canavan, Nationals Senator (live); Barnaby Joyce, MP (pre-recorded)",
+          "tone": "Political debate and commentary.",
+          "emphasis": "Party defections, political strategy, and parliamentary dynamics.",
+          "placement": "Lead item.",
+          "evidence": "South Australian Liberal Senator Leah Blyth has defected to One Nation."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "US spy agencies suffer cybersecurity breach",
+      "stories": [
+        {
+          "story": "US CIA cybersecurity breach",
+          "start_time": "00:01",
+          "duration": "02:30",
+          "angle": "A reported cybersecurity breach at the CIA raising questions about intelligence agency vulnerabilities.",
+          "voices": "Patricia Karvelas, host (live); Nick Leeson, President, Center for Advancing Cybersecurity (pre-recorded)",
+          "tone": "Serious and technical reporting on national security matters.",
+          "emphasis": "Cybersecurity, intelligence vulnerabilities, and national security.",
+          "placement": "Lead item.",
+          "evidence": "There's been a reported cyber security breach at the CIA just weeks after a series of highly disruptive system failures."
+        }
+      ]
+    },
+    {
+      "podcast": "The Briefing (Listener)",
+      "title": "Another One Nation defection + Our new 'wartime' defence laws explained",
+      "stories": [
+        {
+          "story": "One Nation defection of Leah Blyth",
+          "start_time": "00:08",
+          "duration": "03:15",
+          "angle": "Analysis of Senator Leah Blyth's defection to One Nation and its impact on the political landscape.",
+          "voices": "Chris Smith, host (live); Matt Canavan, Senator (clip); Pauline Hanson, Leader, One Nation (clip)",
+          "tone": "Casual yet analytical political commentary.",
+          "emphasis": "Political movements, party stability, and voter sentiment.",
+          "placement": "Lead item.",
+          "evidence": "South Australian Liberal Senator Leah Blyth has defected to One Nation."
+        },
+        {
+          "story": "New 'wartime' defence laws",
+          "start_time": "03:16",
+          "duration": "03:45",
+          "angle": "Parliament passing major overhauls to Australia's defence laws with minimal debate.",
+          "voices": "Chris Smith, host (live); legal expert (unnamed)",
+          "tone": "Informative and explanatory.",
+          "emphasis": "National security legislation, parliamentary process, and defence policy.",
+          "placement": "Second item.",
+          "evidence": "Parliament has this week waved through a major overhaul of Australia's defence laws with barely any debate."
+        }
+      ]
+    },
+    {
+      "podcast": "The Quickly",
+      "title": "Popular Dolphins Live Longer & Chris Kohler On The Chance Of Recession",
+      "stories": [
+        {
+          "story": "Economic outlook and recession risks",
+          "start_time": "00:01",
+          "duration": "05:30",
+          "angle": "Examining whether Australia is heading into a recession amid rising inflation and interest rate hikes.",
+          "voices": "Charlotte Mortlock, host (live); Chris Kohler, Economics Correspondent (live)",
+          "tone": "Conversational and accessible economic analysis.",
+          "emphasis": "Inflation figures, RBA policy, interest rates, and consumer spending.",
+          "placement": "Lead item.",
+          "evidence": "Is Australia heading into a recession? That is the big question on everyone's minds."
+        }
+      ]
+    }
+  ],
+  "interviewees": [
+    {
+      "name": "Andrew McKellar",
+      "role": "Chief Executive, Australian Chamber of Commerce and Industry",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Economists react to inflation hitting 4.9 per cent"
+        }
+      ]
+    },
+    {
+      "name": "Bessa Deda",
+      "role": "Chief Economist, Westpac",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Economists react to inflation hitting 4.9 per cent"
+        }
+      ]
+    },
+    {
+      "name": "David Shoebridge",
+      "role": "Greens Senator",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "David Shoebridge on Greens parliamentary negotiations"
+        }
+      ]
+    },
+    {
+      "name": "Matt Canavan",
+      "role": "Nationals Senator",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Pat Conroy says inflation spike 'hitting everyone around the world'"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "One Nation not focused on recruiting MPs, Barnaby Joyce says"
+        },
+        {
+          "podcast": "The Briefing (Listener)",
+          "title": "Another One Nation defection + Our new 'wartime' defence laws explained"
+        }
+      ]
+    },
+    {
+      "name": "Oliver Nobetau",
+      "role": "Pacific Islands program director, Lowy Institute",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Pat Conroy says inflation spike 'hitting everyone around the world'"
+        }
+      ]
+    },
+    {
+      "name": "Pat Conroy",
+      "role": "Minister for Defence Industry and International Development",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Pat Conroy says inflation spike 'hitting everyone around the world'"
+        }
+      ]
+    },
+    {
+      "name": "Chris Kohler",
+      "role": "Economics Correspondent",
+      "episodes": [
+        {
+          "podcast": "The Quickly",
+          "title": "Popular Dolphins Live Longer & Chris Kohler On The Chance Of Recession"
+        }
+      ]
+    },
+    {
+      "name": "Marco Alberti",
+      "role": "Associate Director of International Engagement and Education, European Space Policy Institute",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "China welcomes first foreign national to Tiangong space station"
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "actor": "Leah Blyth",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Economists react to inflation hitting 4.9 per cent"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "David Shoebridge on Greens parliamentary negotiations"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Pat Conroy says inflation spike 'hitting everyone around the world'"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "One Nation not focused on recruiting MPs, Barnaby Joyce says"
+        },
+        {
+          "podcast": "The Briefing (Listener)",
+          "title": "Another One Nation defection + Our new 'wartime' defence laws explained"
+        }
+      ]
+    },
+    {
+      "actor": "Pauline Hanson",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Economists react to inflation hitting 4.9 per cent"
+        },
+        {
+          "podcast": "The Briefing (Listener)",
+          "title": "Another One Nation defection + Our new 'wartime' defence laws explained"
+        }
+      ]
+    },
+    {
+      "actor": "Anthony Albanese",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Pat Conroy says inflation spike 'hitting everyone around the world'"
+        }
+      ]
+    },
+    {
+      "actor": "Barnaby Joyce",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "One Nation not focused on recruiting MPs, Barnaby Joyce says"
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "Cost of living and inflation pressures",
+      "contrast": "AM focused on the human impact on households ahead of Christmas, while RN Breakfast and The Quickly analysed the macroeconomic data, RBA rate hikes, and economic recession risks.",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Inflation biting hard ahead of Christmas"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Economists react to inflation hitting 4.9 per cent"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "David Shoebridge on Greens parliamentary negotiations"
+        },
+        {
+          "podcast": "The Quickly",
+          "title": "Popular Dolphins Live Longer & Chris Kohler On The Chance Of Recession"
+        }
+      ]
+    },
+    {
+      "theme": "Liberal Senator Leah Blyth's defection to One Nation",
+      "contrast": "RN Breakfast focused on the political fallout and opposition unity, while The Briefing framed it as part of broader political shifting and parliamentary dynamics.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Economists react to inflation hitting 4.9 per cent"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Pat Conroy says inflation spike 'hitting everyone around the world'"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "One Nation not focused on recruiting MPs, Barnaby Joyce says"
+        },
+        {
+          "podcast": "The Briefing (Listener)",
+          "title": "Another One Nation defection + Our new 'wartime' defence laws explained"
+        }
+      ]
+    }
+  ]
+}
