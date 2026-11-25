@@ -36,7 +36,7 @@ DATA_DIR = os.path.join(REPO_DIR, "data")
 LOCAL_TZ = ZoneInfo("Australia/Melbourne")
 
 DIGEST_NAME = "digest"
-DIGEST_DISPLAY_NAME = "Run Digest"
+DIGEST_DISPLAY_NAME = "Podcast monitor"
 
 INTERVIEWEES_FOLDER = "interviewees"
 THEMES_FOLDER = "themes"
@@ -464,12 +464,12 @@ def _html_episode_breakdown(episodes):
                 if s.get("start_time")
                 else ""
             )
-            + f" — {s.get('angle', '')}<br>"
-            f"Voices: {s.get('voices', '')}<br>"
-            f"Tone: {s.get('tone', '')}<br>"
-            f"Emphasis: {s.get('emphasis', '')}<br>"
-            + (f"Placement: {s['placement']}<br>" if s.get("placement") else "")
-            + f"&ldquo;{s.get('evidence', '')}&rdquo;</li>"
+            + f"<br><u>Angle:</u> {s.get('angle', '')}<br>"
+            f"<u>Voices:</u> {s.get('voices', '')}<br>"
+            f"<u>Tone:</u> {s.get('tone', '')}<br>"
+            f"<u>Emphasis:</u> {s.get('emphasis', '')}<br>"
+            + (f"<u>Placement:</u> {s['placement']}<br>" if s.get("placement") else "")
+            + f"<u>Evidence:</u> &ldquo;{s.get('evidence', '')}&rdquo;</li>"
             for s in episode.get("stories", [])
         )
         sections.append(
@@ -572,6 +572,20 @@ def _append_parquet_rows(folder_name, rows, run_at_local):
     combined.to_parquet(path, index=False)
 
 
+def _write_json_rows(folder_name, rows, run_at):
+    """Writes the rows extracted this run to a per-run JSON file in the same
+    folder as the quarterly parquet, so the raw extraction is readable without
+    a parquet reader."""
+    if not rows:
+        return
+
+    out_dir = os.path.join(DATA_DIR, folder_name)
+    os.makedirs(out_dir, exist_ok=True)
+    path = os.path.join(out_dir, f"{run_at.strftime('%Y-%m-%dT%H-%M-%SZ')}.json")
+    with open(path, "w") as f:
+        json.dump(rows, f, indent=2)
+
+
 def write_parquet_outputs(analysis, processed_entries, run_at):
     run_at_local = run_at.astimezone(LOCAL_TZ)
     lookup = {(e["podcast"], e["title"]): e for e in processed_entries}
@@ -591,6 +605,7 @@ def write_parquet_outputs(analysis, processed_entries, run_at):
                 }
             )
     _append_parquet_rows(INTERVIEWEES_FOLDER, interviewee_rows, run_at_local)
+    _write_json_rows(INTERVIEWEES_FOLDER, interviewee_rows, run_at)
 
     theme_rows = []
     for theme in analysis["themes"]:
@@ -607,6 +622,7 @@ def write_parquet_outputs(analysis, processed_entries, run_at):
                 }
             )
     _append_parquet_rows(THEMES_FOLDER, theme_rows, run_at_local)
+    _write_json_rows(THEMES_FOLDER, theme_rows, run_at)
 
     actor_rows = []
     for actor in analysis["actors"]:
@@ -622,6 +638,7 @@ def write_parquet_outputs(analysis, processed_entries, run_at):
                 }
             )
     _append_parquet_rows(ACTORS_FOLDER, actor_rows, run_at_local)
+    _write_json_rows(ACTORS_FOLDER, actor_rows, run_at)
 
 
 def clone_repo():
