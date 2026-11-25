@@ -1,0 +1,47 @@
+[
+  {
+    "run_at": "2026-11-25T02:10:20.195493+00:00",
+    "theme": "Artificial Intelligence Applications and Regulation",
+    "contrast": "RN Breakfast focused on mathematical theory and national security risks, while The Briefing explored medical applications in healthcare screening.",
+    "podcast": "ABC Radio National Breakfast",
+    "episode_title": "Breakfast Wrap: Has AI ended maths as we know it?",
+    "episode_link": "https://www.abc.net.au/listen/programs/radionational-breakfast/radio-national-breakfast/107336080",
+    "audio_url": "https://mediacore-live-production.akamaized.net/audio/02/qo/Z/sg.mp3"
+  },
+  {
+    "run_at": "2026-11-25T02:10:20.195493+00:00",
+    "theme": "Artificial Intelligence Applications and Regulation",
+    "contrast": "RN Breakfast focused on mathematical theory and national security risks, while The Briefing explored medical applications in healthcare screening.",
+    "podcast": "The Briefing (Listener)",
+    "episode_title": "Deakin University | How AI is helping screen cerebral palsy",
+    "episode_link": "",
+    "audio_url": "https://enrichment.soundstack.com/4vjqq8/traffic.omny.fm/d/clips/820f09cf-2ace-4180-a92d-aa4c0008f5fb/043e2cc8-6045-47cd-af36-ab98000641fa/fe155955-fd06-489e-ada3-b50d0006d1b7/audio.mp3?utm_source=Podcast&in_playlist=16e65677-c110-4ef1-a534-ab980006a91f"
+  },
+  {
+    "run_at": "2026-11-25T02:10:20.195493+00:00",
+    "theme": "Economic Conditions and Cost of Living",
+    "contrast": "ABC News Daily focused specifically on RBA interest rates and employment targets in Australia, whereas The Briefing examined broader international economic pessimism.",
+    "podcast": "ABC News Daily",
+    "episode_title": "How many job losses does the RBA want?",
+    "episode_link": "https://www.abc.net.au/listen/programs/abc-news-daily/how-many-job-losses-does-the-rba-want/107422386",
+    "audio_url": "https://mediacore-live-production.akamaized.net/audio/02/qo/Z/6u.mp3"
+  },
+  {
+    "run_at": "2026-11-25T02:10:20.195493+00:00",
+    "theme": "Economic Conditions and Cost of Living",
+    "contrast": "ABC News Daily focused specifically on RBA interest rates and employment targets in Australia, whereas The Briefing examined broader international economic pessimism.",
+    "podcast": "The Briefing (Listener)",
+    "episode_title": "Deakin University | How AI is helping screen cerebral palsy",
+    "episode_link": "",
+    "audio_url": "https://enrichment.soundstack.com/4vjqq8/traffic.omny.fm/d/clips/820f09cf-2ace-4180-a92d-aa4c0008f5fb/043e2cc8-6045-47cd-af36-ab98000641fa/fe155955-fd06-489e-ada3-b50d0006d1b7/audio.mp3?utm_source=Podcast&in_playlist=16e65677-c110-4ef1-a534-ab980006a91f"
+  },
+  {
+    "run_at": "2026-11-25T02:10:20.195493+00:00",
+    "theme": "Social Media and Digital Duty of Care",
+    "contrast": "",
+    "podcast": "ABC Radio National Breakfast",
+    "episode_title": "Breakfast Wrap: Has AI ended maths as we know it?",
+    "episode_link": "https://www.abc.net.au/listen/programs/radionational-breakfast/radio-national-breakfast/107336080",
+    "audio_url": "https://mediacore-live-production.akamaized.net/audio/02/qo/Z/sg.mp3"
+  }
+]

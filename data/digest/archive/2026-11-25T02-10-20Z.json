@@ -1,0 +1,250 @@
+{
+  "run_at": "2026-11-25T02:10:20.195493+00:00",
+  "episodes": [
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Breakfast Wrap: Has AI ended maths as we know it?",
+      "stories": [
+        {
+          "story": "AI and Mathematics",
+          "start_time": "00:39",
+          "duration": "03:15",
+          "angle": "Have mathematicians lost the race to artificial intelligence?",
+          "voices": "Luke Siddall-Dunstan, Presenter; Stephen Strogatz, US mathematician and author (pre-recorded, unchallenged)",
+          "tone": "Explanatory, intrigued, and slightly alarmed about the rapid pace of change.",
+          "emphasis": "Theoretical implications, complexity of mathematical problems, and the role of AI models like the Riemann hypothesis.",
+          "placement": "Lead item, major focus of the episode.",
+          "evidence": "\"Calculators were not philosophically threatening. This is a whole different universe now.\""
+        },
+        {
+          "story": "Artificial Intelligence Regulation and Security",
+          "start_time": "03:54",
+          "duration": "06:12",
+          "angle": "Government efforts to secure support for digital duty of care laws and foreign interference concerns.",
+          "voices": "Luke Siddall-Dunstan, Presenter; Penny Wong, Foreign Minister (clip); Sue Keay, co-author of the report, Director of the UNSW AI Institute (pre-recorded, unchallenged)",
+          "tone": "Serious, cautious, and analytical.",
+          "emphasis": "National security, tech giants, foreign interference, and digital safety.",
+          "placement": "Second item.",
+          "evidence": "\"Artificial intelligence is reshaping the foundations of our societies, cyber attacks are more frequent\u2026\""
+        },
+        {
+          "story": "Digital Duty of Care and Social Media Laws",
+          "start_time": "14:06",
+          "duration": "08:42",
+          "angle": "The federal government securing support for laws targeting big tech companies over harm caused online.",
+          "voices": "Luke Siddall-Dunstan, Presenter; Anika Wells, Minister for Communications and Minister for Sport (pre-recorded, challenged in tone of questioning); David Bradt, US Ambassador to Australia (clip)",
+          "tone": "Sceptical, probing, and rigorous.",
+          "emphasis": "Accountability of tech platforms, penalties, free speech, and the effectiveness of regulation.",
+          "placement": "Third item.",
+          "evidence": "\"The government has secured support for a number of changes to its proposed digital duty of care.\""
+        }
+      ]
+    },
+    {
+      "podcast": "The Briefing (Listener)",
+      "title": "Deakin University | How AI is helping screen cerebral palsy",
+      "stories": [
+        {
+          "story": "AI in Cerebral Palsy Detection",
+          "start_time": "00:06",
+          "duration": "05:24",
+          "angle": "How artificial intelligence is being used to help screen cerebral palsy in infants.",
+          "voices": "Sasha Barba-Gat, Presenter; Romero Moreys, Deakin University Research Fellow (pre-recorded, unchallenged)",
+          "tone": "Optimistic, explanatory, and encouraging.",
+          "emphasis": "Early detection, infant healthcare, accessibility of medical diagnosis, and technological innovation.",
+          "placement": "Lead item.",
+          "evidence": "\"That's happening through Deakin University's applied artificial intelligence initiative.\""
+        },
+        {
+          "story": "Global Funk and Economic Pessimism",
+          "start_time": "05:25",
+          "duration": "08:14",
+          "angle": "Why so many different countries are stuck in the same economic funk.",
+          "voices": "Sasha Barba-Gat, Presenter; Various anonymous commentators and international experts (clips)",
+          "tone": "Analytical, concerned, and global-focused.",
+          "emphasis": "Global economic indicators, cost of living, political fatigue, and international comparisons.",
+          "placement": "Second item.",
+          "evidence": "\"We're asking why so many different countries are stuck in the same funk.\""
+        }
+      ]
+    },
+    {
+      "podcast": "ABC News Daily",
+      "title": "How many job losses does the RBA want?",
+      "stories": [
+        {
+          "story": "RBA Interest Rates and Employment",
+          "start_time": "00:07",
+          "duration": "14:48",
+          "angle": "The Reserve Bank of Australia maintaining high interest rates and the impact on unemployment.",
+          "voices": "Sam Hawley, Presenter; Jim Chalmers, Treasurer (clip); Michele Bullock, Reserve Bank Governor (clip); Jessica Irvine, Money Correspondent (live interview, unchallenged); Sally Sara, journalist (clip)",
+          "tone": "Critical, serious, and questioning of economic policy.",
+          "emphasis": "Employment figures, cost of living, monetary policy, and the trade-off between inflation and jobs.",
+          "placement": "Lead item, sole focus of the episode.",
+          "evidence": "\"The Reserve Bank has raised the cash rate to 4.85%, a level not seen in Australia since 2008.\""
+        }
+      ]
+    }
+  ],
+  "interviewees": [
+    {
+      "name": "Jessica Irvine, Money Correspondent",
+      "role": "Money Correspondent, ABC News",
+      "episodes": [
+        {
+          "podcast": "ABC News Daily",
+          "title": "How many job losses does the RBA want?"
+        }
+      ]
+    },
+    {
+      "name": "Stephen Strogatz, US mathematician and author",
+      "role": "US mathematician and author",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Has AI ended maths as we know it?"
+        }
+      ]
+    },
+    {
+      "name": "Sue Keay, co-author of the report, Director of the UNSW AI Institute",
+      "role": "Co-author of the report, Director of the UNSW AI Institute",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Has AI ended maths as we know it?"
+        }
+      ]
+    },
+    {
+      "name": "Anika Wells, Minister for Communications and Minister for Sport",
+      "role": "Minister for Communications and Minister for Sport",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Has AI ended maths as we know it?"
+        }
+      ]
+    },
+    {
+      "name": "Romero Moreys, Deakin University Research Fellow",
+      "role": "Deakin University Research Fellow",
+      "episodes": [
+        {
+          "podcast": "The Briefing (Listener)",
+          "title": "Deakin University | How AI is helping screen cerebral palsy"
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "actor": "Reserve Bank of Australia (RBA)",
+      "episodes": [
+        {
+          "podcast": "ABC News Daily",
+          "title": "How many job losses does the RBA want?"
+        }
+      ]
+    },
+    {
+      "actor": "Federal Government",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Has AI ended maths as we know it?"
+        },
+        {
+          "podcast": "ABC News Daily",
+          "title": "How many job losses does the RBA want?"
+        }
+      ]
+    },
+    {
+      "actor": "Big Tech Companies",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Has AI ended maths as we know it?"
+        }
+      ]
+    },
+    {
+      "actor": "Michele Bullock, Reserve Bank Governor",
+      "episodes": [
+        {
+          "podcast": "ABC News Daily",
+          "title": "How many job losses does the RBA want?"
+        }
+      ]
+    },
+    {
+      "actor": "Jim Chalmers, Treasurer",
+      "episodes": [
+        {
+          "podcast": "ABC News Daily",
+          "title": "How many job losses does the RBA want?"
+        }
+      ]
+    },
+    {
+      "actor": "Penny Wong, Foreign Minister",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Has AI ended maths as we know it?"
+        }
+      ]
+    },
+    {
+      "actor": "David Bradt, US Ambassador to Australia",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Has AI ended maths as we know it?"
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "Artificial Intelligence Applications and Regulation",
+      "contrast": "RN Breakfast focused on mathematical theory and national security risks, while The Briefing explored medical applications in healthcare screening.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Has AI ended maths as we know it?"
+        },
+        {
+          "podcast": "The Briefing (Listener)",
+          "title": "Deakin University | How AI is helping screen cerebral palsy"
+        }
+      ]
+    },
+    {
+      "theme": "Economic Conditions and Cost of Living",
+      "contrast": "ABC News Daily focused specifically on RBA interest rates and employment targets in Australia, whereas The Briefing examined broader international economic pessimism.",
+      "episodes": [
+        {
+          "podcast": "ABC News Daily",
+          "title": "How many job losses does the RBA want?"
+        },
+        {
+          "podcast": "The Briefing (Listener)",
+          "title": "Deakin University | How AI is helping screen cerebral palsy"
+        }
+      ]
+    },
+    {
+      "theme": "Social Media and Digital Duty of Care",
+      "contrast": "",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Has AI ended maths as we know it?"
+        }
+      ]
+    }
+  ]
+}
