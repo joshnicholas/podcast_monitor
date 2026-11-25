@@ -1,0 +1,361 @@
+{
+  "run_at": "2026-11-25T06:48:08.361194+00:00",
+  "episodes": [
+    {
+      "podcast": "The Front",
+      "title": "Guilty: Jury sends killer cop Beau Lamarre-Condon down",
+      "stories": [
+        {
+          "story": "Beau Lamarre-Condon convicted of murdering Jesse Baird and Luke Davies",
+          "start_time": "00:07",
+          "duration": "08:35",
+          "angle": "A former police officer has been found guilty of murdering his former partner and his new partner in a chilling and calculated attack.",
+          "voices": "Claire Harvey, host (live); Britt Hatfield SC, Crown Prosecutor (clip); Beau Lamarre-Condon, convicted murderer (clip); Stacy Parker, friend of victim (clip); unnamed female caller, friend of victim (unconfirmed) (clip)",
+          "tone": "Sober, solemn, and analytical, detailing the grisly nature of the murders and the subsequent cover-up.",
+          "emphasis": "Forensic details of the crime, the trial, the text messages, and the emotional impact on the victims' families.",
+          "placement": "Lead story, covering the entire episode.",
+          "evidence": "Today's biggest news from The Australian, I'm Claire Harvey with The Front's afternoon headlines."
+        }
+      ]
+    },
+    {
+      "podcast": "Full Story",
+      "title": "Guilty of murder: the Beau Lamarre-Condon verdict",
+      "stories": [
+        {
+          "story": "Beau Lamarre-Condon found guilty of the murders of Jesse Baird and Luke Davies",
+          "start_time": "00:07",
+          "duration": "10:24",
+          "angle": "A jury has found former NSW police officer Beau Lamarre-Condon guilty of murdering Jesse Baird and Luke Davies after an emotional 10-week trial.",
+          "voices": "Katrina Strickland, host (live); Cat Wang, Guardian reporter (live); unnamed family members and lawyers (clips)",
+          "tone": "Highly emotional, tense, and reflective, focusing on the relief and grief of the families.",
+          "emphasis": "The emotional weight of the verdict, the courtroom atmosphere, and the families' reactions.",
+          "placement": "Lead story, covering the entire episode.",
+          "evidence": "After almost 11 weeks, Beau Lamarre-Condon has been found guilty on all counts for the murders of Jesse Baird and Luke Davies."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Politics Now",
+      "title": "Why inflation is a government killer",
+      "stories": [
+        {
+          "story": "New inflation figures rise to 4.9 percent",
+          "start_time": "00:39",
+          "duration": "01:03:00",
+          "angle": "Inflation figures have landed higher than expected at 4.9 percent, increasing pressure on the government and households.",
+          "voices": "Patricia Karvelas, host (live); David Speers, co-host (live)",
+          "tone": "Alarmed, analytical, and critical of the government's economic management.",
+          "emphasis": "Economic impact, cost-of-living pressures, and political fallout.",
+          "placement": "Lead story, covering the entire episode.",
+          "evidence": "New inflation figures have landed at a whopping 4.9 percent, coming in even higher than expected."
+        }
+      ]
+    },
+    {
+      "podcast": "Daily Aus",
+      "title": "Headlines: Lamarre-Condon found guilty",
+      "stories": [
+        {
+          "story": "Beau Lamarre-Condon found guilty of double murder",
+          "start_time": "00:18",
+          "duration": "01:10",
+          "angle": "A jury has found former NSW police officer Beau Lamarre-Condon guilty of murdering Jesse Baird and Luke Davies.",
+          "voices": "Emma Gillespie, host (live); Lucy Tasseor, host (live); unnamed NSW Supreme Court judge (clip)",
+          "tone": "Solemn and factual.",
+          "emphasis": "Verdict details and sentencing expectations.",
+          "placement": "Lead story.",
+          "evidence": "A jury has found former New South Wales police officer Beau Lamarre-Condon guilty of murdering his ex-partner Jesse Baird and Luke Davies."
+        },
+        {
+          "story": "Australian annual inflation rate rises to 3-year high",
+          "start_time": "01:03",
+          "duration": "00:40",
+          "angle": "Australia's annual inflation rate has risen to 3.4 percent (correction: 4.9 percent in other contexts), posing challenges for the Reserve Bank.",
+          "voices": "Emma Gillespie, host (live); Lucy Tasseor, host (live)",
+          "tone": "Serious and cautionary.",
+          "emphasis": "Consumer prices and economic pressure.",
+          "placement": "Second story.",
+          "evidence": "Australia's annual inflation rate has risen to a three-year high according to new data from the Australian Bureau of Statistics."
+        },
+        {
+          "story": "Chinese astronaut crew arrives at Tiangong space station",
+          "start_time": "01:45",
+          "duration": "00:37",
+          "angle": "A crew of three Chinese astronauts has arrived at China's Tiangong space station.",
+          "voices": "Emma Gillespie, host (live); Lucy Tasseor, host (live)",
+          "tone": "Neutral and informative.",
+          "emphasis": "International space milestones.",
+          "placement": "Third story.",
+          "evidence": "A crew of three astronauts on board China's Shenzhou-24 space flight have arrived at the country's Tiangong space station."
+        },
+        {
+          "story": "Shawn Tan shortlisted for inaugural Children's Book Award",
+          "start_time": "02:22",
+          "duration": "03:16",
+          "angle": "Australian author and illustrator Shawn Tan has been shortlisted for the inaugural Children's Book Prize.",
+          "voices": "Emma Gillespie, host (live); Lucy Tasseor, host (live)",
+          "tone": "Celebratory and positive.",
+          "emphasis": "Literary achievements and book details.",
+          "placement": "Final story.",
+          "evidence": "Australian author and illustrator Shawn Tan has been short-listed for the inaugural Children's Book Prize."
+        }
+      ]
+    },
+    {
+      "podcast": "SMH Morning edition",
+      "title": "Chilling evidence convicts killer Beau Lamarre-Condon",
+      "stories": [
+        {
+          "story": "Beau Lamarre-Condon convicted of murdering Jesse Baird and Luke Davies",
+          "start_time": "00:32",
+          "duration": "12:00",
+          "angle": "A Supreme Court jury has found former police officer Beau Lamarre-Condon guilty of the murders of Jesse Baird and Luke Davies.",
+          "voices": "Michaela Whitbourn, court reporter (live); Stephen Stockwell, host (live); unnamed judge (clip)",
+          "tone": "Solemn, deeply analytical, and focused on the trial's gruesome details.",
+          "emphasis": "The chilling evidence, the trial's impact on the LGBTQI+ community, and the police response.",
+          "placement": "Lead story, covering the entire episode.",
+          "evidence": "On Monday, February 19, 2024, three shots rang out in a quiet street in Sydney's eastern suburbs."
+        }
+      ]
+    },
+    {
+      "podcast": "The Briefing (Listener)",
+      "title": "Heat on Trump over Nvidia intervention + The war on screens in schools",
+      "stories": [
+        {
+          "story": "Schools across Australia cutting back on screens and bringing back pens and paper",
+          "start_time": "00:11",
+          "duration": "05:00",
+          "angle": "A national digital detox is shining a light on technology use in schools.",
+          "voices": "Sacha Barbour Gatt, host (live); Prof Matt Bower, educational technology expert, Macquarie University (interview)",
+          "tone": "Informative and analytical.",
+          "emphasis": "Impact of screens on learning and student engagement.",
+          "placement": "Lead story.",
+          "evidence": "Schools across the country are cutting back on screens and bringing back pens and paper."
+        },
+        {
+          "story": "Donald Trump facing pressure over Nvidia intervention",
+          "start_time": "05:20",
+          "duration": "07:00",
+          "angle": "Donald Trump is facing pushback regarding his intervention in Nvidia's operations.",
+          "voices": "Sacha Barbour Gatt, host (live); unnamed commentators (clips)",
+          "tone": "Critical and concerned.",
+          "emphasis": "Geopolitical implications and tech policy.",
+          "placement": "Second story.",
+          "evidence": "Donald Trump is facing pushback from both Democrats and Republicans."
+        }
+      ]
+    },
+    {
+      "podcast": "The Quickly",
+      "title": "Wednesday News Update | Lamarre-Condon found guilty & Inflation rises Again",
+      "stories": [
+        {
+          "story": "Beau Lamarre-Condon found guilty of double murder",
+          "start_time": "01:12",
+          "duration": "01:10",
+          "angle": "A Supreme Court jury has found former police officer Beau Lamarre-Condon guilty of murdering Jesse Baird and Luke Davies.",
+          "voices": "Unnamed hosts (live); unnamed Supreme Court judge (clip); Helen Baird, mother of Jesse Baird (clip)",
+          "tone": "Somber and empathetic.",
+          "emphasis": "The verdict and the families' grief.",
+          "placement": "Lead story.",
+          "evidence": "The Supreme Court jury of 12 delivered its verdict at lunchtime today, finding the 31-year-old guilty of two counts of domestic violence murder."
+        },
+        {
+          "story": "Australia's inflation rate rises again",
+          "start_time": "02:53",
+          "duration": "01:00",
+          "angle": "Inflation figures have risen again, putting pressure on the Reserve Bank and households.",
+          "voices": "Unnamed hosts (live)",
+          "tone": "Concerned and economic-focused.",
+          "emphasis": "Cost-of-living crisis and interest rates.",
+          "placement": "Second story.",
+          "evidence": "Australia's headline inflation rate has crept higher amidst surging fuel costs."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC News Daily",
+      "title": "Lamarre-Condon guilty",
+      "stories": [
+        {
+          "story": "Beau Lamarre-Condon convicted of murdering Jesse Baird and Luke Davies",
+          "start_time": "00:48",
+          "duration": "09:00",
+          "angle": "A jury has convicted former police officer Beau Lamarre-Condon of the murders of Jesse Baird and Luke Davies.",
+          "voices": "Sam Hawley, host (live); Michaela Whitbourn, court reporter, Sydney Morning Herald (interview)",
+          "tone": "Solemn, detailed, and analytical.",
+          "emphasis": "The trial's harrowing details, the defense's failed claims, and the emotional toll on the families.",
+          "placement": "Lead story, covering the entire episode.",
+          "evidence": "It took just over two hours for the jury in the Beau Lamarre-Condon trial to emerge with their verdicts."
+        }
+      ]
+    }
+  ],
+  "interviewees": [
+    {
+      "name": "Michaela Whitbourn",
+      "role": "court reporter, Sydney Morning Herald",
+      "episodes": [
+        {
+          "podcast": "SMH Morning edition",
+          "title": "Chilling evidence convicts killer Beau Lamarre-Condon"
+        },
+        {
+          "podcast": "ABC News Daily",
+          "title": "Lamarre-Condon guilty"
+        }
+      ]
+    },
+    {
+      "name": "Prof Matt Bower",
+      "role": "educational technology expert, Macquarie University",
+      "episodes": [
+        {
+          "podcast": "The Briefing (Listener)",
+          "title": "Heat on Trump over Nvidia intervention + The war on screens in schools"
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "actor": "Beau Lamarre-Condon",
+      "episodes": [
+        {
+          "podcast": "The Front",
+          "title": "Guilty: Jury sends killer cop Beau Lamarre-Condon down"
+        },
+        {
+          "podcast": "Full Story",
+          "title": "Guilty of murder: the Beau Lamarre-Condon verdict"
+        },
+        {
+          "podcast": "Daily Aus",
+          "title": "Headlines: Lamarre-Condon found guilty"
+        },
+        {
+          "podcast": "SMH Morning edition",
+          "title": "Chilling evidence convicts killer Beau Lamarre-Condon"
+        },
+        {
+          "podcast": "The Quickly",
+          "title": "Wednesday News Update | Lamarre-Condon found guilty & Inflation rises Again"
+        },
+        {
+          "podcast": "ABC News Daily",
+          "title": "Lamarre-Condon guilty"
+        }
+      ]
+    },
+    {
+      "actor": "Jesse Baird",
+      "episodes": [
+        {
+          "podcast": "The Front",
+          "title": "Guilty: Jury sends killer cop Beau Lamarre-Condon down"
+        },
+        {
+          "podcast": "Full Story",
+          "title": "Guilty of murder: the Beau Lamarre-Condon verdict"
+        },
+        {
+          "podcast": "Daily Aus",
+          "title": "Headlines: Lamarre-Condon found guilty"
+        },
+        {
+          "podcast": "SMH Morning edition",
+          "title": "Chilling evidence convicts killer Beau Lamarre-Condon"
+        },
+        {
+          "podcast": "The Quickly",
+          "title": "Wednesday News Update | Lamarre-Condon found guilty & Inflation rises Again"
+        },
+        {
+          "podcast": "ABC News Daily",
+          "title": "Lamarre-Condon guilty"
+        }
+      ]
+    },
+    {
+      "actor": "Luke Davies",
+      "episodes": [
+        {
+          "podcast": "The Front",
+          "title": "Guilty: Jury sends killer cop Beau Lamarre-Condon down"
+        },
+        {
+          "podcast": "Full Story",
+          "title": "Guilty of murder: the Beau Lamarre-Condon verdict"
+        },
+        {
+          "podcast": "Daily Aus",
+          "title": "Headlines: Lamarre-Condon found guilty"
+        },
+        {
+          "podcast": "SMH Morning edition",
+          "title": "Chilling evidence convicts killer Beau Lamarre-Condon"
+        },
+        {
+          "podcast": "The Quickly",
+          "title": "Wednesday News Update | Lamarre-Condon found guilty & Inflation rises Again"
+        },
+        {
+          "podcast": "ABC News Daily",
+          "title": "Lamarre-Condon guilty"
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "Beau Lamarre-Condon guilty verdict for the murders of Jesse Baird and Luke Davies",
+      "contrast": "While some podcasts (The Front, Full Story, SMH Morning edition) focused deeply on the courtroom evidence and trial mechanics, others (Daily Aus, The Quickly, ABC News Daily) provided broader news summaries focusing on the verdict's emotional impact.",
+      "episodes": [
+        {
+          "podcast": "The Front",
+          "title": "Guilty: Jury sends killer cop Beau Lamarre-Condon down"
+        },
+        {
+          "podcast": "Full Story",
+          "title": "Guilty of murder: the Beau Lamarre-Condon verdict"
+        },
+        {
+          "podcast": "Daily Aus",
+          "title": "Headlines: Lamarre-Condon found guilty"
+        },
+        {
+          "podcast": "SMH Morning edition",
+          "title": "Chilling evidence convicts killer Beau Lamarre-Condon"
+        },
+        {
+          "podcast": "The Quickly",
+          "title": "Wednesday News Update | Lamarre-Condon found guilty & Inflation rises Again"
+        },
+        {
+          "podcast": "ABC News Daily",
+          "title": "Lamarre-Condon guilty"
+        }
+      ]
+    },
+    {
+      "theme": "Economic inflation and cost-of-living pressures in Australia",
+      "contrast": "ABC Politics Now offered an in-depth analysis of government accountability regarding inflation, whereas Daily Aus and The Quickly treated it as a headline news item.",
+      "episodes": [
+        {
+          "podcast": "ABC Politics Now",
+          "title": "Why inflation is a government killer"
+        },
+        {
+          "podcast": "Daily Aus",
+          "title": "Headlines: Lamarre-Condon found guilty"
+        },
+        {
+          "podcast": "The Quickly",
+          "title": "Wednesday News Update | Lamarre-Condon found guilty & Inflation rises Again"
+        }
+      ]
+    }
+  ]
+}
