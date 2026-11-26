@@ -73,7 +73,10 @@ Identifying people
   match is unambiguous for the time and context. Mark it "(inferred)". If it is
   not unambiguous, keep only what was said and mark it "(unconfirmed)", e.g.
   "Mark, caller from Penrith (unconfirmed)" or "unnamed CFA spokesperson".
-- Identify the hosts and presenters of each program by name.
+- Identify the hosts and presenters of each program by name. A host or
+  presenter is never an interviewee or panellist on their own episode, even
+  when another host interviews them, they interview a co-host, or they are
+  the named host of a different program elsewhere in the batch.
 
 Deduplicating people
 - Treat every way of referring to the same person as one person: full name,
@@ -93,10 +96,19 @@ Deduplicating people
   actors, and the voices in each episode's framing.
 
 Types of airtime
-- Tell apart live interviews, panels, pre-recorded packages, callers and clips
-  from other sources (press conferences, archival audio, parliament). A clip of
-  a minister played on air is not an interview with that minister. That
-  minister is an actor, not an interviewee, unless they were also interviewed.
+- An interview is a sustained, direct exchange between the host/reporter and a
+  guest, recorded specifically for this episode — live-to-air or produced,
+  either counts. A panel conducted this way counts every panellist as an
+  interviewee.
+- A short soundbite or grab stitched into a reporter's package is not an
+  interview, no matter how long it runs or how conversational it sounds: a
+  doorstop answer, a press conference line, a parliament grab, an archival or
+  wire clip, a vox pop. The person is an actor (if discussed or featured),
+  never an interviewee from that alone — unless they are also given a
+  separate, sustained exchange with the host elsewhere in the episode.
+- If you can't tell whether someone's audio is a sustained exchange with the
+  host or a grab assembled into a package, treat it as a grab: classify them
+  as an actor, not an interviewee. Err toward actor when unsure.
 
 What to skip
 - Ignore ads, station IDs, sponsor reads, music beds, weather and traffic. Count
@@ -109,10 +121,13 @@ summary reflects all of them, but put the summary first in your output.
 PART 1 – BATCH SUMMARY
 Combine all episodes:
 - Interviewees and panellists: people actually interviewed or on a panel (not
-  clips or callers), in canonical form, followed by every episode they appeared
-  on, e.g. "Jim Chalmers, Treasurer (ABC AM – 23 Nov 2026; RN Breakfast – 23 Nov
-  2026)". List each person once. Order the list so interviewees who appeared on multiple
-  podcast episodes appear first. 
+  clips, grabs or callers), in canonical form, followed by every episode they
+  appeared on, e.g. "Jim Chalmers, Treasurer (ABC AM – 23 Nov 2026; RN
+  Breakfast – 23 Nov 2026)". List each person once. Order the list so
+  interviewees who appeared on multiple podcast episodes appear first.
+  Never include a host or presenter of the program here, even one who is
+  interviewed by a co-host or who guest-hosts another show in the batch — the
+  host/presenter list is separate and covered below.
 - Themes: the major stories across the batch. If several podcasts covered the same
   story, merge it into ONE theme and list the episodes that covered it. Where those
   episodes framed it differently, add one sentence on the contrast (e.g. "AM led on
@@ -175,6 +190,23 @@ _EPISODE_REF_SCHEMA = types.Schema(
     required=["podcast", "title"],
 )
 
+_INTERVIEWEE_EPISODE_SCHEMA = types.Schema(
+    type=types.Type.OBJECT,
+    properties={
+        "podcast": types.Schema(type=types.Type.STRING),
+        "title": types.Schema(type=types.Type.STRING),
+        "evidence": types.Schema(
+            type=types.Type.STRING,
+            description="A short quote (under 20 words) or close paraphrase, labelled "
+            "'(paraphrase)' if not exact, of this person actually speaking in THIS "
+            "episode's own audio — the proof you heard them here, not in another "
+            "episode. If you cannot point to such a moment, do not include this "
+            "episode for this person at all.",
+        ),
+    },
+    required=["podcast", "title", "evidence"],
+)
+
 _STORY_SCHEMA = types.Schema(
     type=types.Type.OBJECT,
     properties={
@@ -214,7 +246,7 @@ _INTERVIEWEE_SCHEMA = types.Schema(
             description="The person's role or title only, e.g. 'Treasurer'. Never repeat "
             "their name here.",
         ),
-        "episodes": types.Schema(type=types.Type.ARRAY, items=_EPISODE_REF_SCHEMA),
+        "episodes": types.Schema(type=types.Type.ARRAY, items=_INTERVIEWEE_EPISODE_SCHEMA),
     },
     required=["name", "episodes"],
 )
@@ -434,7 +466,7 @@ def _html_interviewees_list(interviewees):
             continue
         podcasts = "; ".join(
             dict.fromkeys(
-                ref.get("podcast", "") for ref in person.get("episodes", []) if isinstance(ref, dict)
+                f"<i>{ref.get('podcast', '')}</i>" for ref in person.get("episodes", []) if isinstance(ref, dict)
             )
         )
         name = person.get("name", "")
@@ -453,7 +485,8 @@ def _html_themes_list(themes):
         if isinstance(t, str):
             items.append(t)
             continue
-        items.append(f"{t['theme']} — {t['contrast']}" if t.get("contrast") else t.get("theme", ""))
+        theme = f"<u>{t.get('theme', '')}</u>"
+        items.append(f"{theme} — {t['contrast']}" if t.get("contrast") else theme)
     return _html_list(items)
 
 
@@ -484,7 +517,7 @@ def _html_episode_breakdown(episodes):
             for s in episode.get("stories", [])
         )
         sections.append(
-            f"<p><strong>{episode.get('podcast', '')}: {episode.get('title', '')}</strong></p><ul>{stories}</ul>"
+            f"<p><strong><i>{episode.get('podcast', '')}</i>: {episode.get('title', '')}</strong></p><ul>{stories}</ul>"
         )
     return "".join(sections)
 
@@ -518,8 +551,8 @@ def build_digest_feed_xml(archive_dir):
         ET.SubElement(item, "pubDate").text = record["run_at"]
 
         description = (
-            f"<p><strong>Interviewees:</strong></p>{_html_interviewees_list(record.get('interviewees', []))}"
             f"<p><strong>Key Themes:</strong></p>{_html_themes_list(record.get('themes', []))}"
+            f"<p><strong>Interviewees:</strong></p>{_html_interviewees_list(record.get('interviewees', []))}"
             f"<p><strong>Key Actors:</strong></p>{_html_actors_list(record.get('actors', []))}"
             f"<p><strong>Episodes in this run:</strong></p>{_html_episode_breakdown(record.get('episodes', []))}"
         )
