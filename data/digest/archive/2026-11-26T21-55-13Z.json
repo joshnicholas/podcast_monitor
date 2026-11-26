@@ -1,0 +1,654 @@
+{
+  "run_at": "2026-11-26T21:55:13.584167+00:00",
+  "episodes": [
+    {
+      "podcast": "ABC AM",
+      "title": "Gas reservation policy gets green light",
+      "stories": [
+        {
+          "story": "National domestic gas reservation scheme announcement",
+          "start_time": "00:14",
+          "duration": "02:30",
+          "angle": "A necessary measure to put downward pressure on household and industry costs vs government facing a bumpy road through parliament",
+          "voices": "Jack Mackay, Political Reporter (live); Madeleine King, Minister for Resources (pre-recorded); David Shoebridge, Greens Senator (pre-recorded); Saul Kavnic, MST Financials Head of Energy Research (pre-recorded)",
+          "tone": "Explanatory and neutral, presenting competing stakeholder views",
+          "emphasis": "Consumer and industry cost pressures, policy details, and political friction",
+          "placement": "Lead item",
+          "evidence": "00:42 \"Australian gas it becomes more affordable to Australians. That's really at the heart of this.\" \u2014 Madeleine King"
+        },
+        {
+          "story": "Victorian state election eve polling and political mood",
+          "start_time": "03:13",
+          "duration": "01:34",
+          "angle": "Victoria heads to the polls with an election set to deliver a verdict on 12 years of Labor power",
+          "voices": "Samantha Maiden, Political Reporter (live); Glenn Waverley, voter (clip); Jackie Sun, voter (clip)",
+          "tone": "Analytical, electoral assessment",
+          "emphasis": "Voter sentiment, polling consistency, and the mood for change",
+          "placement": "Second item",
+          "evidence": "03:21 \"Polls have been consistently showing Victorians are in the mood for change\" \u2014 Samantha Maiden"
+        },
+        {
+          "story": "Western Sydney data centre boom and local community impact",
+          "start_time": "06:15",
+          "duration": "03:36",
+          "angle": "Rapid tech infrastructure expansion brings economic growth but triggers community concern over local planning and environmental impact",
+          "voices": "Nandiri Deer, Reporter (live); Navana Prasad, local resident (live); Christie Junche, grassroots campaigner (live)",
+          "tone": "Investigative and empathetic to local residents",
+          "emphasis": "Community pushback, scale of development, and planning consultation",
+          "placement": "Third item",
+          "evidence": "06:36 \"Navana Prasad has grown up watching her neighborhood on Sydney's outer western fringe evolve from farmland into an industrial hub.\" \u2014 Nandiri Deer"
+        },
+        {
+          "story": "Aged care and medical workforce parental leave discrimination",
+          "start_time": "09:27",
+          "duration": "01:13",
+          "angle": "Systemic discrimination against pregnant women and mothers in the medical workforce",
+          "voices": "Samantha Dick, Reporter (live); Dr Benny Samadi, medical researcher (pre-recorded)",
+          "tone": "Concerned and investigative",
+          "emphasis": "Pregnancy discrimination in medical training and employment",
+          "placement": "Fourth item",
+          "evidence": "09:54 \"first realised how hard it is to be a mother in medicine\" \u2014 Dr Benny Samadi"
+        },
+        {
+          "story": "Retail sector Black Friday sales outlook",
+          "start_time": "12:54",
+          "duration": "00:37",
+          "angle": "Retailers hope for a sales bounce amid cost-of-living pressures",
+          "voices": "Harvey Norman and JB Hi-Fi representatives (referred); North Brisbane Uni student (clip)",
+          "tone": "Cautious and observant",
+          "emphasis": "Cost of living impact on consumer spending",
+          "placement": "Fifth item",
+          "evidence": "13:22 \"just means to just go out and get some good deals honestly\" \u2014 North Brisbane Uni student"
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Australia's cyber security coordinator says cyber hygiene never been more important",
+      "stories": [
+        {
+          "story": "Global and domestic cyber security threats and data breaches",
+          "start_time": "00:07",
+          "duration": "01:12",
+          "angle": "Cyber attacks are wreaking havoc globally, making robust cyber hygiene critical for Australia",
+          "voices": "Sally Sara, Host (live); Penny Wong, Foreign Minister (clip)",
+          "tone": "Alarmed and urgent",
+          "emphasis": "Rising frequency of cyber attacks and government warnings",
+          "placement": "Lead item",
+          "evidence": "00:09 \"Cyber attacks have been wreaking havoc across the globe in recent months\" \u2014 Sally Sara"
+        },
+        {
+          "story": "Artificial intelligence data centres and cyber risks",
+          "start_time": "01:19",
+          "duration": "03:52",
+          "angle": "Increased artificial intelligence data centre deployment on Australian soil increases cyber security vulnerability",
+          "voices": "Sally Sara, Host (live); Michelle McGuinness, National Cyber Security Coordinator (live)",
+          "tone": "Analytical and questioning",
+          "emphasis": "Risk management, technological sophistication of threats, and regulatory capability",
+          "placement": "Second item",
+          "evidence": "01:22 \"I actually think it increases our ability to understand and to shape the technology\" \u2014 Michelle McGuinness"
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Resources Minister: government won't set target price for gas under reservation scheme",
+      "stories": [
+        {
+          "story": "Domestic gas reservation scheme and pricing policy",
+          "start_time": "00:01",
+          "duration": "04:54",
+          "angle": "Government defends gas reservation policy while refusing to set target prices",
+          "voices": "Sally Sara, Host (live); Madeleine King, Minister for Resources (live); Susan McDonald, Shadow Minister for Resources (clip)",
+          "tone": "Adversarial and probing interview",
+          "emphasis": "Gas pricing mechanisms, export impacts, and industry consultation",
+          "placement": "Lead item",
+          "evidence": "00:27 \"what do you consider to be affordable for consumers? What's the benchmark?\" \u2014 Sally Sara"
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Coalition concerned gas reservation policy will discourage investment in new gas projects",
+      "stories": [
+        {
+          "story": "Coalition criticism of the domestic gas reservation scheme",
+          "start_time": "00:01",
+          "duration": "04:54",
+          "angle": "Opposition warns the reservation policy will discourage investment in new gas projects and damage energy supply",
+          "voices": "Sally Sara, Host (live); Bridget McKenzie, Shadow Minister for Infrastructure (live); Madeleine King, Minister for Resources (clip)",
+          "tone": "Skeptical and robust political questioning",
+          "emphasis": "Investment certainty, gas supply risks, and economic impacts",
+          "placement": "Lead item",
+          "evidence": "00:25 \"we've been able to secure a lot of important concessions, Sally\" \u2014 Bridget McKenzie"
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Israeli Opposition Leader Gadi Eisenkot says he hopes to form a government within a week",
+      "stories": [
+        {
+          "story": "Israeli political coalition negotiations",
+          "start_time": "00:00",
+          "duration": "02:30",
+          "angle": "Israeli opposition figures express optimism about forming a new government amid ongoing political deadlock",
+          "voices": "Sally Sara, Host (live); Gadi Eisenkot, Israeli Opposition politician (pre-recorded); Lahav Harkov, Jewish Insider Senior Political Correspondent (live)",
+          "tone": "Informative and international affairs focus",
+          "emphasis": "Coalition prospects, political timelines, and regional stability",
+          "placement": "Third item",
+          "evidence": "00:55 \"At this point there are two preliminary political deals between Gadi Eisenkot's party and other parties\" \u2014 Lahav Harkov"
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Spanish voters prepare to go to polls, as popularity of PM Pedro Sanchez plummets",
+      "stories": [
+        {
+          "story": "Spanish general election and Prime Minister Pedro Sanchez's popularity",
+          "start_time": "00:01",
+          "duration": "03:30",
+          "angle": "Spain faces a pivotal general election driven by cost-of-living pressures and declining support for Prime Minister Pedro Sanchez",
+          "voices": "Sally Sara, Host (live); Jose Oliveras, Associate Professor, National Distance Education University (live)",
+          "tone": "Analytical and international reporting",
+          "emphasis": "Economic hardship, political polarization, and voter sentiment",
+          "placement": "Fourth item",
+          "evidence": "00:55 \"we may see a big change in government\" \u2014 Jose Oliveras"
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Victoria heads to the polls",
+      "stories": [
+        {
+          "story": "Victorian state election preview and final campaign state of play",
+          "start_time": "00:01",
+          "duration": "05:00",
+          "angle": "Victoria heads to the voting booths with Labor's 12-year incumbency facing strong electoral tests",
+          "voices": "Sally Sara, Host (live); Richard Willingham, State Political Reporter (live); Tony Barry, Redbridge Group Director (live)",
+          "tone": "Engaging and analytical pre-election review",
+          "emphasis": "Polling dynamics, marginal seats, and voter attitudes toward leadership",
+          "placement": "Lead item",
+          "evidence": "00:50 \"the polls have the coalition's primary more than 10 points ahead of Labor's\" \u2014 Richard Willingham"
+        }
+      ]
+    },
+    {
+      "podcast": "The Front",
+      "title": "Inside Xi Jinping's bizarre round-table with Trump and Putin",
+      "stories": [
+        {
+          "story": "Geopolitical summit dynamics involving Xi Jinping, Vladimir Putin, and Donald Trump",
+          "start_time": "00:27",
+          "duration": "05:00",
+          "angle": "An analytical look at high-level diplomatic interactions and global power struggles",
+          "voices": "Claire Harvey, Host (live); Yoni Bashan, Journalist (live)",
+          "tone": "Analytical, conversational, and slightly wry",
+          "emphasis": "Diplomatic theater, personal leadership styles, and international relations",
+          "placement": "Lead item",
+          "evidence": "01:05 \"this is an incredible country, you've done an unbelievable job\" \u2014 Donald Trump"
+        }
+      ]
+    },
+    {
+      "podcast": "Full Story",
+      "title": "Barrie and Tony\u2019s final Victorian election predictions - Back to Back Barries",
+      "stories": [
+        {
+          "story": "Final predictions and analysis ahead of the Victorian state election",
+          "start_time": "00:00",
+          "duration": "20:00",
+          "angle": "In-depth psephological analysis of the Victorian electoral landscape on the eve of the vote",
+          "voices": "Barry Cassidy, Host (live); Tony Barry, Director at Redbridge Group (live)",
+          "tone": "Conversational, expert-led political analysis",
+          "emphasis": "Seat modelling, voter behavior, and campaign strategies",
+          "placement": "Lead item",
+          "evidence": "01:27 \"Birrell Center has become finally a very polarizing figure\" \u2014 Tony Barry"
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Politics Now",
+      "title": "Victoria: It's Time?",
+      "stories": [
+        {
+          "story": "Victorian state election final countdown and political landscape",
+          "start_time": "00:39",
+          "duration": "04:30",
+          "angle": "A comprehensive look at whether Victoria is ready for a change of government after 12 years of Labor rule",
+          "voices": "Raf Epstein, Host (live); Patricia Karvelas, Host of Politics Now (live); Elliot Laurie, Journalist (live)",
+          "tone": "Energetic and conversational political podcast",
+          "emphasis": "Policy differences, leadership impressions, and electoral volatility",
+          "placement": "Lead item",
+          "evidence": "01:10 \"School is out and so it's important because imagine waking up, you're like this is the final day\" \u2014 Raf Epstein"
+        }
+      ]
+    }
+  ],
+  "interviewees": [
+    {
+      "name": "Madeleine King",
+      "role": "Minister for Resources",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Resources Minister: government won't set target price for gas under reservation scheme"
+        }
+      ]
+    },
+    {
+      "name": "Tony Barry",
+      "role": "Director at Redbridge Group",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Victoria heads to the polls"
+        },
+        {
+          "podcast": "Full Story",
+          "title": "Barrie and Tony\u2019s final Victorian election predictions - Back to Back Barries"
+        }
+      ]
+    },
+    {
+      "name": "Jack Mackay",
+      "role": "Political Reporter",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        }
+      ]
+    },
+    {
+      "name": "David Shoebridge",
+      "role": "Greens Senator",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        }
+      ]
+    },
+    {
+      "name": "Saul Kavnic",
+      "role": "MST Financials Head of Energy Research",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        }
+      ]
+    },
+    {
+      "name": "Samantha Maiden",
+      "role": "Political Reporter",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        }
+      ]
+    },
+    {
+      "name": "Nandiri Deer",
+      "role": "Reporter",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        }
+      ]
+    },
+    {
+      "name": "Navana Prasad",
+      "role": "local resident",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        }
+      ]
+    },
+    {
+      "name": "Christie Junche",
+      "role": "grassroots campaigner",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        }
+      ]
+    },
+    {
+      "name": "Samantha Dick",
+      "role": "Reporter",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        }
+      ]
+    },
+    {
+      "name": "Dr Benny Samadi",
+      "role": "medical researcher",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        }
+      ]
+    },
+    {
+      "name": "Michelle McGuinness",
+      "role": "National Cyber Security Coordinator",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Australia's cyber security coordinator says cyber hygiene never been more important"
+        }
+      ]
+    },
+    {
+      "name": "Bridget McKenzie",
+      "role": "Shadow Minister for Infrastructure",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Coalition concerned gas reservation policy will discourage investment in new gas projects"
+        }
+      ]
+    },
+    {
+      "name": "Gadi Eisenkot",
+      "role": "Israeli Opposition politician",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Israeli Opposition Leader Gadi Eisenkot says he hopes to form a government within a week"
+        }
+      ]
+    },
+    {
+      "name": "Lahav Harkov",
+      "role": "Jewish Insider Senior Political Correspondent",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Israeli Opposition Leader Gadi Eisenkot says he hopes to form a government within a week"
+        }
+      ]
+    },
+    {
+      "name": "Jose Oliveras",
+      "role": "Associate Professor, National Distance Education University",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Spanish voters prepare to go to polls, as popularity of PM Pedro Sanchez plummets"
+        }
+      ]
+    },
+    {
+      "name": "Richard Willingham",
+      "role": "State Political Reporter",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Victoria heads to the polls"
+        }
+      ]
+    },
+    {
+      "name": "Yoni Bashan",
+      "role": "Journalist",
+      "episodes": [
+        {
+          "podcast": "The Front",
+          "title": "Inside Xi Jinping's bizarre round-table with Trump and Putin"
+        }
+      ]
+    },
+    {
+      "name": "Barry Cassidy",
+      "role": "Host",
+      "episodes": [
+        {
+          "podcast": "Full Story",
+          "title": "Barrie and Tony\u2019s final Victorian election predictions - Back to Back Barries"
+        }
+      ]
+    },
+    {
+      "name": "Raf Epstein",
+      "role": "Host",
+      "episodes": [
+        {
+          "podcast": "ABC Politics Now",
+          "title": "Victoria: It's Time?"
+        }
+      ]
+    },
+    {
+      "name": "Patricia Karvelas",
+      "role": "Host of Politics Now",
+      "episodes": [
+        {
+          "podcast": "ABC Politics Now",
+          "title": "Victoria: It's Time?"
+        }
+      ]
+    },
+    {
+      "name": "Elliot Laurie",
+      "role": "Journalist",
+      "episodes": [
+        {
+          "podcast": "ABC Politics Now",
+          "title": "Victoria: It's Time?"
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "actor": "Madeleine King, Minister for Resources",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Resources Minister: government won't set target price for gas under reservation scheme"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Coalition concerned gas reservation policy will discourage investment in new gas projects"
+        }
+      ]
+    },
+    {
+      "actor": "Tony Barry, Director at Redbridge Group",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Victoria heads to the polls"
+        },
+        {
+          "podcast": "Full Story",
+          "title": "Barrie and Tony\u2019s final Victorian election predictions - Back to Back Barries"
+        }
+      ]
+    },
+    {
+      "actor": "Penny Wong, Foreign Minister",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Australia's cyber security coordinator says cyber hygiene never been more important"
+        }
+      ]
+    },
+    {
+      "actor": "Bridget McKenzie, Shadow Minister for Infrastructure",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Coalition concerned gas reservation policy will discourage investment in new gas projects"
+        }
+      ]
+    },
+    {
+      "actor": "Gadi Eisenkot, Israeli Opposition politician",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Israeli Opposition Leader Gadi Eisenkot says he hopes to form a government within a week"
+        }
+      ]
+    },
+    {
+      "actor": "Benjamin Netanyahu, Israeli Prime Minister (inferred)",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Israeli Opposition Leader Gadi Eisenkot says he hopes to form a government within a week"
+        }
+      ]
+    },
+    {
+      "actor": "Pedro Sanchez, Spanish Prime Minister",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Spanish voters prepare to go to polls, as popularity of PM Pedro Sanchez plummets"
+        }
+      ]
+    },
+    {
+      "actor": "Xi Jinping, Chinese President",
+      "episodes": [
+        {
+          "podcast": "The Front",
+          "title": "Inside Xi Jinping's bizarre round-table with Trump and Putin"
+        }
+      ]
+    },
+    {
+      "actor": "Vladimir Putin, Russian President",
+      "episodes": [
+        {
+          "podcast": "The Front",
+          "title": "Inside Xi Jinping's bizarre round-table with Trump and Putin"
+        }
+      ]
+    },
+    {
+      "actor": "Donald Trump, former US President",
+      "episodes": [
+        {
+          "podcast": "The Front",
+          "title": "Inside Xi Jinping's bizarre round-table with Trump and Putin"
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "Victorian State Election",
+      "contrast": "AM focused on general voter sentiment and polling consistency; RN Breakfast and Full Story offered granular psephological seat modelling and campaign state-of-play analysis.",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Victoria heads to the polls"
+        },
+        {
+          "podcast": "Full Story",
+          "title": "Barrie and Tony\u2019s final Victorian election predictions - Back to Back Barries"
+        },
+        {
+          "podcast": "ABC Politics Now",
+          "title": "Victoria: It's Time?"
+        }
+      ]
+    },
+    {
+      "theme": "Domestic Gas Reservation Scheme",
+      "contrast": "AM focused on parliamentary compromises and household cost relief; RN Breakfast concentrated heavily on Coalition pushback regarding investment certainty and the absence of target pricing.",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Resources Minister: government won't set target price for gas under reservation scheme"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Coalition concerned gas reservation policy will discourage investment in new gas projects"
+        }
+      ]
+    },
+    {
+      "theme": "Cyber Security",
+      "contrast": "RN Breakfast focused on the growing sophistication of threats, AI data centres, and national cyber hygiene.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Australia's cyber security coordinator says cyber hygiene never been more important"
+        }
+      ]
+    },
+    {
+      "theme": "International Politics",
+      "contrast": "RN Breakfast examined Israeli coalition talks and Spanish general elections, while The Front focused on superpower diplomatic summits.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Israeli Opposition Leader Gadi Eisenkot says he hopes to form a government within a week"
+        },
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Spanish voters prepare to go to polls, as popularity of PM Pedro Sanchez plummets"
+        },
+        {
+          "podcast": "The Front",
+          "title": "Inside Xi Jinping's bizarre round-table with Trump and Putin"
+        }
+      ]
+    },
+    {
+      "theme": "Western Sydney Development",
+      "contrast": "AM focused on the clash between industrial data centre expansion and local resident concerns.",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        }
+      ]
+    },
+    {
+      "theme": "Workplace Discrimination",
+      "contrast": "AM examined systemic barriers and parental leave discrimination against mothers in the medical workforce.",
+      "episodes": [
+        {
+          "podcast": "ABC AM",
+          "title": "Gas reservation policy gets green light"
+        }
+      ]
+    }
+  ]
+}
