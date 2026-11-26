@@ -1,0 +1,256 @@
+{
+  "run_at": "2026-11-26T06:48:10.725229+00:00",
+  "episodes": [
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Breakfast Wrap: Defecting to One Nation",
+      "stories": [
+        {
+          "story": "Liberal Senator Lea Blyth defects to One Nation",
+          "start_time": "00:44",
+          "duration": "03:00",
+          "angle": "A sign of deep disunity within the Liberal Party.",
+          "voices": "Raf Epstein (host), Luke Siddam-Dundon (reporter), Paulin Hansen (One Nation Leader, clip), Lea Blyth (Liberal Senator, clip), Matt Canavan (Nationals Senator, clip), Barnaby Joyce (Nationals MP, clip)",
+          "tone": "Critical and speculative",
+          "emphasis": "Political betrayal and Liberal disunity",
+          "placement": "Lead item",
+          "evidence": "It's clearly showing the disunity within the Liberal party."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Changing Australia: Eliza Hull on music and inclusivity",
+      "stories": [
+        {
+          "story": "Eliza Hull on music and inclusivity",
+          "start_time": "00:00",
+          "duration": "08:00",
+          "angle": "Advocating for disability inclusion in the music industry.",
+          "voices": "Raf Epstein (host), Eliza Hull (guest)",
+          "tone": "Warm and conversational",
+          "emphasis": "Personal experience of disability and accessibility in arts",
+          "placement": "Second item",
+          "evidence": "I had a piano when I was about 14 years old."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "What's driving further Nasdaq falls?",
+      "stories": [
+        {
+          "story": "Nasdaq falls and US markets update",
+          "start_time": "00:01",
+          "duration": "06:00",
+          "angle": "Tech-led market downturn driven by interest rate concerns and AI hype.",
+          "voices": "Raf Epstein (host), Peter Wells (US News Head, Financial Times, live interview)",
+          "tone": "Explanatory and analytical",
+          "emphasis": "Economic impact and investor sentiment",
+          "placement": "Third item",
+          "evidence": "America isn't going to lose its dominant position, but it's probably going to see it whittled away."
+        }
+      ]
+    },
+    {
+      "podcast": "The Front",
+      "title": "Liberal Senator defects to One Nation",
+      "stories": [
+        {
+          "story": "Liberal Senator Lea Blyth defects to One Nation",
+          "start_time": "00:00",
+          "duration": "05:00",
+          "angle": "The shock defection highlights instability in the Coalition.",
+          "voices": "Claire Harvey (host), Raf Epstein (clip), Paulin Hansen (clip), Lea Blyth (clip), Matt Canavan (clip), Barnaby Joyce (clip), Tony Abbott (Former Prime Minister, clip)",
+          "tone": "Fast-paced and analytical",
+          "emphasis": "Political fallout and party stability",
+          "placement": "Lead item",
+          "evidence": "Pauline Hanson has picked up another defector from the federal Coalition."
+        }
+      ]
+    },
+    {
+      "podcast": "Full Story",
+      "title": "Secret security zones and lengthy jail terms: why Labor\u2019s new defence bill is sparking outrage - Full Story podcast",
+      "stories": [
+        {
+          "story": "Labor's new defence bill sparks outrage",
+          "start_time": "00:00",
+          "duration": "10:00",
+          "angle": "Civil liberties and protest rights threatened by new security legislation.",
+          "voices": "Nour Hayder (host), Peter Khalil (Assistant Minister for Defence, recorded comments), Josh Butler (political reporter)",
+          "tone": "Concerned and investigative",
+          "emphasis": "Democratic rights versus national security",
+          "placement": "Lead item",
+          "evidence": "A bill that is said to be about protecting defence bases from drones, but is actually a massive power grab."
+        }
+      ]
+    },
+    {
+      "podcast": "ABC Politics Now",
+      "title": "Deals, a defection and dark days",
+      "stories": [
+        {
+          "story": "Political wrap on defections and policy debates",
+          "start_time": "00:00",
+          "duration": "15:00",
+          "angle": "Reviewing a turbulent week in federal politics including the Lea Blyth defection.",
+          "voices": "Karen Clark (host), various panellists (unnamed)",
+          "tone": "Conversational and analytical",
+          "emphasis": "Political strategy and media narratives",
+          "placement": "Lead item",
+          "evidence": "Today the Australian people have voted for Australian values."
+        }
+      ]
+    },
+    {
+      "podcast": "Daily Aus",
+      "title": "Headlines: Alcohol harm increasing",
+      "stories": [
+        {
+          "story": "Alcohol harm increasing in Australia",
+          "start_time": "01:45",
+          "duration": "03:00",
+          "angle": "Rising health risks and societal costs of alcohol consumption.",
+          "voices": "Presenter (unnamed), Expert spokesperson (unnamed)",
+          "tone": "Concerned and informative",
+          "emphasis": "Public health statistics and personal safety",
+          "placement": "Second item",
+          "evidence": "Alcohol harm is increasing despite fewer Australians drinking at dangerous levels."
+        }
+      ]
+    }
+  ],
+  "interviewees": [
+    {
+      "name": "Peter Wells",
+      "role": "US News Head, Financial Times",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "What's driving further Nasdaq falls?"
+        }
+      ]
+    },
+    {
+      "name": "Eliza Hull",
+      "role": "Musician and advocate",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Changing Australia: Eliza Hull on music and inclusivity"
+        }
+      ]
+    },
+    {
+      "name": "Josh Butler",
+      "role": "Political reporter",
+      "episodes": [
+        {
+          "podcast": "Full Story",
+          "title": "Secret security zones and lengthy jail terms: why Labor\u2019s new defence bill is sparking outrage - Full Story podcast"
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "actor": "Lea Blyth",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Defecting to One Nation"
+        },
+        {
+          "podcast": "The Front",
+          "title": "Liberal Senator defects to One Nation"
+        },
+        {
+          "podcast": "ABC Politics Now",
+          "title": "Deals, a defection and dark days"
+        }
+      ]
+    },
+    {
+      "actor": "Pauline Hanson",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Defecting to One Nation"
+        },
+        {
+          "podcast": "The Front",
+          "title": "Liberal Senator defects to One Nation"
+        }
+      ]
+    },
+    {
+      "actor": "Peter Khalil",
+      "episodes": [
+        {
+          "podcast": "Full Story",
+          "title": "Secret security zones and lengthy jail terms: why Labor\u2019s new defence bill is sparking outrage - Full Story podcast"
+        }
+      ]
+    },
+    {
+      "actor": "Tony Abbott",
+      "episodes": [
+        {
+          "podcast": "The Front",
+          "title": "Liberal Senator defects to One Nation"
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "Liberal Senator Lea Blyth defects to One Nation",
+      "contrast": "ABC Radio National Breakfast focused on the internal Liberal disunity, while The Front emphasized the broader Coalition instability.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Defecting to One Nation"
+        },
+        {
+          "podcast": "The Front",
+          "title": "Liberal Senator defects to One Nation"
+        },
+        {
+          "podcast": "ABC Politics Now",
+          "title": "Deals, a defection and dark days"
+        }
+      ]
+    },
+    {
+      "theme": "Labor's new defence bill and civil liberties",
+      "contrast": "Full Story focused deeply on the threat to protest rights and civil liberties.",
+      "episodes": [
+        {
+          "podcast": "Full Story",
+          "title": "Secret security zones and lengthy jail terms: why Labor\u2019s new defence bill is sparking outrage - Full Story podcast"
+        }
+      ]
+    },
+    {
+      "theme": "US market downturn and Nasdaq falls",
+      "contrast": "ABC Radio National Breakfast focused on tech stocks and investor sentiment.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "What's driving further Nasdaq falls?"
+        }
+      ]
+    },
+    {
+      "theme": "Alcohol harm increasing in Australia",
+      "contrast": "Daily Aus focused on public health statistics and societal risks.",
+      "episodes": [
+        {
+          "podcast": "Daily Aus",
+          "title": "Headlines: Alcohol harm increasing"
+        }
+      ]
+    }
+  ]
+}

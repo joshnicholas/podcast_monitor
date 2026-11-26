@@ -1,0 +1,29 @@
+[
+  {
+    "run_at": "2026-11-26T06:48:10.725229+00:00",
+    "name": "Peter Wells",
+    "role": "US News Head, Financial Times",
+    "podcast": "ABC Radio National Breakfast",
+    "episode_title": "What's driving further Nasdaq falls?",
+    "episode_link": "https://www.abc.net.au/listen/programs/radionational-breakfast/what-s-driving-nasdaq-falls/107428546",
+    "audio_url": "https://mediacore-live-production.akamaized.net/audio/02/qq/Z/02.mp3"
+  },
+  {
+    "run_at": "2026-11-26T06:48:10.725229+00:00",
+    "name": "Eliza Hull",
+    "role": "Musician and advocate",
+    "podcast": "ABC Radio National Breakfast",
+    "episode_title": "Changing Australia: Eliza Hull on music and inclusivity",
+    "episode_link": "https://www.abc.net.au/listen/programs/radionational-breakfast/changing-oz-eliza-hull-music-inclusivity/107427204",
+    "audio_url": "https://mediacore-live-production.akamaized.net/audio/02/qq/Z/00.mp3"
+  },
+  {
+    "run_at": "2026-11-26T06:48:10.725229+00:00",
+    "name": "Josh Butler",
+    "role": "Political reporter",
+    "podcast": "Full Story",
+    "episode_title": "Secret security zones and lengthy jail terms: why Labor\u2019s new defence bill is sparking outrage - Full Story podcast",
+    "episode_link": "",
+    "audio_url": "https://flex.acast.com/audio.guim.co.uk/2026/11/26-21447-FS_DEFENCE_LM_004.mp3"
+  }
+]
