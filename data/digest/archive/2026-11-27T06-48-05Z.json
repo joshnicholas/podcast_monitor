@@ -1,0 +1,117 @@
+{
+  "run_at": "2026-11-27T06:48:05.829299+00:00",
+  "episodes": [
+    {
+      "podcast": "ABC Radio National Breakfast",
+      "title": "Breakfast Wrap: Victoria heads to the polls",
+      "stories": [
+        {
+          "story": "Victoria heads to the polls",
+          "start_time": "00:40",
+          "duration": "02:30",
+          "angle": "The Coalition holds a significant lead heading into the Victorian election, and Labor is facing potential disaster.",
+          "voices": "Raf Epstein, ABC Melbourne Host (live); Peter Dutton, Opposition Leader (clip); Daniel Andrews, Victorian Premier (clip).",
+          "tone": "Analytical, urgent, and focused on electoral stakes.",
+          "emphasis": "Polling numbers, political strategy, and potential electoral outcomes.",
+          "placement": "Lead item, extensive coverage compared to other segments.",
+          "evidence": "the polling companies would have to have made the biggest mistake in history to have gotten this one wrong"
+        },
+        {
+          "story": "Federal gas reservation scheme",
+          "start_time": "01:31",
+          "duration": "00:43",
+          "angle": "Federal Parliament's lower house sets out to pass the government's gas reservation scheme.",
+          "voices": "Raf Epstein, ABC Melbourne Host (live); Madeleine King, Minister for Resources (clip).",
+          "tone": "Informative and policy-focused.",
+          "emphasis": "Downward pressure on prices for industry and consumers.",
+          "placement": "Second item.",
+          "evidence": "making sure that gas exporters provide into the Australian market so that there is that downward pressure on prices"
+        }
+      ]
+    },
+    {
+      "podcast": "The Briefing (Listener)",
+      "title": "Victoria Votes: Premier Ben Carroll",
+      "stories": [
+        {
+          "story": "Interview with Victorian Premier Ben Carroll",
+          "start_time": "01:38",
+          "duration": "05:00",
+          "angle": "Ben Carroll defends Labor's record and outlines his vision for Victoria amid tough political headwinds.",
+          "voices": "Sach Babylon-Gat, Host (live); Lucy Tassel, Host (live); Ben Carroll, Premier of Victoria (live).",
+          "tone": "Conversational, direct, and slightly challenging.",
+          "emphasis": "Integrity, community safety, education, and economic management.",
+          "placement": "Lead interview.",
+          "evidence": "(paraphrase) My first press conference, I called a Royal Commission into the construction sector and that's up and running."
+        }
+      ]
+    }
+  ],
+  "interviewees": [
+    {
+      "name": "Ben Carroll",
+      "role": "Premier of Victoria",
+      "episodes": [
+        {
+          "podcast": "The Briefing (Listener)",
+          "title": "Victoria Votes: Premier Ben Carroll",
+          "evidence": "(paraphrase) My first press conference, I called a Royal Commission into the construction sector."
+        }
+      ]
+    }
+  ],
+  "actors": [
+    {
+      "actor": "Ben Carroll",
+      "episodes": [
+        {
+          "podcast": "The Briefing (Listener)",
+          "title": "Victoria Votes: Premier Ben Carroll"
+        }
+      ]
+    },
+    {
+      "actor": "Peter Dutton",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Victoria heads to the polls"
+        }
+      ]
+    },
+    {
+      "actor": "Daniel Andrews",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Victoria heads to the polls"
+        }
+      ]
+    },
+    {
+      "actor": "Madeleine King",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Victoria heads to the polls"
+        }
+      ]
+    }
+  ],
+  "themes": [
+    {
+      "theme": "Victoria State Election",
+      "contrast": "ABC RN Breakfast focused on polling and potential coalition victory, whereas The Briefing interviewed the Premier on Labor's record and future plans.",
+      "episodes": [
+        {
+          "podcast": "ABC Radio National Breakfast",
+          "title": "Breakfast Wrap: Victoria heads to the polls"
+        },
+        {
+          "podcast": "The Briefing (Listener)",
+          "title": "Victoria Votes: Premier Ben Carroll"
+        }
+      ]
+    }
+  ]
+}
